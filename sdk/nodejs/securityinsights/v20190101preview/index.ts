@@ -20,11 +20,6 @@ export type Action = import("./action").Action;
 export const Action: typeof import("./action").Action = null as any;
 utilities.lazyLoad(exports, ["Action"], () => require("./action"));
 
-export { AlertRuleArgs } from "./alertRule";
-export type AlertRule = import("./alertRule").AlertRule;
-export const AlertRule: typeof import("./alertRule").AlertRule = null as any;
-utilities.lazyLoad(exports, ["AlertRule"], () => require("./alertRule"));
-
 export { AnomaliesArgs } from "./anomalies";
 export type Anomalies = import("./anomalies").Anomalies;
 export const Anomalies: typeof import("./anomalies").Anomalies = null as any;
@@ -54,11 +49,6 @@ export { BookmarkRelationArgs } from "./bookmarkRelation";
 export type BookmarkRelation = import("./bookmarkRelation").BookmarkRelation;
 export const BookmarkRelation: typeof import("./bookmarkRelation").BookmarkRelation = null as any;
 utilities.lazyLoad(exports, ["BookmarkRelation"], () => require("./bookmarkRelation"));
-
-export { DataConnectorArgs } from "./dataConnector";
-export type DataConnector = import("./dataConnector").DataConnector;
-export const DataConnector: typeof import("./dataConnector").DataConnector = null as any;
-utilities.lazyLoad(exports, ["DataConnector"], () => require("./dataConnector"));
 
 export { Dynamics365DataConnectorArgs } from "./dynamics365DataConnector";
 export type Dynamics365DataConnector = import("./dynamics365DataConnector").Dynamics365DataConnector;
@@ -100,11 +90,6 @@ export const getAction: typeof import("./getAction").getAction = null as any;
 export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
 utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
 
-export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
-export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
-export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
-
 export { GetAnomaliesArgs, GetAnomaliesResult, GetAnomaliesOutputArgs } from "./getAnomalies";
 export const getAnomalies: typeof import("./getAnomalies").getAnomalies = null as any;
 export const getAnomaliesOutput: typeof import("./getAnomalies").getAnomaliesOutput = null as any;
@@ -129,11 +114,6 @@ export { GetBookmarkRelationArgs, GetBookmarkRelationResult, GetBookmarkRelation
 export const getBookmarkRelation: typeof import("./getBookmarkRelation").getBookmarkRelation = null as any;
 export const getBookmarkRelationOutput: typeof import("./getBookmarkRelation").getBookmarkRelationOutput = null as any;
 utilities.lazyLoad(exports, ["getBookmarkRelation","getBookmarkRelationOutput"], () => require("./getBookmarkRelation"));
-
-export { GetDataConnectorArgs, GetDataConnectorResult, GetDataConnectorOutputArgs } from "./getDataConnector";
-export const getDataConnector: typeof import("./getDataConnector").getDataConnector = null as any;
-export const getDataConnectorOutput: typeof import("./getDataConnector").getDataConnectorOutput = null as any;
-utilities.lazyLoad(exports, ["getDataConnector","getDataConnectorOutput"], () => require("./getDataConnector"));
 
 export { GetDynamics365DataConnectorArgs, GetDynamics365DataConnectorResult, GetDynamics365DataConnectorOutputArgs } from "./getDynamics365DataConnector";
 export const getDynamics365DataConnector: typeof import("./getDynamics365DataConnector").getDynamics365DataConnector = null as any;
@@ -224,11 +204,6 @@ export { GetOfficeDataConnectorArgs, GetOfficeDataConnectorResult, GetOfficeData
 export const getOfficeDataConnector: typeof import("./getOfficeDataConnector").getOfficeDataConnector = null as any;
 export const getOfficeDataConnectorOutput: typeof import("./getOfficeDataConnector").getOfficeDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getOfficeDataConnector","getOfficeDataConnectorOutput"], () => require("./getOfficeDataConnector"));
-
-export { GetProductSettingArgs, GetProductSettingResult, GetProductSettingOutputArgs } from "./getProductSetting";
-export const getProductSetting: typeof import("./getProductSetting").getProductSetting = null as any;
-export const getProductSettingOutput: typeof import("./getProductSetting").getProductSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getProductSetting","getProductSettingOutput"], () => require("./getProductSetting"));
 
 export { GetScheduledAlertRuleArgs, GetScheduledAlertRuleResult, GetScheduledAlertRuleOutputArgs } from "./getScheduledAlertRule";
 export const getScheduledAlertRule: typeof import("./getScheduledAlertRule").getScheduledAlertRule = null as any;
@@ -330,11 +305,6 @@ export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConn
 export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
 utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
 
-export { ProductSettingArgs } from "./productSetting";
-export type ProductSetting = import("./productSetting").ProductSetting;
-export const ProductSetting: typeof import("./productSetting").ProductSetting = null as any;
-utilities.lazyLoad(exports, ["ProductSetting"], () => require("./productSetting"));
-
 export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
 export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
 export const ScheduledAlertRule: typeof import("./scheduledAlertRule").ScheduledAlertRule = null as any;
@@ -391,8 +361,6 @@ const _module = {
                 return new ASCDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Action":
                 return new Action(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20190101preview:AlertRule":
-                return new AlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Anomalies":
                 return new Anomalies(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:AutomationRule":
@@ -403,8 +371,6 @@ const _module = {
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:BookmarkRelation":
                 return new BookmarkRelation(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20190101preview:DataConnector":
-                return new DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Dynamics365DataConnector":
                 return new Dynamics365DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:EntityAnalytics":
@@ -437,8 +403,6 @@ const _module = {
                 return new OfficeATPDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:OfficeDataConnector":
                 return new OfficeDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20190101preview:ProductSetting":
-                return new ProductSetting(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:ScheduledAlertRule":
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:TIDataConnector":

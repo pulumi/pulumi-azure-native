@@ -21,8 +21,6 @@ from .get_ip_firewall_rule import *
 from .get_key import *
 from .get_kusto_pool import *
 from .get_kusto_pool_attached_database_configuration import *
-from .get_kusto_pool_data_connection import *
-from .get_kusto_pool_database import *
 from .get_kusto_pool_database_principal_assignment import *
 from .get_kusto_pool_principal_assignment import *
 from .get_private_endpoint_connection import *
@@ -46,8 +44,6 @@ from .ip_firewall_rule import *
 from .key import *
 from .kusto_pool import *
 from .kusto_pool_attached_database_configuration import *
-from .kusto_pool_data_connection import *
-from .kusto_pool_database import *
 from .kusto_pool_database_principal_assignment import *
 from .kusto_pool_principal_assignment import *
 from .list_integration_runtime_auth_key import *

@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AadAuthenticationParametersArgs',
     'ActionArgs',
+    'AddressPrefixItemArgs',
     'AddressSpaceArgs',
     'ApplicationGatewayAuthenticationCertificateArgs',
     'ApplicationGatewayAutoscaleConfigurationArgs',
@@ -357,6 +358,46 @@ class ActionArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[Union[str, 'RouteMapActionType']]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class AddressPrefixItemArgs:
+    def __init__(__self__, *,
+                 address_prefix: Optional[pulumi.Input[str]] = None,
+                 address_prefix_type: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]] = None):
+        """
+        Address prefix item.
+        :param pulumi.Input[str] address_prefix: Address prefix.
+        :param pulumi.Input[Union[str, 'AddressPrefixType']] address_prefix_type: Address prefix type.
+        """
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if address_prefix_type is not None:
+            pulumi.set(__self__, "address_prefix_type", address_prefix_type)
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address prefix.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_prefix", value)
+
+    @property
+    @pulumi.getter(name="addressPrefixType")
+    def address_prefix_type(self) -> Optional[pulumi.Input[Union[str, 'AddressPrefixType']]]:
+        """
+        Address prefix type.
+        """
+        return pulumi.get(self, "address_prefix_type")
+
+    @address_prefix_type.setter
+    def address_prefix_type(self, value: Optional[pulumi.Input[Union[str, 'AddressPrefixType']]]):
+        pulumi.set(self, "address_prefix_type", value)
 
 
 @pulumi.input_type

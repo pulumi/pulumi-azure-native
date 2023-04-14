@@ -25,11 +25,6 @@ export type ActivityCustomEntityQuery = import("./activityCustomEntityQuery").Ac
 export const ActivityCustomEntityQuery: typeof import("./activityCustomEntityQuery").ActivityCustomEntityQuery = null as any;
 utilities.lazyLoad(exports, ["ActivityCustomEntityQuery"], () => require("./activityCustomEntityQuery"));
 
-export { AlertRuleArgs } from "./alertRule";
-export type AlertRule = import("./alertRule").AlertRule;
-export const AlertRule: typeof import("./alertRule").AlertRule = null as any;
-utilities.lazyLoad(exports, ["AlertRule"], () => require("./alertRule"));
-
 export { AnomaliesArgs } from "./anomalies";
 export type Anomalies = import("./anomalies").Anomalies;
 export const Anomalies: typeof import("./anomalies").Anomalies = null as any;
@@ -50,11 +45,6 @@ export type CodelessUiDataConnector = import("./codelessUiDataConnector").Codele
 export const CodelessUiDataConnector: typeof import("./codelessUiDataConnector").CodelessUiDataConnector = null as any;
 utilities.lazyLoad(exports, ["CodelessUiDataConnector"], () => require("./codelessUiDataConnector"));
 
-export { DataConnectorArgs } from "./dataConnector";
-export type DataConnector = import("./dataConnector").DataConnector;
-export const DataConnector: typeof import("./dataConnector").DataConnector = null as any;
-utilities.lazyLoad(exports, ["DataConnector"], () => require("./dataConnector"));
-
 export { Dynamics365DataConnectorArgs } from "./dynamics365DataConnector";
 export type Dynamics365DataConnector = import("./dynamics365DataConnector").Dynamics365DataConnector;
 export const Dynamics365DataConnector: typeof import("./dynamics365DataConnector").Dynamics365DataConnector = null as any;
@@ -64,11 +54,6 @@ export { EntityAnalyticsArgs } from "./entityAnalytics";
 export type EntityAnalytics = import("./entityAnalytics").EntityAnalytics;
 export const EntityAnalytics: typeof import("./entityAnalytics").EntityAnalytics = null as any;
 utilities.lazyLoad(exports, ["EntityAnalytics"], () => require("./entityAnalytics"));
-
-export { EntityQueryArgs } from "./entityQuery";
-export type EntityQuery = import("./entityQuery").EntityQuery;
-export const EntityQuery: typeof import("./entityQuery").EntityQuery = null as any;
-utilities.lazyLoad(exports, ["EntityQuery"], () => require("./entityQuery"));
 
 export { EyesOnArgs } from "./eyesOn";
 export type EyesOn = import("./eyesOn").EyesOn;
@@ -105,11 +90,6 @@ export const getActivityCustomEntityQuery: typeof import("./getActivityCustomEnt
 export const getActivityCustomEntityQueryOutput: typeof import("./getActivityCustomEntityQuery").getActivityCustomEntityQueryOutput = null as any;
 utilities.lazyLoad(exports, ["getActivityCustomEntityQuery","getActivityCustomEntityQueryOutput"], () => require("./getActivityCustomEntityQuery"));
 
-export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
-export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
-export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
-
 export { GetAnomaliesArgs, GetAnomaliesResult, GetAnomaliesOutputArgs } from "./getAnomalies";
 export const getAnomalies: typeof import("./getAnomalies").getAnomalies = null as any;
 export const getAnomaliesOutput: typeof import("./getAnomalies").getAnomaliesOutput = null as any;
@@ -125,11 +105,6 @@ export const getCodelessUiDataConnector: typeof import("./getCodelessUiDataConne
 export const getCodelessUiDataConnectorOutput: typeof import("./getCodelessUiDataConnector").getCodelessUiDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getCodelessUiDataConnector","getCodelessUiDataConnectorOutput"], () => require("./getCodelessUiDataConnector"));
 
-export { GetDataConnectorArgs, GetDataConnectorResult, GetDataConnectorOutputArgs } from "./getDataConnector";
-export const getDataConnector: typeof import("./getDataConnector").getDataConnector = null as any;
-export const getDataConnectorOutput: typeof import("./getDataConnector").getDataConnectorOutput = null as any;
-utilities.lazyLoad(exports, ["getDataConnector","getDataConnectorOutput"], () => require("./getDataConnector"));
-
 export { GetDynamics365DataConnectorArgs, GetDynamics365DataConnectorResult, GetDynamics365DataConnectorOutputArgs } from "./getDynamics365DataConnector";
 export const getDynamics365DataConnector: typeof import("./getDynamics365DataConnector").getDynamics365DataConnector = null as any;
 export const getDynamics365DataConnectorOutput: typeof import("./getDynamics365DataConnector").getDynamics365DataConnectorOutput = null as any;
@@ -139,11 +114,6 @@ export { GetEntityAnalyticsArgs, GetEntityAnalyticsResult, GetEntityAnalyticsOut
 export const getEntityAnalytics: typeof import("./getEntityAnalytics").getEntityAnalytics = null as any;
 export const getEntityAnalyticsOutput: typeof import("./getEntityAnalytics").getEntityAnalyticsOutput = null as any;
 utilities.lazyLoad(exports, ["getEntityAnalytics","getEntityAnalyticsOutput"], () => require("./getEntityAnalytics"));
-
-export { GetEntityQueryArgs, GetEntityQueryResult, GetEntityQueryOutputArgs } from "./getEntityQuery";
-export const getEntityQuery: typeof import("./getEntityQuery").getEntityQuery = null as any;
-export const getEntityQueryOutput: typeof import("./getEntityQuery").getEntityQueryOutput = null as any;
-utilities.lazyLoad(exports, ["getEntityQuery","getEntityQueryOutput"], () => require("./getEntityQuery"));
 
 export { GetEyesOnArgs, GetEyesOnResult, GetEyesOnOutputArgs } from "./getEyesOn";
 export const getEyesOn: typeof import("./getEyesOn").getEyesOn = null as any;
@@ -214,11 +184,6 @@ export { GetOfficeDataConnectorArgs, GetOfficeDataConnectorResult, GetOfficeData
 export const getOfficeDataConnector: typeof import("./getOfficeDataConnector").getOfficeDataConnector = null as any;
 export const getOfficeDataConnectorOutput: typeof import("./getOfficeDataConnector").getOfficeDataConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getOfficeDataConnector","getOfficeDataConnectorOutput"], () => require("./getOfficeDataConnector"));
-
-export { GetProductSettingArgs, GetProductSettingResult, GetProductSettingOutputArgs } from "./getProductSetting";
-export const getProductSetting: typeof import("./getProductSetting").getProductSetting = null as any;
-export const getProductSettingOutput: typeof import("./getProductSetting").getProductSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getProductSetting","getProductSettingOutput"], () => require("./getProductSetting"));
 
 export { GetScheduledAlertRuleArgs, GetScheduledAlertRuleResult, GetScheduledAlertRuleOutputArgs } from "./getScheduledAlertRule";
 export const getScheduledAlertRule: typeof import("./getScheduledAlertRule").getScheduledAlertRule = null as any;
@@ -330,11 +295,6 @@ export type OfficeDataConnector = import("./officeDataConnector").OfficeDataConn
 export const OfficeDataConnector: typeof import("./officeDataConnector").OfficeDataConnector = null as any;
 utilities.lazyLoad(exports, ["OfficeDataConnector"], () => require("./officeDataConnector"));
 
-export { ProductSettingArgs } from "./productSetting";
-export type ProductSetting = import("./productSetting").ProductSetting;
-export const ProductSetting: typeof import("./productSetting").ProductSetting = null as any;
-utilities.lazyLoad(exports, ["ProductSetting"], () => require("./productSetting"));
-
 export { ScheduledAlertRuleArgs } from "./scheduledAlertRule";
 export type ScheduledAlertRule = import("./scheduledAlertRule").ScheduledAlertRule;
 export const ScheduledAlertRule: typeof import("./scheduledAlertRule").ScheduledAlertRule = null as any;
@@ -398,22 +358,16 @@ const _module = {
                 return new Action(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery":
                 return new ActivityCustomEntityQuery(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20210301preview:AlertRule":
-                return new AlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:Anomalies":
                 return new Anomalies(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:AwsCloudTrailDataConnector":
                 return new AwsCloudTrailDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:CodelessUiDataConnector":
                 return new CodelessUiDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20210301preview:DataConnector":
-                return new DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:Dynamics365DataConnector":
                 return new Dynamics365DataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:EntityAnalytics":
                 return new EntityAnalytics(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20210301preview:EntityQuery":
-                return new EntityQuery(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:EyesOn":
                 return new EyesOn(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:FusionAlertRule":
@@ -442,8 +396,6 @@ const _module = {
                 return new OfficeATPDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:OfficeDataConnector":
                 return new OfficeDataConnector(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20210301preview:ProductSetting":
-                return new ProductSetting(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:ScheduledAlertRule":
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:SentinelOnboardingState":

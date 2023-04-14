@@ -8,9 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network base admin rule.
- *
- * @deprecated Please use one of the variants: AdminRule, DefaultAdminRule.
+ * Network admin rule.
  */
 export class AdminRule extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class AdminRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AdminRule {
-        pulumi.log.warn("AdminRule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.")
         return new AdminRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -41,17 +38,58 @@ export class AdminRule extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates the access allowed for this particular rule
+     */
+    public readonly access!: pulumi.Output<string>;
+    /**
+     * A description for this rule. Restricted to 140 chars.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The destination port ranges.
+     */
+    public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
+    /**
+     * The destination address prefixes. CIDR or destination IP ranges.
+     */
+    public readonly destinations!: pulumi.Output<outputs.network.v20220101.AddressPrefixItemResponse[] | undefined>;
+    /**
+     * Indicates if the traffic matched against the rule in inbound or outbound.
+     */
+    public readonly direction!: pulumi.Output<string>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Whether the rule is custom or default.
+     * Expected value is 'Custom'.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<"Custom">;
     /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+     */
+    public readonly priority!: pulumi.Output<number>;
+    /**
+     * Network protocol this rule applies to.
+     */
+    public readonly protocol!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The source port ranges.
+     */
+    public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
+    /**
+     * The CIDR or source IP ranges.
+     */
+    public readonly sources!: pulumi.Output<outputs.network.v20220101.AddressPrefixItemResponse[] | undefined>;
     /**
      * The system metadata related to this resource.
      */
@@ -68,14 +106,18 @@ export class AdminRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Please use one of the variants: AdminRule, DefaultAdminRule. */
     constructor(name: string, args: AdminRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AdminRule is deprecated: Please use one of the variants: AdminRule, DefaultAdminRule.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.access === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'access'");
+            }
             if ((!args || args.configurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
+            }
+            if ((!args || args.direction === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'direction'");
             }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
@@ -83,26 +125,52 @@ export class AdminRule extends pulumi.CustomResource {
             if ((!args || args.networkManagerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
+            if ((!args || args.priority === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'priority'");
+            }
+            if ((!args || args.protocol === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'protocol'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.ruleCollectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
+            resourceInputs["access"] = args ? args.access : undefined;
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["kind"] = "Custom";
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["access"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationPortRanges"] = undefined /*out*/;
+            resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["direction"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourcePortRanges"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -118,17 +186,46 @@ export class AdminRule extends pulumi.CustomResource {
  */
 export interface AdminRuleArgs {
     /**
+     * Indicates the access allowed for this particular rule
+     */
+    access: pulumi.Input<string | enums.network.v20220101.SecurityConfigurationRuleAccess>;
+    /**
      * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**
-     * Whether the rule is custom or default.
+     * A description for this rule. Restricted to 140 chars.
      */
-    kind: pulumi.Input<string | enums.network.v20220101.AdminRuleKind>;
+    description?: pulumi.Input<string>;
+    /**
+     * The destination port ranges.
+     */
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The destination address prefixes. CIDR or destination IP ranges.
+     */
+    destinations?: pulumi.Input<pulumi.Input<inputs.network.v20220101.AddressPrefixItemArgs>[]>;
+    /**
+     * Indicates if the traffic matched against the rule in inbound or outbound.
+     */
+    direction: pulumi.Input<string | enums.network.v20220101.SecurityConfigurationRuleDirection>;
+    /**
+     * Whether the rule is custom or default.
+     * Expected value is 'Custom'.
+     */
+    kind: pulumi.Input<"Custom">;
     /**
      * The name of the network manager.
      */
     networkManagerName: pulumi.Input<string>;
+    /**
+     * The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+     */
+    priority: pulumi.Input<number>;
+    /**
+     * Network protocol this rule applies to.
+     */
+    protocol: pulumi.Input<string | enums.network.v20220101.SecurityConfigurationRuleProtocol>;
     /**
      * The name of the resource group.
      */
@@ -141,4 +238,12 @@ export interface AdminRuleArgs {
      * The name of the rule.
      */
     ruleName?: pulumi.Input<string>;
+    /**
+     * The source port ranges.
+     */
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The CIDR or source IP ranges.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.network.v20220101.AddressPrefixItemArgs>[]>;
 }

@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AddonArgs } from "./addon";
-export type Addon = import("./addon").Addon;
-export const Addon: typeof import("./addon").Addon = null as any;
-utilities.lazyLoad(exports, ["Addon"], () => require("./addon"));
-
 export { ArcAddonArgs } from "./arcAddon";
 export type ArcAddon = import("./arcAddon").ArcAddon;
 export const ArcAddon: typeof import("./arcAddon").ArcAddon = null as any;
@@ -39,11 +34,6 @@ export { FileEventTriggerArgs } from "./fileEventTrigger";
 export type FileEventTrigger = import("./fileEventTrigger").FileEventTrigger;
 export const FileEventTrigger: typeof import("./fileEventTrigger").FileEventTrigger = null as any;
 utilities.lazyLoad(exports, ["FileEventTrigger"], () => require("./fileEventTrigger"));
-
-export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
-export const getAddon: typeof import("./getAddon").getAddon = null as any;
-export const getAddonOutput: typeof import("./getAddon").getAddonOutput = null as any;
-utilities.lazyLoad(exports, ["getAddon","getAddonOutput"], () => require("./getAddon"));
 
 export { GetArcAddonArgs, GetArcAddonResult, GetArcAddonOutputArgs } from "./getArcAddon";
 export const getArcAddon: typeof import("./getArcAddon").getArcAddon = null as any;
@@ -115,11 +105,6 @@ export const getPeriodicTimerEventTrigger: typeof import("./getPeriodicTimerEven
 export const getPeriodicTimerEventTriggerOutput: typeof import("./getPeriodicTimerEventTrigger").getPeriodicTimerEventTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getPeriodicTimerEventTrigger","getPeriodicTimerEventTriggerOutput"], () => require("./getPeriodicTimerEventTrigger"));
 
-export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
-export const getRole: typeof import("./getRole").getRole = null as any;
-export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
-utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
-
 export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
 export const getShare: typeof import("./getShare").getShare = null as any;
 export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
@@ -134,11 +119,6 @@ export { GetStorageAccountCredentialArgs, GetStorageAccountCredentialResult, Get
 export const getStorageAccountCredential: typeof import("./getStorageAccountCredential").getStorageAccountCredential = null as any;
 export const getStorageAccountCredentialOutput: typeof import("./getStorageAccountCredential").getStorageAccountCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageAccountCredential","getStorageAccountCredentialOutput"], () => require("./getStorageAccountCredential"));
-
-export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
-export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
-export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
-utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
 
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
@@ -185,11 +165,6 @@ export type PeriodicTimerEventTrigger = import("./periodicTimerEventTrigger").Pe
 export const PeriodicTimerEventTrigger: typeof import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger = null as any;
 utilities.lazyLoad(exports, ["PeriodicTimerEventTrigger"], () => require("./periodicTimerEventTrigger"));
 
-export { RoleArgs } from "./role";
-export type Role = import("./role").Role;
-export const Role: typeof import("./role").Role = null as any;
-utilities.lazyLoad(exports, ["Role"], () => require("./role"));
-
 export { ShareArgs } from "./share";
 export type Share = import("./share").Share;
 export const Share: typeof import("./share").Share = null as any;
@@ -205,11 +180,6 @@ export type StorageAccountCredential = import("./storageAccountCredential").Stor
 export const StorageAccountCredential: typeof import("./storageAccountCredential").StorageAccountCredential = null as any;
 utilities.lazyLoad(exports, ["StorageAccountCredential"], () => require("./storageAccountCredential"));
 
-export { TriggerArgs } from "./trigger";
-export type Trigger = import("./trigger").Trigger;
-export const Trigger: typeof import("./trigger").Trigger = null as any;
-utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
-
 export { UserArgs } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -223,8 +193,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:databoxedge/v20210201:Addon":
-                return new Addon(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20210201:ArcAddon":
                 return new ArcAddon(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20210201:BandwidthSchedule":
@@ -251,16 +219,12 @@ const _module = {
                 return new Order(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20210201:PeriodicTimerEventTrigger":
                 return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:Role":
-                return new Role(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20210201:Share":
                 return new Share(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20210201:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20210201:StorageAccountCredential":
                 return new StorageAccountCredential(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20210201:Trigger":
-                return new Trigger(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20210201:User":
                 return new User(name, <any>undefined, { urn })
             default:

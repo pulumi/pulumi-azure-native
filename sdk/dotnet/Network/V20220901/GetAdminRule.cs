@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20220901
 {
-    [Obsolete(@"Please use one of the variants: AdminRule, DefaultAdminRule.")]
     public static class GetAdminRule
     {
         /// <summary>
@@ -107,6 +106,26 @@ namespace Pulumi.AzureNative.Network.V20220901
     public sealed class GetAdminRuleResult
     {
         /// <summary>
+        /// Indicates the access allowed for this particular rule
+        /// </summary>
+        public readonly string Access;
+        /// <summary>
+        /// A description for this rule. Restricted to 140 chars.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The destination port ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationPortRanges;
+        /// <summary>
+        /// The destination address prefixes. CIDR or destination IP ranges.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AddressPrefixItemResponse> Destinations;
+        /// <summary>
+        /// Indicates if the traffic matched against the rule in inbound or outbound.
+        /// </summary>
+        public readonly string Direction;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -116,12 +135,33 @@ namespace Pulumi.AzureNative.Network.V20220901
         public readonly string Id;
         /// <summary>
         /// Whether the rule is custom or default.
+        /// Expected value is 'Custom'.
         /// </summary>
         public readonly string Kind;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        /// </summary>
+        public readonly int Priority;
+        /// <summary>
+        /// Network protocol this rule applies to.
+        /// </summary>
+        public readonly string Protocol;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The source port ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> SourcePortRanges;
+        /// <summary>
+        /// The CIDR or source IP ranges.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AddressPrefixItemResponse> Sources;
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
@@ -133,6 +173,16 @@ namespace Pulumi.AzureNative.Network.V20220901
 
         [OutputConstructor]
         private GetAdminRuleResult(
+            string access,
+
+            string? description,
+
+            ImmutableArray<string> destinationPortRanges,
+
+            ImmutableArray<Outputs.AddressPrefixItemResponse> destinations,
+
+            string direction,
+
             string etag,
 
             string id,
@@ -141,14 +191,34 @@ namespace Pulumi.AzureNative.Network.V20220901
 
             string name,
 
+            int priority,
+
+            string protocol,
+
+            string provisioningState,
+
+            ImmutableArray<string> sourcePortRanges,
+
+            ImmutableArray<Outputs.AddressPrefixItemResponse> sources,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            Access = access;
+            Description = description;
+            DestinationPortRanges = destinationPortRanges;
+            Destinations = destinations;
+            Direction = direction;
             Etag = etag;
             Id = id;
             Kind = kind;
             Name = name;
+            Priority = priority;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            SourcePortRanges = sourcePortRanges;
+            Sources = sources;
             SystemData = systemData;
             Type = type;
         }

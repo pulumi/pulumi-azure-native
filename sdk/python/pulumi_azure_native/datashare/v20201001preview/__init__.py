@@ -25,8 +25,6 @@ from .blob_folder_data_set import *
 from .blob_folder_data_set_mapping import *
 from .blob_storage_account_data_set import *
 from .blob_storage_account_data_set_mapping import *
-from .data_set import *
-from .data_set_mapping import *
 from .get_account import *
 from .get_adls_gen1_file_data_set import *
 from .get_adls_gen1_folder_data_set import *
@@ -46,8 +44,6 @@ from .get_blob_folder_data_set import *
 from .get_blob_folder_data_set_mapping import *
 from .get_blob_storage_account_data_set import *
 from .get_blob_storage_account_data_set_mapping import *
-from .get_data_set import *
-from .get_data_set_mapping import *
 from .get_invitation import *
 from .get_kusto_cluster_data_set import *
 from .get_kusto_cluster_data_set_mapping import *
@@ -63,8 +59,6 @@ from .get_sql_dw_table_data_set import *
 from .get_sql_dw_table_data_set_mapping import *
 from .get_synapse_workspace_sql_pool_table_data_set import *
 from .get_synapse_workspace_sql_pool_table_data_set_mapping import *
-from .get_synchronization_setting import *
-from .get_trigger import *
 from .invitation import *
 from .kusto_cluster_data_set import *
 from .kusto_cluster_data_set_mapping import *
@@ -85,7 +79,5 @@ from .sql_dw_table_data_set import *
 from .sql_dw_table_data_set_mapping import *
 from .synapse_workspace_sql_pool_table_data_set import *
 from .synapse_workspace_sql_pool_table_data_set_mapping import *
-from .synchronization_setting import *
-from .trigger import *
 from ._inputs import *
 from . import outputs

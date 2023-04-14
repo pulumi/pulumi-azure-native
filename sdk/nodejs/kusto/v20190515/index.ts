@@ -10,11 +10,6 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
-export { DataConnectionArgs } from "./dataConnection";
-export type DataConnection = import("./dataConnection").DataConnection;
-export const DataConnection: typeof import("./dataConnection").DataConnection = null as any;
-utilities.lazyLoad(exports, ["DataConnection"], () => require("./dataConnection"));
-
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -34,11 +29,6 @@ export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getClu
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-
-export { GetDataConnectionArgs, GetDataConnectionResult, GetDataConnectionOutputArgs } from "./getDataConnection";
-export const getDataConnection: typeof import("./getDataConnection").getDataConnection = null as any;
-export const getDataConnectionOutput: typeof import("./getDataConnection").getDataConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getDataConnection","getDataConnectionOutput"], () => require("./getDataConnection"));
 
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
@@ -80,8 +70,6 @@ const _module = {
         switch (type) {
             case "azure-native:kusto/v20190515:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-native:kusto/v20190515:DataConnection":
-                return new DataConnection(name, <any>undefined, { urn })
             case "azure-native:kusto/v20190515:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:kusto/v20190515:EventGridDataConnection":

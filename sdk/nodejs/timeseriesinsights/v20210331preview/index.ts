@@ -10,20 +10,10 @@ export type AccessPolicy = import("./accessPolicy").AccessPolicy;
 export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
 utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
 
-export { EnvironmentArgs } from "./environment";
-export type Environment = import("./environment").Environment;
-export const Environment: typeof import("./environment").Environment = null as any;
-utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
-
 export { EventHubEventSourceArgs } from "./eventHubEventSource";
 export type EventHubEventSource = import("./eventHubEventSource").EventHubEventSource;
 export const EventHubEventSource: typeof import("./eventHubEventSource").EventHubEventSource = null as any;
 utilities.lazyLoad(exports, ["EventHubEventSource"], () => require("./eventHubEventSource"));
-
-export { EventSourceArgs } from "./eventSource";
-export type EventSource = import("./eventSource").EventSource;
-export const EventSource: typeof import("./eventSource").EventSource = null as any;
-utilities.lazyLoad(exports, ["EventSource"], () => require("./eventSource"));
 
 export { Gen1EnvironmentArgs } from "./gen1Environment";
 export type Gen1Environment = import("./gen1Environment").Gen1Environment;
@@ -40,20 +30,10 @@ export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy
 export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
 
-export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
-export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
-export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironmentOutput = null as any;
-utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
-
 export { GetEventHubEventSourceArgs, GetEventHubEventSourceResult, GetEventHubEventSourceOutputArgs } from "./getEventHubEventSource";
 export const getEventHubEventSource: typeof import("./getEventHubEventSource").getEventHubEventSource = null as any;
 export const getEventHubEventSourceOutput: typeof import("./getEventHubEventSource").getEventHubEventSourceOutput = null as any;
 utilities.lazyLoad(exports, ["getEventHubEventSource","getEventHubEventSourceOutput"], () => require("./getEventHubEventSource"));
-
-export { GetEventSourceArgs, GetEventSourceResult, GetEventSourceOutputArgs } from "./getEventSource";
-export const getEventSource: typeof import("./getEventSource").getEventSource = null as any;
-export const getEventSourceOutput: typeof import("./getEventSource").getEventSourceOutput = null as any;
-utilities.lazyLoad(exports, ["getEventSource","getEventSourceOutput"], () => require("./getEventSource"));
 
 export { GetGen1EnvironmentArgs, GetGen1EnvironmentResult, GetGen1EnvironmentOutputArgs } from "./getGen1Environment";
 export const getGen1Environment: typeof import("./getGen1Environment").getGen1Environment = null as any;
@@ -105,12 +85,8 @@ const _module = {
         switch (type) {
             case "azure-native:timeseriesinsights/v20210331preview:AccessPolicy":
                 return new AccessPolicy(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20210331preview:Environment":
-                return new Environment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20210331preview:EventHubEventSource":
                 return new EventHubEventSource(name, <any>undefined, { urn })
-            case "azure-native:timeseriesinsights/v20210331preview:EventSource":
-                return new EventSource(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20210331preview:Gen1Environment":
                 return new Gen1Environment(name, <any>undefined, { urn })
             case "azure-native:timeseriesinsights/v20210331preview:Gen2Environment":

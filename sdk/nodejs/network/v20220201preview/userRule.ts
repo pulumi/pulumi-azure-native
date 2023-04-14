@@ -8,9 +8,7 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
- * Network base rule.
- *
- * @deprecated Please use one of the variants: DefaultUserRule, UserRule.
+ * Network security user rule.
  */
 export class UserRule extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class UserRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UserRule {
-        pulumi.log.warn("UserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.")
         return new UserRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -41,17 +38,50 @@ export class UserRule extends pulumi.CustomResource {
     }
 
     /**
+     * A description for this rule.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The destination port ranges.
+     */
+    public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
+    /**
+     * The destination address prefixes. CIDR or destination IP ranges.
+     */
+    public readonly destinations!: pulumi.Output<outputs.network.v20220201preview.AddressPrefixItemResponse[] | undefined>;
+    /**
+     * Indicates if the traffic matched against the rule in inbound or outbound.
+     */
+    public readonly direction!: pulumi.Output<string>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Whether the rule is custom or default.
+     * Expected value is 'Custom'.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<"Custom">;
     /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Network protocol this rule applies to.
+     */
+    public readonly protocol!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the security configuration user rule resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The source port ranges.
+     */
+    public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
+    /**
+     * The CIDR or source IP ranges.
+     */
+    public readonly sources!: pulumi.Output<outputs.network.v20220201preview.AddressPrefixItemResponse[] | undefined>;
     /**
      * The system metadata related to this resource.
      */
@@ -68,20 +98,24 @@ export class UserRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Please use one of the variants: DefaultUserRule, UserRule. */
     constructor(name: string, args: UserRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("UserRule is deprecated: Please use one of the variants: DefaultUserRule, UserRule.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
             if ((!args || args.configurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
+            if ((!args || args.direction === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'direction'");
+            }
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
             if ((!args || args.networkManagerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
+            }
+            if ((!args || args.protocol === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'protocol'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -90,19 +124,35 @@ export class UserRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["kind"] = "Custom";
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["destinationPortRanges"] = undefined /*out*/;
+            resourceInputs["destinations"] = undefined /*out*/;
+            resourceInputs["direction"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["protocol"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["sourcePortRanges"] = undefined /*out*/;
+            resourceInputs["sources"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -122,13 +172,34 @@ export interface UserRuleArgs {
      */
     configurationName: pulumi.Input<string>;
     /**
-     * Whether the rule is custom or default.
+     * A description for this rule.
      */
-    kind: pulumi.Input<string | enums.network.v20220201preview.UserRuleKind>;
+    description?: pulumi.Input<string>;
+    /**
+     * The destination port ranges.
+     */
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The destination address prefixes. CIDR or destination IP ranges.
+     */
+    destinations?: pulumi.Input<pulumi.Input<inputs.network.v20220201preview.AddressPrefixItemArgs>[]>;
+    /**
+     * Indicates if the traffic matched against the rule in inbound or outbound.
+     */
+    direction: pulumi.Input<string | enums.network.v20220201preview.SecurityConfigurationRuleDirection>;
+    /**
+     * Whether the rule is custom or default.
+     * Expected value is 'Custom'.
+     */
+    kind: pulumi.Input<"Custom">;
     /**
      * The name of the network manager.
      */
     networkManagerName: pulumi.Input<string>;
+    /**
+     * Network protocol this rule applies to.
+     */
+    protocol: pulumi.Input<string | enums.network.v20220201preview.SecurityConfigurationRuleProtocol>;
     /**
      * The name of the resource group.
      */
@@ -141,4 +212,12 @@ export interface UserRuleArgs {
      * The name of the rule.
      */
     ruleName?: pulumi.Input<string>;
+    /**
+     * The source port ranges.
+     */
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The CIDR or source IP ranges.
+     */
+    sources?: pulumi.Input<pulumi.Input<inputs.network.v20220201preview.AddressPrefixItemArgs>[]>;
 }

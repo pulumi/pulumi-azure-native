@@ -100,16 +100,6 @@ export type BlobStorageAccountDataSetMapping = import("./blobStorageAccountDataS
 export const BlobStorageAccountDataSetMapping: typeof import("./blobStorageAccountDataSetMapping").BlobStorageAccountDataSetMapping = null as any;
 utilities.lazyLoad(exports, ["BlobStorageAccountDataSetMapping"], () => require("./blobStorageAccountDataSetMapping"));
 
-export { DataSetArgs } from "./dataSet";
-export type DataSet = import("./dataSet").DataSet;
-export const DataSet: typeof import("./dataSet").DataSet = null as any;
-utilities.lazyLoad(exports, ["DataSet"], () => require("./dataSet"));
-
-export { DataSetMappingArgs } from "./dataSetMapping";
-export type DataSetMapping = import("./dataSetMapping").DataSetMapping;
-export const DataSetMapping: typeof import("./dataSetMapping").DataSetMapping = null as any;
-utilities.lazyLoad(exports, ["DataSetMapping"], () => require("./dataSetMapping"));
-
 export { GetADLSGen1FileDataSetArgs, GetADLSGen1FileDataSetResult, GetADLSGen1FileDataSetOutputArgs } from "./getADLSGen1FileDataSet";
 export const getADLSGen1FileDataSet: typeof import("./getADLSGen1FileDataSet").getADLSGen1FileDataSet = null as any;
 export const getADLSGen1FileDataSetOutput: typeof import("./getADLSGen1FileDataSet").getADLSGen1FileDataSetOutput = null as any;
@@ -205,16 +195,6 @@ export const getBlobStorageAccountDataSetMapping: typeof import("./getBlobStorag
 export const getBlobStorageAccountDataSetMappingOutput: typeof import("./getBlobStorageAccountDataSetMapping").getBlobStorageAccountDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getBlobStorageAccountDataSetMapping","getBlobStorageAccountDataSetMappingOutput"], () => require("./getBlobStorageAccountDataSetMapping"));
 
-export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
-export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
-export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
-utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
-
-export { GetDataSetMappingArgs, GetDataSetMappingResult, GetDataSetMappingOutputArgs } from "./getDataSetMapping";
-export const getDataSetMapping: typeof import("./getDataSetMapping").getDataSetMapping = null as any;
-export const getDataSetMappingOutput: typeof import("./getDataSetMapping").getDataSetMappingOutput = null as any;
-utilities.lazyLoad(exports, ["getDataSetMapping","getDataSetMappingOutput"], () => require("./getDataSetMapping"));
-
 export { GetInvitationArgs, GetInvitationResult, GetInvitationOutputArgs } from "./getInvitation";
 export const getInvitation: typeof import("./getInvitation").getInvitation = null as any;
 export const getInvitationOutput: typeof import("./getInvitation").getInvitationOutput = null as any;
@@ -289,16 +269,6 @@ export { GetSynapseWorkspaceSqlPoolTableDataSetMappingArgs, GetSynapseWorkspaceS
 export const getSynapseWorkspaceSqlPoolTableDataSetMapping: typeof import("./getSynapseWorkspaceSqlPoolTableDataSetMapping").getSynapseWorkspaceSqlPoolTableDataSetMapping = null as any;
 export const getSynapseWorkspaceSqlPoolTableDataSetMappingOutput: typeof import("./getSynapseWorkspaceSqlPoolTableDataSetMapping").getSynapseWorkspaceSqlPoolTableDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getSynapseWorkspaceSqlPoolTableDataSetMapping","getSynapseWorkspaceSqlPoolTableDataSetMappingOutput"], () => require("./getSynapseWorkspaceSqlPoolTableDataSetMapping"));
-
-export { GetSynchronizationSettingArgs, GetSynchronizationSettingResult, GetSynchronizationSettingOutputArgs } from "./getSynchronizationSetting";
-export const getSynchronizationSetting: typeof import("./getSynchronizationSetting").getSynchronizationSetting = null as any;
-export const getSynchronizationSettingOutput: typeof import("./getSynchronizationSetting").getSynchronizationSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getSynchronizationSetting","getSynchronizationSettingOutput"], () => require("./getSynchronizationSetting"));
-
-export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
-export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
-export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
-utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
 
 export { InvitationArgs } from "./invitation";
 export type Invitation = import("./invitation").Invitation;
@@ -400,16 +370,6 @@ export type SynapseWorkspaceSqlPoolTableDataSetMapping = import("./synapseWorksp
 export const SynapseWorkspaceSqlPoolTableDataSetMapping: typeof import("./synapseWorkspaceSqlPoolTableDataSetMapping").SynapseWorkspaceSqlPoolTableDataSetMapping = null as any;
 utilities.lazyLoad(exports, ["SynapseWorkspaceSqlPoolTableDataSetMapping"], () => require("./synapseWorkspaceSqlPoolTableDataSetMapping"));
 
-export { SynchronizationSettingArgs } from "./synchronizationSetting";
-export type SynchronizationSetting = import("./synchronizationSetting").SynchronizationSetting;
-export const SynchronizationSetting: typeof import("./synchronizationSetting").SynchronizationSetting = null as any;
-utilities.lazyLoad(exports, ["SynchronizationSetting"], () => require("./synchronizationSetting"));
-
-export { TriggerArgs } from "./trigger";
-export type Trigger = import("./trigger").Trigger;
-export const Trigger: typeof import("./trigger").Trigger = null as any;
-utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
-
 
 // Export enums:
 export * from "../../types/enums/datashare/v20201001preview";
@@ -456,10 +416,6 @@ const _module = {
                 return new BlobStorageAccountDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:BlobStorageAccountDataSetMapping":
                 return new BlobStorageAccountDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:DataSet":
-                return new DataSet(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:DataSetMapping":
-                return new DataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:Invitation":
                 return new Invitation(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:KustoClusterDataSet":
@@ -490,10 +446,6 @@ const _module = {
                 return new SynapseWorkspaceSqlPoolTableDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping":
                 return new SynapseWorkspaceSqlPoolTableDataSetMapping(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:SynchronizationSetting":
-                return new SynchronizationSetting(name, <any>undefined, { urn })
-            case "azure-native:datashare/v20201001preview:Trigger":
-                return new Trigger(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

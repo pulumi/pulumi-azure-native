@@ -65,11 +65,6 @@ export const getPeriodicTimerEventTrigger: typeof import("./getPeriodicTimerEven
 export const getPeriodicTimerEventTriggerOutput: typeof import("./getPeriodicTimerEventTrigger").getPeriodicTimerEventTriggerOutput = null as any;
 utilities.lazyLoad(exports, ["getPeriodicTimerEventTrigger","getPeriodicTimerEventTriggerOutput"], () => require("./getPeriodicTimerEventTrigger"));
 
-export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
-export const getRole: typeof import("./getRole").getRole = null as any;
-export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
-utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
-
 export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
 export const getShare: typeof import("./getShare").getShare = null as any;
 export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
@@ -84,11 +79,6 @@ export { GetStorageAccountCredentialArgs, GetStorageAccountCredentialResult, Get
 export const getStorageAccountCredential: typeof import("./getStorageAccountCredential").getStorageAccountCredential = null as any;
 export const getStorageAccountCredentialOutput: typeof import("./getStorageAccountCredential").getStorageAccountCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageAccountCredential","getStorageAccountCredentialOutput"], () => require("./getStorageAccountCredential"));
-
-export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
-export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
-export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
-utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
 
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
@@ -110,11 +100,6 @@ export type PeriodicTimerEventTrigger = import("./periodicTimerEventTrigger").Pe
 export const PeriodicTimerEventTrigger: typeof import("./periodicTimerEventTrigger").PeriodicTimerEventTrigger = null as any;
 utilities.lazyLoad(exports, ["PeriodicTimerEventTrigger"], () => require("./periodicTimerEventTrigger"));
 
-export { RoleArgs } from "./role";
-export type Role = import("./role").Role;
-export const Role: typeof import("./role").Role = null as any;
-utilities.lazyLoad(exports, ["Role"], () => require("./role"));
-
 export { ShareArgs } from "./share";
 export type Share = import("./share").Share;
 export const Share: typeof import("./share").Share = null as any;
@@ -129,11 +114,6 @@ export { StorageAccountCredentialArgs } from "./storageAccountCredential";
 export type StorageAccountCredential = import("./storageAccountCredential").StorageAccountCredential;
 export const StorageAccountCredential: typeof import("./storageAccountCredential").StorageAccountCredential = null as any;
 utilities.lazyLoad(exports, ["StorageAccountCredential"], () => require("./storageAccountCredential"));
-
-export { TriggerArgs } from "./trigger";
-export type Trigger = import("./trigger").Trigger;
-export const Trigger: typeof import("./trigger").Trigger = null as any;
-utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
 
 export { UserArgs } from "./user";
 export type User = import("./user").User;
@@ -162,16 +142,12 @@ const _module = {
                 return new Order(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:PeriodicTimerEventTrigger":
                 return new PeriodicTimerEventTrigger(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:Role":
-                return new Role(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:Share":
                 return new Share(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:StorageAccount":
                 return new StorageAccount(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:StorageAccountCredential":
                 return new StorageAccountCredential(name, <any>undefined, { urn })
-            case "azure-native:databoxedge/v20200501preview:Trigger":
-                return new Trigger(name, <any>undefined, { urn })
             case "azure-native:databoxedge/v20200501preview:User":
                 return new User(name, <any>undefined, { urn })
             default:

@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ArtifactArgs } from "./artifact";
-export type Artifact = import("./artifact").Artifact;
-export const Artifact: typeof import("./artifact").Artifact = null as any;
-utilities.lazyLoad(exports, ["Artifact"], () => require("./artifact"));
-
 export { AssignmentArgs } from "./assignment";
 export type Assignment = import("./assignment").Assignment;
 export const Assignment: typeof import("./assignment").Assignment = null as any;
@@ -19,11 +14,6 @@ export { BlueprintArgs } from "./blueprint";
 export type Blueprint = import("./blueprint").Blueprint;
 export const Blueprint: typeof import("./blueprint").Blueprint = null as any;
 utilities.lazyLoad(exports, ["Blueprint"], () => require("./blueprint"));
-
-export { GetArtifactArgs, GetArtifactResult, GetArtifactOutputArgs } from "./getArtifact";
-export const getArtifact: typeof import("./getArtifact").getArtifact = null as any;
-export const getArtifactOutput: typeof import("./getArtifact").getArtifactOutput = null as any;
-utilities.lazyLoad(exports, ["getArtifact","getArtifactOutput"], () => require("./getArtifact"));
 
 export { GetAssignmentArgs, GetAssignmentResult, GetAssignmentOutputArgs } from "./getAssignment";
 export const getAssignment: typeof import("./getAssignment").getAssignment = null as any;
@@ -92,8 +82,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:blueprint:Artifact":
-                return new Artifact(name, <any>undefined, { urn })
             case "azure-native:blueprint:Assignment":
                 return new Assignment(name, <any>undefined, { urn })
             case "azure-native:blueprint:Blueprint":

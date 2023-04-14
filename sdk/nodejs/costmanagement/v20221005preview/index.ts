@@ -10,11 +10,6 @@ export const getMarkupRule: typeof import("./getMarkupRule").getMarkupRule = nul
 export const getMarkupRuleOutput: typeof import("./getMarkupRule").getMarkupRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getMarkupRule","getMarkupRuleOutput"], () => require("./getMarkupRule"));
 
-export { GetSettingByScopeArgs, GetSettingByScopeResult, GetSettingByScopeOutputArgs } from "./getSettingByScope";
-export const getSettingByScope: typeof import("./getSettingByScope").getSettingByScope = null as any;
-export const getSettingByScopeOutput: typeof import("./getSettingByScope").getSettingByScopeOutput = null as any;
-utilities.lazyLoad(exports, ["getSettingByScope","getSettingByScopeOutput"], () => require("./getSettingByScope"));
-
 export { GetTagInheritanceSettingArgs, GetTagInheritanceSettingResult, GetTagInheritanceSettingOutputArgs } from "./getTagInheritanceSetting";
 export const getTagInheritanceSetting: typeof import("./getTagInheritanceSetting").getTagInheritanceSetting = null as any;
 export const getTagInheritanceSettingOutput: typeof import("./getTagInheritanceSetting").getTagInheritanceSettingOutput = null as any;
@@ -34,11 +29,6 @@ export { MarkupRuleArgs } from "./markupRule";
 export type MarkupRule = import("./markupRule").MarkupRule;
 export const MarkupRule: typeof import("./markupRule").MarkupRule = null as any;
 utilities.lazyLoad(exports, ["MarkupRule"], () => require("./markupRule"));
-
-export { SettingByScopeArgs } from "./settingByScope";
-export type SettingByScope = import("./settingByScope").SettingByScope;
-export const SettingByScope: typeof import("./settingByScope").SettingByScope = null as any;
-utilities.lazyLoad(exports, ["SettingByScope"], () => require("./settingByScope"));
 
 export { TagInheritanceSettingArgs } from "./tagInheritanceSetting";
 export type TagInheritanceSetting = import("./tagInheritanceSetting").TagInheritanceSetting;
@@ -65,8 +55,6 @@ const _module = {
         switch (type) {
             case "azure-native:costmanagement/v20221005preview:MarkupRule":
                 return new MarkupRule(name, <any>undefined, { urn })
-            case "azure-native:costmanagement/v20221005preview:SettingByScope":
-                return new SettingByScope(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20221005preview:TagInheritanceSetting":
                 return new TagInheritanceSetting(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20221005preview:View":

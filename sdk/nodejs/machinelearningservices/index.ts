@@ -170,11 +170,6 @@ export const getMachineLearningDatastore: typeof import("./getMachineLearningDat
 export const getMachineLearningDatastoreOutput: typeof import("./getMachineLearningDatastore").getMachineLearningDatastoreOutput = null as any;
 utilities.lazyLoad(exports, ["getMachineLearningDatastore","getMachineLearningDatastoreOutput"], () => require("./getMachineLearningDatastore"));
 
-export { GetMachineLearningServiceArgs, GetMachineLearningServiceResult, GetMachineLearningServiceOutputArgs } from "./getMachineLearningService";
-export const getMachineLearningService: typeof import("./getMachineLearningService").getMachineLearningService = null as any;
-export const getMachineLearningServiceOutput: typeof import("./getMachineLearningService").getMachineLearningServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningService","getMachineLearningServiceOutput"], () => require("./getMachineLearningService"));
-
 export { GetModelContainerArgs, GetModelContainerResult, GetModelContainerOutputArgs } from "./getModelContainer";
 export const getModelContainer: typeof import("./getModelContainer").getModelContainer = null as any;
 export const getModelContainerOutput: typeof import("./getModelContainer").getModelContainerOutput = null as any;
@@ -299,11 +294,6 @@ export { MachineLearningDatastoreArgs } from "./machineLearningDatastore";
 export type MachineLearningDatastore = import("./machineLearningDatastore").MachineLearningDatastore;
 export const MachineLearningDatastore: typeof import("./machineLearningDatastore").MachineLearningDatastore = null as any;
 utilities.lazyLoad(exports, ["MachineLearningDatastore"], () => require("./machineLearningDatastore"));
-
-export { MachineLearningServiceArgs } from "./machineLearningService";
-export type MachineLearningService = import("./machineLearningService").MachineLearningService;
-export const MachineLearningService: typeof import("./machineLearningService").MachineLearningService = null as any;
-utilities.lazyLoad(exports, ["MachineLearningService"], () => require("./machineLearningService"));
 
 export { ModelContainerArgs } from "./modelContainer";
 export type ModelContainer = import("./modelContainer").ModelContainer;
@@ -443,8 +433,6 @@ const _module = {
                 return new MachineLearningDataset(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:MachineLearningDatastore":
                 return new MachineLearningDatastore(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:MachineLearningService":
-                return new MachineLearningService(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:ModelContainer":
                 return new ModelContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:ModelVersion":

@@ -80,16 +80,6 @@ export const getKustoPoolAttachedDatabaseConfiguration: typeof import("./getKust
 export const getKustoPoolAttachedDatabaseConfigurationOutput: typeof import("./getKustoPoolAttachedDatabaseConfiguration").getKustoPoolAttachedDatabaseConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getKustoPoolAttachedDatabaseConfiguration","getKustoPoolAttachedDatabaseConfigurationOutput"], () => require("./getKustoPoolAttachedDatabaseConfiguration"));
 
-export { GetKustoPoolDataConnectionArgs, GetKustoPoolDataConnectionResult, GetKustoPoolDataConnectionOutputArgs } from "./getKustoPoolDataConnection";
-export const getKustoPoolDataConnection: typeof import("./getKustoPoolDataConnection").getKustoPoolDataConnection = null as any;
-export const getKustoPoolDataConnectionOutput: typeof import("./getKustoPoolDataConnection").getKustoPoolDataConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getKustoPoolDataConnection","getKustoPoolDataConnectionOutput"], () => require("./getKustoPoolDataConnection"));
-
-export { GetKustoPoolDatabaseArgs, GetKustoPoolDatabaseResult, GetKustoPoolDatabaseOutputArgs } from "./getKustoPoolDatabase";
-export const getKustoPoolDatabase: typeof import("./getKustoPoolDatabase").getKustoPoolDatabase = null as any;
-export const getKustoPoolDatabaseOutput: typeof import("./getKustoPoolDatabase").getKustoPoolDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getKustoPoolDatabase","getKustoPoolDatabaseOutput"], () => require("./getKustoPoolDatabase"));
-
 export { GetKustoPoolDatabasePrincipalAssignmentArgs, GetKustoPoolDatabasePrincipalAssignmentResult, GetKustoPoolDatabasePrincipalAssignmentOutputArgs } from "./getKustoPoolDatabasePrincipalAssignment";
 export const getKustoPoolDatabasePrincipalAssignment: typeof import("./getKustoPoolDatabasePrincipalAssignment").getKustoPoolDatabasePrincipalAssignment = null as any;
 export const getKustoPoolDatabasePrincipalAssignmentOutput: typeof import("./getKustoPoolDatabasePrincipalAssignment").getKustoPoolDatabasePrincipalAssignmentOutput = null as any;
@@ -204,16 +194,6 @@ export { KustoPoolAttachedDatabaseConfigurationArgs } from "./kustoPoolAttachedD
 export type KustoPoolAttachedDatabaseConfiguration = import("./kustoPoolAttachedDatabaseConfiguration").KustoPoolAttachedDatabaseConfiguration;
 export const KustoPoolAttachedDatabaseConfiguration: typeof import("./kustoPoolAttachedDatabaseConfiguration").KustoPoolAttachedDatabaseConfiguration = null as any;
 utilities.lazyLoad(exports, ["KustoPoolAttachedDatabaseConfiguration"], () => require("./kustoPoolAttachedDatabaseConfiguration"));
-
-export { KustoPoolDataConnectionArgs } from "./kustoPoolDataConnection";
-export type KustoPoolDataConnection = import("./kustoPoolDataConnection").KustoPoolDataConnection;
-export const KustoPoolDataConnection: typeof import("./kustoPoolDataConnection").KustoPoolDataConnection = null as any;
-utilities.lazyLoad(exports, ["KustoPoolDataConnection"], () => require("./kustoPoolDataConnection"));
-
-export { KustoPoolDatabaseArgs } from "./kustoPoolDatabase";
-export type KustoPoolDatabase = import("./kustoPoolDatabase").KustoPoolDatabase;
-export const KustoPoolDatabase: typeof import("./kustoPoolDatabase").KustoPoolDatabase = null as any;
-utilities.lazyLoad(exports, ["KustoPoolDatabase"], () => require("./kustoPoolDatabase"));
 
 export { KustoPoolDatabasePrincipalAssignmentArgs } from "./kustoPoolDatabasePrincipalAssignment";
 export type KustoPoolDatabasePrincipalAssignment = import("./kustoPoolDatabasePrincipalAssignment").KustoPoolDatabasePrincipalAssignment;
@@ -341,10 +321,6 @@ const _module = {
                 return new KustoPool(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration":
                 return new KustoPoolAttachedDatabaseConfiguration(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210601preview:KustoPoolDataConnection":
-                return new KustoPoolDataConnection(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210601preview:KustoPoolDatabase":
-                return new KustoPoolDatabase(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment":
                 return new KustoPoolDatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210601preview:KustoPoolPrincipalAssignment":

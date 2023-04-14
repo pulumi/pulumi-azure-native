@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Network.V20210201Preview
 {
-    [Obsolete(@"Please use one of the variants: DefaultUserRule, UserRule.")]
     public static class GetUserRule
     {
         /// <summary>
@@ -107,6 +106,26 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     public sealed class GetUserRuleResult
     {
         /// <summary>
+        /// A description for this rule.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The destination port ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationPortRanges;
+        /// <summary>
+        /// The destination address prefixes. CIDR or destination IP ranges.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AddressPrefixItemResponse> Destinations;
+        /// <summary>
+        /// Indicates if the traffic matched against the rule in inbound or outbound.
+        /// </summary>
+        public readonly string Direction;
+        /// <summary>
+        /// A friendly name for the rule.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -116,12 +135,29 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public readonly string Id;
         /// <summary>
         /// Whether the rule is custom or default.
+        /// Expected value is 'Custom'.
         /// </summary>
         public readonly string Kind;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Network protocol this rule applies to.
+        /// </summary>
+        public readonly string Protocol;
+        /// <summary>
+        /// The provisioning state of the security configuration user rule resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The source port ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> SourcePortRanges;
+        /// <summary>
+        /// The CIDR or source IP ranges.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AddressPrefixItemResponse> Sources;
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
@@ -133,6 +169,16 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 
         [OutputConstructor]
         private GetUserRuleResult(
+            string? description,
+
+            ImmutableArray<string> destinationPortRanges,
+
+            ImmutableArray<Outputs.AddressPrefixItemResponse> destinations,
+
+            string direction,
+
+            string? displayName,
+
             string etag,
 
             string id,
@@ -141,14 +187,31 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 
             string name,
 
+            string protocol,
+
+            string provisioningState,
+
+            ImmutableArray<string> sourcePortRanges,
+
+            ImmutableArray<Outputs.AddressPrefixItemResponse> sources,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            Description = description;
+            DestinationPortRanges = destinationPortRanges;
+            Destinations = destinations;
+            Direction = direction;
+            DisplayName = displayName;
             Etag = etag;
             Id = id;
             Kind = kind;
             Name = name;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            SourcePortRanges = sourcePortRanges;
+            Sources = sources;
             SystemData = systemData;
             Type = type;
         }

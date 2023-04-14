@@ -6,10 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .artifact import *
 from .assignment import *
 from .blueprint import *
-from .get_artifact import *
 from .get_assignment import *
 from .get_blueprint import *
 from .get_policy_assignment_artifact import *

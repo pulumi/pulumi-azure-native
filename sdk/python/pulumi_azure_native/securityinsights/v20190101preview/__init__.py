@@ -9,14 +9,12 @@ from ._enums import *
 from .aad_data_connector import *
 from .aatp_data_connector import *
 from .action import *
-from .alert_rule import *
 from .anomalies import *
 from .asc_data_connector import *
 from .automation_rule import *
 from .aws_cloud_trail_data_connector import *
 from .bookmark import *
 from .bookmark_relation import *
-from .data_connector import *
 from .dynamics365_data_connector import *
 from .entity_analytics import *
 from .eyes_on import *
@@ -24,14 +22,12 @@ from .fusion_alert_rule import *
 from .get_aad_data_connector import *
 from .get_aatp_data_connector import *
 from .get_action import *
-from .get_alert_rule import *
 from .get_anomalies import *
 from .get_asc_data_connector import *
 from .get_automation_rule import *
 from .get_aws_cloud_trail_data_connector import *
 from .get_bookmark import *
 from .get_bookmark_relation import *
-from .get_data_connector import *
 from .get_dynamics365_data_connector import *
 from .get_entities_get_timeline import *
 from .get_entity_analytics import *
@@ -50,7 +46,6 @@ from .get_msti_data_connector import *
 from .get_mtp_data_connector import *
 from .get_office_atp_data_connector import *
 from .get_office_data_connector import *
-from .get_product_setting import *
 from .get_scheduled_alert_rule import *
 from .get_threat_intelligence_alert_rule import *
 from .get_threat_intelligence_indicator import *
@@ -71,7 +66,6 @@ from .msti_data_connector import *
 from .mtp_data_connector import *
 from .office_atp_data_connector import *
 from .office_data_connector import *
-from .product_setting import *
 from .scheduled_alert_rule import *
 from .threat_intelligence_alert_rule import *
 from .threat_intelligence_indicator import *

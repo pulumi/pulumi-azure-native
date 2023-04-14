@@ -7,14 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .big_data_pool import *
-from .data_connection import *
-from .database import *
 from .database_principal_assignment import *
 from .event_grid_data_connection import *
 from .event_hub_data_connection import *
 from .get_big_data_pool import *
-from .get_data_connection import *
-from .get_database import *
 from .get_database_principal_assignment import *
 from .get_event_grid_data_connection import *
 from .get_event_hub_data_connection import *

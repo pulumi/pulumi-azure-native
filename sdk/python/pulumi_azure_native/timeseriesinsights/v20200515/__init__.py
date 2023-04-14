@@ -7,15 +7,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .access_policy import *
-from .environment import *
 from .event_hub_event_source import *
-from .event_source import *
 from .gen1_environment import *
 from .gen2_environment import *
 from .get_access_policy import *
-from .get_environment import *
 from .get_event_hub_event_source import *
-from .get_event_source import *
 from .get_gen1_environment import *
 from .get_gen2_environment import *
 from .get_io_t_hub_event_source import *
