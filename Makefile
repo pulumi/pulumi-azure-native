@@ -108,7 +108,7 @@ prepublish_go: .make/prepublish_go
 update_submodules:
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
 		echo "Updating submodule $$submodule" ; \
-		(cd $$submodule && git checkout main && git pull origin main); \
+		(cd $$submodule && git checkout main && git fetch && git pull origin main); \
 	done
 	rm ./azure-provider-versions/provider_list.json
 	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
