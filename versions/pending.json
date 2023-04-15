@@ -134,7 +134,8 @@
   ],
   "AzureActiveDirectory": [
     "2020-05-01-preview",
-    "2021-04-01"
+    "2021-04-01",
+    "2023-01-18-preview"
   ],
   "AzureArcData": [
     "2021-07-01-preview",
@@ -215,7 +216,8 @@
   "ChangeAnalysis": [],
   "Chaos": [
     "2022-07-01-preview",
-    "2022-10-01-preview"
+    "2022-10-01-preview",
+    "2023-04-01-preview"
   ],
   "CognitiveServices": [
     "2021-04-30",
@@ -281,7 +283,8 @@
     "2021-10-01",
     "2022-09-01",
     "2022-10-01-preview",
-    "2023-02-01-preview"
+    "2023-02-01-preview",
+    "2023-05-01"
   ],
   "ContainerRegistry": [
     "2017-03-01",
@@ -390,7 +393,9 @@
     "2020-07-01-privatepreview",
     "2021-05-01",
     "2021-05-01-preview",
-    "2021-12-01-preview"
+    "2021-12-01-preview",
+    "2022-01-01",
+    "2022-09-30-preview"
   ],
   "DBforPostgreSQL": [
     "2017-12-01-preview",
@@ -498,7 +503,9 @@
     "2022-11-11-preview",
     "2023-01-01-preview"
   ],
-  "DevHub": [],
+  "DevHub": [
+    "2022-10-11-preview"
+  ],
   "DevOps": [],
   "DevSpaces": [],
   "DevTestLab": [],
@@ -526,7 +533,8 @@
     "2022-02-05",
     "2022-04-30-preview",
     "2022-11-15-preview",
-    "2022-12-12"
+    "2022-12-12",
+    "2023-03-01-preview"
   ],
   "DigitalTwins": [
     "2021-06-30-preview",
@@ -551,7 +559,8 @@
     "2022-08-15-preview",
     "2022-11-15",
     "2022-11-15-preview",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-03-15"
   ],
   "DomainRegistration": [
     "2020-12-01",
@@ -1075,6 +1084,7 @@
     "2021-04-01",
     "2021-05-01",
     "2022-02-01",
+    "2022-08-01-preview",
     "2022-09-01"
   ],
   "SaaS": [],
@@ -1129,7 +1139,8 @@
     "2022-12-01-preview",
     "2023-02-01",
     "2023-02-01-preview",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-04-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [
