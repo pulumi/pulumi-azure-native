@@ -282,10 +282,10 @@ class ManagedHsmPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state.
         :param str status_message: Resource Status Message.
         :param str create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
-        :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
-        :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.
+        :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
-        :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
+        :param int soft_delete_retention_in_days: Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
         """
         pulumi.set(__self__, "hsm_uri", hsm_uri)
@@ -346,7 +346,7 @@ class ManagedHsmPropertiesResponse(dict):
     @pulumi.getter(name="enablePurgeProtection")
     def enable_purge_protection(self) -> Optional[bool]:
         """
-        Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+        Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.
         """
         return pulumi.get(self, "enable_purge_protection")
 
@@ -354,7 +354,7 @@ class ManagedHsmPropertiesResponse(dict):
     @pulumi.getter(name="enableSoftDelete")
     def enable_soft_delete(self) -> Optional[bool]:
         """
-        Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.
         """
         return pulumi.get(self, "enable_soft_delete")
 
@@ -370,7 +370,7 @@ class ManagedHsmPropertiesResponse(dict):
     @pulumi.getter(name="softDeleteRetentionInDays")
     def soft_delete_retention_in_days(self) -> Optional[int]:
         """
-        softDelete data retention days. It accepts >=7 and <=90.
+        Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         """
         return pulumi.get(self, "soft_delete_retention_in_days")
 

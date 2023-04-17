@@ -301,6 +301,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211001
 
         public static ManagedHsmSkuName Standard_B1 { get; } = new ManagedHsmSkuName("Standard_B1");
         public static ManagedHsmSkuName Custom_B32 { get; } = new ManagedHsmSkuName("Custom_B32");
+        public static ManagedHsmSkuName Custom_B6 { get; } = new ManagedHsmSkuName("Custom_B6");
 
         public static bool operator ==(ManagedHsmSkuName left, ManagedHsmSkuName right) => left.Equals(right);
         public static bool operator !=(ManagedHsmSkuName left, ManagedHsmSkuName right) => !left.Equals(right);
@@ -413,7 +414,7 @@ namespace Pulumi.AzureNative.KeyVault.V20211001
     }
 
     /// <summary>
-    /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+    /// Control permission to the managed HSM from public networks.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>

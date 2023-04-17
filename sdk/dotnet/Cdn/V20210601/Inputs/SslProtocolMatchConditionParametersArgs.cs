@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
 
         public SslProtocolMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new SslProtocolMatchConditionParametersArgs Empty => new SslProtocolMatchConditionParametersArgs();
     }

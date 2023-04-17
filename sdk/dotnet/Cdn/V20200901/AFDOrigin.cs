@@ -228,6 +228,8 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 
         public AFDOriginArgs()
         {
+            HttpPort = 80;
+            HttpsPort = 443;
         }
         public static new AFDOriginArgs Empty => new AFDOriginArgs();
     }

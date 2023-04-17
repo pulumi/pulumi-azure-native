@@ -126,8 +126,8 @@ export class AFDOrigin extends pulumi.CustomResource {
             resourceInputs["enabledState"] = args ? args.enabledState : undefined;
             resourceInputs["enforceCertificateNameCheck"] = (args ? args.enforceCertificateNameCheck : undefined) ?? true;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["httpPort"] = args ? args.httpPort : undefined;
-            resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;
+            resourceInputs["httpPort"] = (args ? args.httpPort : undefined) ?? 80;
+            resourceInputs["httpsPort"] = (args ? args.httpsPort : undefined) ?? 443;
             resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
             resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
             resourceInputs["originName"] = args ? args.originName : undefined;

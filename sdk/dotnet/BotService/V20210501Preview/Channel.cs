@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
     public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Entity Tag
+        /// Entity Tag.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
@@ -62,6 +62,12 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Entity zones
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>

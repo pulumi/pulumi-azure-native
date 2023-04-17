@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class AzureDataLakeStoreSinkResponse
     {
         /// <summary>
-        /// The type of copy behavior for copy sink.
+        /// The type of copy behavior for copy sink. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? CopyBehavior;
         /// <summary>

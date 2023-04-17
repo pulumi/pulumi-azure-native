@@ -22,13 +22,13 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Inputs
         public Input<Pulumi.AzureNative.KeyVault.V20200401Preview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
-        /// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+        /// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.
         /// </summary>
         [Input("enablePurgeProtection")]
         public Input<bool>? EnablePurgeProtection { get; set; }
 
         /// <summary>
-        /// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        /// Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.
         /// </summary>
         [Input("enableSoftDelete")]
         public Input<bool>? EnableSoftDelete { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.KeyVault.V20200401Preview.Inputs
         }
 
         /// <summary>
-        /// softDelete data retention days. It accepts &gt;=7 and &lt;=90.
+        /// Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         /// </summary>
         [Input("softDeleteRetentionInDays")]
         public Input<int>? SoftDeleteRetentionInDays { get; set; }

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     public sealed class AzureBlobFSSinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of copy behavior for copy sink.
+        /// The type of copy behavior for copy sink. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("copyBehavior")]
         public Input<object>? CopyBehavior { get; set; }

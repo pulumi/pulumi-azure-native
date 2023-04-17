@@ -35,7 +35,7 @@ export interface GetBotArgs {
  */
 export interface GetBotResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**

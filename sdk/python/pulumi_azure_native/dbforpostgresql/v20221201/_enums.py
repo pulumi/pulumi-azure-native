@@ -97,11 +97,7 @@ class ReplicationRole(str, Enum):
     """
     NONE = "None"
     PRIMARY = "Primary"
-    SECONDARY = "Secondary"
-    WAL_REPLICA = "WalReplica"
-    SYNC_REPLICA = "SyncReplica"
     ASYNC_REPLICA = "AsyncReplica"
-    GEO_SYNC_REPLICA = "GeoSyncReplica"
     GEO_ASYNC_REPLICA = "GeoAsyncReplica"
 
 

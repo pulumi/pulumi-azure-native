@@ -44,6 +44,10 @@ export interface GetConfigurationResult {
      */
     readonly allowedValues: string;
     /**
+     * Current value of the configuration.
+     */
+    readonly currentValue?: string;
+    /**
      * Data type of the configuration.
      */
     readonly dataType: string;
@@ -55,6 +59,10 @@ export interface GetConfigurationResult {
      * Description of the configuration.
      */
     readonly description: string;
+    /**
+     * The link used to get the document from community or Azure site.
+     */
+    readonly documentationLink: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */

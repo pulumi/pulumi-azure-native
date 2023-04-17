@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
         /// </summary>
         public readonly string? EntityTag;
         /// <summary>
-        /// Entity Tag
+        /// Entity Tag.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
@@ -137,6 +137,10 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
         /// Specifies the type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Entity zones
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private ListChannelWithKeysResult(
@@ -166,7 +170,9 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<string> zones)
         {
             ChangedTime = changedTime;
             EntityTag = entityTag;
@@ -182,6 +188,7 @@ namespace Pulumi.AzureNative.BotService.V20210501Preview
             Sku = sku;
             Tags = tags;
             Type = type;
+            Zones = zones;
         }
     }
 }

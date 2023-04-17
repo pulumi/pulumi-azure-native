@@ -497,6 +497,7 @@
     "VirtualNetworkRule": "2018-06-01"
   },
   "DBforMySQL": {
+    "AzureADAdministrator": "2022-01-01",
     "Configuration": "2021-05-01",
     "Database": "2021-05-01",
     "FirewallRule": "2021-05-01",

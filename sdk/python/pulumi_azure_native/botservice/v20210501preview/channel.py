@@ -232,6 +232,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
+            __props__.__dict__["zones"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:botservice:Channel"), pulumi.Alias(type_="azure-native:botservice/v20171201:Channel"), pulumi.Alias(type_="azure-native:botservice/v20180712:Channel"), pulumi.Alias(type_="azure-native:botservice/v20200602:Channel"), pulumi.Alias(type_="azure-native:botservice/v20210301:Channel"), pulumi.Alias(type_="azure-native:botservice/v20220615preview:Channel"), pulumi.Alias(type_="azure-native:botservice/v20220915:Channel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Channel, __self__).__init__(
@@ -264,13 +265,14 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["zones"] = None
         return Channel(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        Entity Tag
+        Entity Tag.
         """
         return pulumi.get(self, "etag")
 
@@ -329,4 +331,12 @@ class Channel(pulumi.CustomResource):
         Specifies the type of the resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Entity zones
+        """
+        return pulumi.get(self, "zones")
 

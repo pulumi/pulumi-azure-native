@@ -62,6 +62,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
 
         public RequestHeaderMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new RequestHeaderMatchConditionParametersArgs Empty => new RequestHeaderMatchConditionParametersArgs();
     }

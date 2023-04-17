@@ -149,11 +149,11 @@ class ErrorDetailsResponse(dict):
     The details of the error.
     """
     def __init__(__self__, *,
-                 code: str,
+                 code: int,
                  message: str):
         """
         The details of the error.
-        :param str code: Error code.
+        :param int code: Error code.
         :param str message: Error message indicating why the operation failed.
         """
         pulumi.set(__self__, "code", code)
@@ -161,7 +161,7 @@ class ErrorDetailsResponse(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> str:
+    def code(self) -> int:
         """
         Error code.
         """

@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20200501Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory:GuestUsage"},
                     new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20210401:GuestUsage"},
+                    new global::Pulumi.Alias { Type = "azure-native:azureactivedirectory/v20230118preview:GuestUsage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

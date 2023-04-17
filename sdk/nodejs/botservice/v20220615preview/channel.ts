@@ -38,7 +38,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**

@@ -46,9 +46,9 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The ID, name and displayName of the parent management group.
+     * The ID of the parent management group.
      */
-    public /*out*/ readonly parent!: pulumi.Output<outputs.management.v20210401.ParentGroupBagInfoResponse | undefined>;
+    public /*out*/ readonly parent!: pulumi.Output<outputs.management.v20210401.DescendantParentGroupInfoResponse | undefined>;
     /**
      * The state of the subscription.
      */

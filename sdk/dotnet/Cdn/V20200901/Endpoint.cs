@@ -386,6 +386,9 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 
         public EndpointArgs()
         {
+            IsHttpAllowed = true;
+            IsHttpsAllowed = true;
+            QueryStringCachingBehavior = Pulumi.AzureNative.Cdn.V20200901.QueryStringCachingBehavior.NotSet;
         }
         public static new EndpointArgs Empty => new EndpointArgs();
     }

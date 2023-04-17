@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         /// </summary>
         public readonly string AllowedValues;
         /// <summary>
+        /// Current value of the configuration.
+        /// </summary>
+        public readonly string? CurrentValue;
+        /// <summary>
         /// Data type of the configuration.
         /// </summary>
         public readonly string DataType;
@@ -97,6 +101,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         /// Description of the configuration.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// The link used to get the document from community or Azure site.
+        /// </summary>
+        public readonly string DocumentationLink;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -138,11 +146,15 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         private GetConfigurationResult(
             string allowedValues,
 
+            string? currentValue,
+
             string dataType,
 
             string defaultValue,
 
             string description,
+
+            string documentationLink,
 
             string id,
 
@@ -163,9 +175,11 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
             string? value)
         {
             AllowedValues = allowedValues;
+            CurrentValue = currentValue;
             DataType = dataType;
             DefaultValue = defaultValue;
             Description = description;
+            DocumentationLink = documentationLink;
             Id = id;
             IsConfigPendingRestart = isConfigPendingRestart;
             IsDynamicConfig = isDynamicConfig;

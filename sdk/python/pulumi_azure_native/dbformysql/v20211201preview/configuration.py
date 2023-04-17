@@ -19,6 +19,7 @@ class ConfigurationArgs:
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
                  configuration_name: Optional[pulumi.Input[str]] = None,
+                 current_value: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union[str, 'ConfigurationSource']]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
@@ -26,6 +27,7 @@ class ConfigurationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] configuration_name: The name of the server configuration.
+        :param pulumi.Input[str] current_value: Current value of the configuration.
         :param pulumi.Input[Union[str, 'ConfigurationSource']] source: Source of the configuration.
         :param pulumi.Input[str] value: Value of the configuration.
         """
@@ -33,6 +35,8 @@ class ConfigurationArgs:
         pulumi.set(__self__, "server_name", server_name)
         if configuration_name is not None:
             pulumi.set(__self__, "configuration_name", configuration_name)
+        if current_value is not None:
+            pulumi.set(__self__, "current_value", current_value)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if value is not None:
@@ -75,6 +79,18 @@ class ConfigurationArgs:
         pulumi.set(self, "configuration_name", value)
 
     @property
+    @pulumi.getter(name="currentValue")
+    def current_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Current value of the configuration.
+        """
+        return pulumi.get(self, "current_value")
+
+    @current_value.setter
+    def current_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "current_value", value)
+
+    @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input[Union[str, 'ConfigurationSource']]]:
         """
@@ -105,6 +121,7 @@ class Configuration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
+                 current_value: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union[str, 'ConfigurationSource']]] = None,
@@ -116,6 +133,7 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the server configuration.
+        :param pulumi.Input[str] current_value: Current value of the configuration.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[Union[str, 'ConfigurationSource']] source: Source of the configuration.
@@ -146,6 +164,7 @@ class Configuration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
+                 current_value: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union[str, 'ConfigurationSource']]] = None,
@@ -160,6 +179,7 @@ class Configuration(pulumi.CustomResource):
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
             __props__.__dict__["configuration_name"] = configuration_name
+            __props__.__dict__["current_value"] = current_value
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -172,13 +192,14 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["data_type"] = None
             __props__.__dict__["default_value"] = None
             __props__.__dict__["description"] = None
+            __props__.__dict__["documentation_link"] = None
             __props__.__dict__["is_config_pending_restart"] = None
             __props__.__dict__["is_dynamic_config"] = None
             __props__.__dict__["is_read_only"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:Configuration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:Configuration"), pulumi.Alias(type_="azure-native:dbformysql/v20220101:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
             'azure-native:dbformysql/v20211201preview:Configuration',
@@ -203,9 +224,11 @@ class Configuration(pulumi.CustomResource):
         __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
         __props__.__dict__["allowed_values"] = None
+        __props__.__dict__["current_value"] = None
         __props__.__dict__["data_type"] = None
         __props__.__dict__["default_value"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["documentation_link"] = None
         __props__.__dict__["is_config_pending_restart"] = None
         __props__.__dict__["is_dynamic_config"] = None
         __props__.__dict__["is_read_only"] = None
@@ -223,6 +246,14 @@ class Configuration(pulumi.CustomResource):
         Allowed values of the configuration.
         """
         return pulumi.get(self, "allowed_values")
+
+    @property
+    @pulumi.getter(name="currentValue")
+    def current_value(self) -> pulumi.Output[Optional[str]]:
+        """
+        Current value of the configuration.
+        """
+        return pulumi.get(self, "current_value")
 
     @property
     @pulumi.getter(name="dataType")
@@ -247,6 +278,14 @@ class Configuration(pulumi.CustomResource):
         Description of the configuration.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="documentationLink")
+    def documentation_link(self) -> pulumi.Output[str]:
+        """
+        The link used to get the document from community or Azure site.
+        """
+        return pulumi.get(self, "documentation_link")
 
     @property
     @pulumi.getter(name="isConfigPendingRestart")

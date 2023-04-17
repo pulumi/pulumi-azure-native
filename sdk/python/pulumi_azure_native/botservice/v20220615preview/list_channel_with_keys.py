@@ -89,7 +89,7 @@ class ListChannelWithKeysResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        Entity Tag
+        Entity Tag.
         """
         return pulumi.get(self, "etag")
 

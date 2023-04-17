@@ -11,8 +11,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.resourcehealth.v20221001 as __v20221001
+    v20221001 = __v20221001
     import pulumi_azure_native.resourcehealth.v20221001preview as __v20221001preview
     v20221001preview = __v20221001preview
 else:
+    v20221001 = _utilities.lazy_import('pulumi_azure_native.resourcehealth.v20221001')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.resourcehealth.v20221001preview')
 

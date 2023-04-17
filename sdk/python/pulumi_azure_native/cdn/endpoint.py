@@ -77,8 +77,12 @@ class EndpointArgs:
             pulumi.set(__self__, "geo_filters", geo_filters)
         if is_compression_enabled is not None:
             pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
+        if is_http_allowed is None:
+            is_http_allowed = True
         if is_http_allowed is not None:
             pulumi.set(__self__, "is_http_allowed", is_http_allowed)
+        if is_https_allowed is None:
+            is_https_allowed = True
         if is_https_allowed is not None:
             pulumi.set(__self__, "is_https_allowed", is_https_allowed)
         if location is not None:
@@ -93,6 +97,8 @@ class EndpointArgs:
             pulumi.set(__self__, "origin_path", origin_path)
         if probe_path is not None:
             pulumi.set(__self__, "probe_path", probe_path)
+        if query_string_caching_behavior is None:
+            query_string_caching_behavior = 'NotSet'
         if query_string_caching_behavior is not None:
             pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
         if tags is not None:
@@ -471,7 +477,11 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["geo_filters"] = geo_filters
             __props__.__dict__["is_compression_enabled"] = is_compression_enabled
+            if is_http_allowed is None:
+                is_http_allowed = True
             __props__.__dict__["is_http_allowed"] = is_http_allowed
+            if is_https_allowed is None:
+                is_https_allowed = True
             __props__.__dict__["is_https_allowed"] = is_https_allowed
             __props__.__dict__["location"] = location
             __props__.__dict__["optimization_type"] = optimization_type
@@ -485,6 +495,8 @@ class Endpoint(pulumi.CustomResource):
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
+            if query_string_caching_behavior is None:
+                query_string_caching_behavior = 'NotSet'
             __props__.__dict__["query_string_caching_behavior"] = query_string_caching_behavior
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

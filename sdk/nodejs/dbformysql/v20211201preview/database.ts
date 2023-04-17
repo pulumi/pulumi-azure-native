@@ -91,7 +91,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-native:dbformysql/v20210501preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Database" }, { type: "azure-native:dbformysql/v20200701privatepreview:Database" }, { type: "azure-native:dbformysql/v20210501:Database" }, { type: "azure-native:dbformysql/v20210501preview:Database" }, { type: "azure-native:dbformysql/v20220101:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }

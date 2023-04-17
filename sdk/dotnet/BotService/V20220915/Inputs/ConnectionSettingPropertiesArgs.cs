@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.BotService.V20220915.Inputs
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
+        /// <summary>
+        /// Id of the Connection Setting.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Name of the Connection Setting.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
         [Input("parameters")]
         private InputList<Inputs.ConnectionSettingParameterArgs>? _parameters;
 

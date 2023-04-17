@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.BotService.V20220915
         /// </summary>
         public readonly string? EntityTag;
         /// <summary>
-        /// Entity Tag
+        /// Entity Tag.
         /// </summary>
         public readonly string? Etag;
         /// <summary>

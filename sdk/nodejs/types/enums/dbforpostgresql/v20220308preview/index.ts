@@ -73,11 +73,7 @@ export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 export const ReplicationRole = {
     None: "None",
     Primary: "Primary",
-    Secondary: "Secondary",
-    WalReplica: "WalReplica",
-    SyncReplica: "SyncReplica",
     AsyncReplica: "AsyncReplica",
-    GeoSyncReplica: "GeoSyncReplica",
     GeoAsyncReplica: "GeoAsyncReplica",
 } as const;
 

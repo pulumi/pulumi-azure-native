@@ -278,11 +278,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
 
         public static ReplicationRole None { get; } = new ReplicationRole("None");
         public static ReplicationRole Primary { get; } = new ReplicationRole("Primary");
-        public static ReplicationRole Secondary { get; } = new ReplicationRole("Secondary");
-        public static ReplicationRole WalReplica { get; } = new ReplicationRole("WalReplica");
-        public static ReplicationRole SyncReplica { get; } = new ReplicationRole("SyncReplica");
         public static ReplicationRole AsyncReplica { get; } = new ReplicationRole("AsyncReplica");
-        public static ReplicationRole GeoSyncReplica { get; } = new ReplicationRole("GeoSyncReplica");
         public static ReplicationRole GeoAsyncReplica { get; } = new ReplicationRole("GeoAsyncReplica");
 
         public static bool operator ==(ReplicationRole left, ReplicationRole right) => left.Equals(right);

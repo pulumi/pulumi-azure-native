@@ -719,6 +719,8 @@ class ConnectionSettingPropertiesArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
@@ -728,6 +730,8 @@ class ConnectionSettingPropertiesArgs:
         Properties for a Connection Setting Item
         :param pulumi.Input[str] client_id: Client Id associated with the Connection Setting.
         :param pulumi.Input[str] client_secret: Client Secret associated with the Connection Setting
+        :param pulumi.Input[str] id: Id of the Connection Setting.
+        :param pulumi.Input[str] name: Name of the Connection Setting.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionSettingParameterArgs']]] parameters: Service Provider Parameters associated with the Connection Setting
         :param pulumi.Input[str] provisioning_state: Provisioning state of the resource
         :param pulumi.Input[str] scopes: Scopes associated with the Connection Setting
@@ -738,6 +742,10 @@ class ConnectionSettingPropertiesArgs:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if provisioning_state is not None:
@@ -774,6 +782,30 @@ class ConnectionSettingPropertiesArgs:
     @client_secret.setter
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the Connection Setting.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Connection Setting.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter

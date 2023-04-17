@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20220401preview from "./v20220401preview";
+import * as v20221011preview from "./v20221011preview";
 
 export {
     v20220401preview,
+    v20221011preview,
 };
 
 export const ManifestType = {

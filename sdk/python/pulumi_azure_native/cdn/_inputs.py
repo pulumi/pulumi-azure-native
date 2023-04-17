@@ -320,6 +320,8 @@ class CookiesMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if selector is not None:
@@ -1993,6 +1995,8 @@ class HttpVersionMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
 
@@ -2061,6 +2065,8 @@ class IsDeviceMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -2771,6 +2777,8 @@ class PostArgsMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if selector is not None:
@@ -2867,6 +2875,8 @@ class QueryStringMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -3087,6 +3097,8 @@ class RemoteAddressMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -3169,6 +3181,8 @@ class RequestBodyMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -3253,6 +3267,8 @@ class RequestHeaderMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if selector is not None:
@@ -3347,6 +3363,8 @@ class RequestMethodMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
 
@@ -3413,6 +3431,8 @@ class RequestSchemeMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
 
@@ -3481,6 +3501,8 @@ class RequestUriMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -3852,6 +3874,8 @@ class UrlFileExtensionMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -3934,6 +3958,8 @@ class UrlFileNameMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:
@@ -4016,6 +4042,8 @@ class UrlPathMatchConditionParametersArgs:
         pulumi.set(__self__, "operator", operator)
         if match_values is not None:
             pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is None:
+            negate_condition = False
         if negate_condition is not None:
             pulumi.set(__self__, "negate_condition", negate_condition)
         if transforms is not None:

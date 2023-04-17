@@ -4224,6 +4224,8 @@ class EncryptionPreferencesResponse(dict):
         suggest = None
         if key == "doubleEncryption":
             suggest = "double_encryption"
+        elif key == "hardwareEncryption":
+            suggest = "hardware_encryption"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EncryptionPreferencesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4237,15 +4239,19 @@ class EncryptionPreferencesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 double_encryption: Optional[str] = None):
+                 double_encryption: Optional[str] = None,
+                 hardware_encryption: Optional[str] = None):
         """
         Preferences related to the Encryption.
         :param str double_encryption: Defines secondary layer of software-based encryption enablement.
+        :param str hardware_encryption: Defines Hardware level encryption (Only for disk)
         """
         if double_encryption is None:
             double_encryption = 'Disabled'
         if double_encryption is not None:
             pulumi.set(__self__, "double_encryption", double_encryption)
+        if hardware_encryption is not None:
+            pulumi.set(__self__, "hardware_encryption", hardware_encryption)
 
     @property
     @pulumi.getter(name="doubleEncryption")
@@ -4254,6 +4260,14 @@ class EncryptionPreferencesResponse(dict):
         Defines secondary layer of software-based encryption enablement.
         """
         return pulumi.get(self, "double_encryption")
+
+    @property
+    @pulumi.getter(name="hardwareEncryption")
+    def hardware_encryption(self) -> Optional[str]:
+        """
+        Defines Hardware level encryption (Only for disk)
+        """
+        return pulumi.get(self, "hardware_encryption")
 
 
 @pulumi.output_type
@@ -5424,12 +5438,16 @@ class ShippingAddressResponse(dict):
             suggest = "company_name"
         elif key == "postalCode":
             suggest = "postal_code"
+        elif key == "skipAddressValidation":
+            suggest = "skip_address_validation"
         elif key == "stateOrProvince":
             suggest = "state_or_province"
         elif key == "streetAddress2":
             suggest = "street_address2"
         elif key == "streetAddress3":
             suggest = "street_address3"
+        elif key == "taxIdentificationNumber":
+            suggest = "tax_identification_number"
         elif key == "zipExtendedCode":
             suggest = "zip_extended_code"
 
@@ -5451,9 +5469,11 @@ class ShippingAddressResponse(dict):
                  city: Optional[str] = None,
                  company_name: Optional[str] = None,
                  postal_code: Optional[str] = None,
+                 skip_address_validation: Optional[bool] = None,
                  state_or_province: Optional[str] = None,
                  street_address2: Optional[str] = None,
                  street_address3: Optional[str] = None,
+                 tax_identification_number: Optional[str] = None,
                  zip_extended_code: Optional[str] = None):
         """
         Shipping address where customer wishes to receive the device.
@@ -5463,9 +5483,11 @@ class ShippingAddressResponse(dict):
         :param str city: Name of the City.
         :param str company_name: Name of the company.
         :param str postal_code: Postal code.
+        :param bool skip_address_validation: Flag to indicate if customer has chosen to skip default address validation
         :param str state_or_province: Name of the State or Province.
         :param str street_address2: Street Address line 2.
         :param str street_address3: Street Address line 3.
+        :param str tax_identification_number: Tax Identification Number
         :param str zip_extended_code: Extended Zip Code.
         """
         pulumi.set(__self__, "country", country)
@@ -5480,12 +5502,16 @@ class ShippingAddressResponse(dict):
             pulumi.set(__self__, "company_name", company_name)
         if postal_code is not None:
             pulumi.set(__self__, "postal_code", postal_code)
+        if skip_address_validation is not None:
+            pulumi.set(__self__, "skip_address_validation", skip_address_validation)
         if state_or_province is not None:
             pulumi.set(__self__, "state_or_province", state_or_province)
         if street_address2 is not None:
             pulumi.set(__self__, "street_address2", street_address2)
         if street_address3 is not None:
             pulumi.set(__self__, "street_address3", street_address3)
+        if tax_identification_number is not None:
+            pulumi.set(__self__, "tax_identification_number", tax_identification_number)
         if zip_extended_code is not None:
             pulumi.set(__self__, "zip_extended_code", zip_extended_code)
 
@@ -5538,6 +5564,14 @@ class ShippingAddressResponse(dict):
         return pulumi.get(self, "postal_code")
 
     @property
+    @pulumi.getter(name="skipAddressValidation")
+    def skip_address_validation(self) -> Optional[bool]:
+        """
+        Flag to indicate if customer has chosen to skip default address validation
+        """
+        return pulumi.get(self, "skip_address_validation")
+
+    @property
     @pulumi.getter(name="stateOrProvince")
     def state_or_province(self) -> Optional[str]:
         """
@@ -5560,6 +5594,14 @@ class ShippingAddressResponse(dict):
         Street Address line 3.
         """
         return pulumi.get(self, "street_address3")
+
+    @property
+    @pulumi.getter(name="taxIdentificationNumber")
+    def tax_identification_number(self) -> Optional[str]:
+        """
+        Tax Identification Number
+        """
+        return pulumi.get(self, "tax_identification_number")
 
     @property
     @pulumi.getter(name="zipExtendedCode")

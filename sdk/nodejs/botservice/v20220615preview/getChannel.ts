@@ -40,7 +40,7 @@ export interface GetChannelArgs {
  */
 export interface GetChannelResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**

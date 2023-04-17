@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.DataBox.V20221201.Outputs
         /// Defines secondary layer of software-based encryption enablement.
         /// </summary>
         public readonly string? DoubleEncryption;
+        /// <summary>
+        /// Defines Hardware level encryption (Only for disk)
+        /// </summary>
+        public readonly string? HardwareEncryption;
 
         [OutputConstructor]
-        private EncryptionPreferencesResponse(string? doubleEncryption)
+        private EncryptionPreferencesResponse(
+            string? doubleEncryption,
+
+            string? hardwareEncryption)
         {
             DoubleEncryption = doubleEncryption;
+            HardwareEncryption = hardwareEncryption;
         }
     }
 }

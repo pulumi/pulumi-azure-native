@@ -82,7 +82,7 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20211015:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection" }, { type: "azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotDpsResourcePrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

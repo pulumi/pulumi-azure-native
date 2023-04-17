@@ -35,7 +35,7 @@ export interface GetBotArgs {
  */
 export interface GetBotResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**
@@ -70,6 +70,10 @@ export interface GetBotResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
+    /**
+     * Entity zones
+     */
+    readonly zones: string[];
 }
 /**
  * Returns a BotService specified by the parameters.

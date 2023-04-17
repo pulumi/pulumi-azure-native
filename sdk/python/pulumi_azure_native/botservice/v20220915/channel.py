@@ -272,7 +272,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        Entity Tag
+        Entity Tag.
         """
         return pulumi.get(self, "etag")
 

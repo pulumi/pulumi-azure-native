@@ -37,7 +37,7 @@ export interface GetProfileResult {
     /**
      * Key-Value pair representing additional properties for profiles.
      */
-    readonly extendedProperties?: {[key: string]: string};
+    readonly extendedProperties: {[key: string]: string};
     /**
      * The Id of the frontdoor.
      */

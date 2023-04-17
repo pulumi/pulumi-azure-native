@@ -48,7 +48,7 @@ export interface ListChannelWithKeysResult {
      */
     readonly entityTag?: string;
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**
@@ -95,6 +95,10 @@ export interface ListChannelWithKeysResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
+    /**
+     * Entity zones
+     */
+    readonly zones: string[];
 }
 /**
  * Lists a Channel registration for a Bot Service including secrets

@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
     public sealed class GetChannelResult
     {
         /// <summary>
-        /// Entity Tag
+        /// Entity Tag.
         /// </summary>
         public readonly string? Etag;
         /// <summary>

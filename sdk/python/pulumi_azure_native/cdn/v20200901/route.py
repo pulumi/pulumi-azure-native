@@ -62,10 +62,16 @@ class RouteArgs:
             pulumi.set(__self__, "custom_domains", custom_domains)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
+        if forwarding_protocol is None:
+            forwarding_protocol = 'MatchRequest'
         if forwarding_protocol is not None:
             pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+        if https_redirect is None:
+            https_redirect = 'Disabled'
         if https_redirect is not None:
             pulumi.set(__self__, "https_redirect", https_redirect)
+        if link_to_default_domain is None:
+            link_to_default_domain = 'Disabled'
         if link_to_default_domain is not None:
             pulumi.set(__self__, "link_to_default_domain", link_to_default_domain)
         if origin_path is not None:
@@ -373,8 +379,14 @@ class Route(pulumi.CustomResource):
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
+            if forwarding_protocol is None:
+                forwarding_protocol = 'MatchRequest'
             __props__.__dict__["forwarding_protocol"] = forwarding_protocol
+            if https_redirect is None:
+                https_redirect = 'Disabled'
             __props__.__dict__["https_redirect"] = https_redirect
+            if link_to_default_domain is None:
+                link_to_default_domain = 'Disabled'
             __props__.__dict__["link_to_default_domain"] = link_to_default_domain
             if origin_group is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_group'")

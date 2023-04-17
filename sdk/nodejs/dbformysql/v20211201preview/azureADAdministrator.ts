@@ -109,6 +109,8 @@ export class AzureADAdministrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20220101:AzureADAdministrator" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureADAdministrator.__pulumiType, name, resourceInputs, opts);
     }
 }

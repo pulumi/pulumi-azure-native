@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
 
         public QueryStringMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new QueryStringMatchConditionParametersArgs Empty => new QueryStringMatchConditionParametersArgs();
     }

@@ -1030,6 +1030,8 @@ class ConnectionSettingPropertiesResponse(dict):
                  setting_id: str,
                  client_id: Optional[str] = None,
                  client_secret: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
                  parameters: Optional[Sequence['outputs.ConnectionSettingParameterResponse']] = None,
                  provisioning_state: Optional[str] = None,
                  scopes: Optional[str] = None,
@@ -1040,6 +1042,8 @@ class ConnectionSettingPropertiesResponse(dict):
         :param str setting_id: Setting Id set by the service for the Connection Setting.
         :param str client_id: Client Id associated with the Connection Setting.
         :param str client_secret: Client Secret associated with the Connection Setting
+        :param str id: Id of the Connection Setting.
+        :param str name: Name of the Connection Setting.
         :param Sequence['ConnectionSettingParameterResponse'] parameters: Service Provider Parameters associated with the Connection Setting
         :param str provisioning_state: Provisioning state of the resource
         :param str scopes: Scopes associated with the Connection Setting
@@ -1051,6 +1055,10 @@ class ConnectionSettingPropertiesResponse(dict):
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if provisioning_state is not None:
@@ -1087,6 +1095,22 @@ class ConnectionSettingPropertiesResponse(dict):
         Client Secret associated with the Connection Setting
         """
         return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id of the Connection Setting.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the Connection Setting.
+        """
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter

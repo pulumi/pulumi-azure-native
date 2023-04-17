@@ -48,7 +48,7 @@ export interface ListChannelWithKeysResult {
      */
     readonly entityTag?: string;
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**

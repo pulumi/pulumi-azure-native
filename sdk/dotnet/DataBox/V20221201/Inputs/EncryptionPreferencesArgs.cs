@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DataBox.V20221201.Inputs
         [Input("doubleEncryption")]
         public InputUnion<string, Pulumi.AzureNative.DataBox.V20221201.DoubleEncryption>? DoubleEncryption { get; set; }
 
+        /// <summary>
+        /// Defines Hardware level encryption (Only for disk)
+        /// </summary>
+        [Input("hardwareEncryption")]
+        public InputUnion<string, Pulumi.AzureNative.DataBox.V20221201.HardwareEncryption>? HardwareEncryption { get; set; }
+
         public EncryptionPreferencesArgs()
         {
             DoubleEncryption = "Disabled";

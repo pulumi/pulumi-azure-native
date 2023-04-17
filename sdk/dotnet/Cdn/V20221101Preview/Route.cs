@@ -282,6 +282,9 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
 
         public RouteArgs()
         {
+            ForwardingProtocol = "MatchRequest";
+            HttpsRedirect = "Disabled";
+            LinkToDefaultDomain = "Disabled";
         }
         public static new RouteArgs Empty => new RouteArgs();
     }

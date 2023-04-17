@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.BotService.V20220615Preview
     public partial class Bot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Entity Tag
+        /// Entity Tag.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;

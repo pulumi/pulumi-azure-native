@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? DisableMetricsCollection { get; set; }
 
         /// <summary>
-        /// Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: integer (or Expression with resultType integer).
+        /// Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("expiryDateTime")]
         public Input<object>? ExpiryDateTime { get; set; }

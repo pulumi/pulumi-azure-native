@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
         /// Key-Value pair representing additional properties for profiles.
         /// </summary>
         [Output("extendedProperties")]
-        public Output<ImmutableDictionary<string, string>?> ExtendedProperties { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> ExtendedProperties { get; private set; } = null!;
 
         /// <summary>
         /// The Id of the frontdoor.
@@ -156,18 +156,6 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
 
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
-        [Input("extendedProperties")]
-        private InputMap<string>? _extendedProperties;
-
-        /// <summary>
-        /// Key-Value pair representing additional properties for profiles.
-        /// </summary>
-        public InputMap<string> ExtendedProperties
-        {
-            get => _extendedProperties ?? (_extendedProperties = new InputMap<string>());
-            set => _extendedProperties = value;
-        }
-
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities).
         /// </summary>

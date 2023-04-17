@@ -162,9 +162,9 @@ class ManagementGroupSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parent(self) -> pulumi.Output[Optional['outputs.ParentGroupBagInfoResponse']]:
+    def parent(self) -> pulumi.Output[Optional['outputs.DescendantParentGroupInfoResponse']]:
         """
-        The ID, name and displayName of the parent management group.
+        The ID of the parent management group.
         """
         return pulumi.get(self, "parent")
 

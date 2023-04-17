@@ -5794,7 +5794,7 @@ class AzureBlobFSReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -5809,7 +5809,7 @@ class AzureBlobFSReadSettingsResponse(dict):
                Expected value is 'AzureBlobFSReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -5870,9 +5870,9 @@ class AzureBlobFSReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -5989,7 +5989,7 @@ class AzureBlobFSSinkResponse(dict):
         A copy activity Azure Data Lake Storage Gen2 sink.
         :param str type: Copy sink type.
                Expected value is 'AzureBlobFSSink'.
-        :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any copy_behavior: The type of copy behavior for copy sink. Type: string (or Expression with resultType string).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
         :param Sequence['MetadataItemResponse'] metadata: Specify the custom metadata to be added to sink data. Type: array of objects (or Expression with resultType array of objects).
@@ -6029,7 +6029,7 @@ class AzureBlobFSSinkResponse(dict):
     @pulumi.getter(name="copyBehavior")
     def copy_behavior(self) -> Optional[Any]:
         """
-        The type of copy behavior for copy sink.
+        The type of copy behavior for copy sink. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "copy_behavior")
 
@@ -8443,7 +8443,7 @@ class AzureDataLakeStoreReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  list_after: Optional[Any] = None,
                  list_before: Optional[Any] = None,
@@ -8460,7 +8460,7 @@ class AzureDataLakeStoreReadSettingsResponse(dict):
                Expected value is 'AzureDataLakeStoreReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any list_after: Lists files after the value (exclusive) based on file/folder names’ lexicographical order. Applies under the folderPath in data set, and filter files/sub-folders under the folderPath. Type: string (or Expression with resultType string).
         :param Any list_before: Lists files before the value (inclusive) based on file/folder names’ lexicographical order. Applies under the folderPath in data set, and filter files/sub-folders under the folderPath. Type: string (or Expression with resultType string).
@@ -8527,9 +8527,9 @@ class AzureDataLakeStoreReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -8664,7 +8664,7 @@ class AzureDataLakeStoreSinkResponse(dict):
         A copy activity Azure Data Lake Store sink.
         :param str type: Copy sink type.
                Expected value is 'AzureDataLakeStoreSink'.
-        :param Any copy_behavior: The type of copy behavior for copy sink.
+        :param Any copy_behavior: The type of copy behavior for copy sink. Type: string (or Expression with resultType string).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any enable_adls_single_file_parallel: Single File Parallel.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the sink data store. Type: integer (or Expression with resultType integer).
@@ -8704,7 +8704,7 @@ class AzureDataLakeStoreSinkResponse(dict):
     @pulumi.getter(name="copyBehavior")
     def copy_behavior(self) -> Optional[Any]:
         """
-        The type of copy behavior for copy sink.
+        The type of copy behavior for copy sink. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "copy_behavior")
 
@@ -8912,7 +8912,7 @@ class AzureDataLakeStoreWriteSettingsResponse(dict):
                Expected value is 'AzureDataLakeStoreWriteSettings'.
         :param Any copy_behavior: The type of copy behavior for copy sink.
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param Any expiry_date_time: Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: integer (or Expression with resultType integer).
+        :param Any expiry_date_time: Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         pulumi.set(__self__, "type", 'AzureDataLakeStoreWriteSettings')
@@ -8954,7 +8954,7 @@ class AzureDataLakeStoreWriteSettingsResponse(dict):
     @pulumi.getter(name="expiryDateTime")
     def expiry_date_time(self) -> Optional[Any]:
         """
-        Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: integer (or Expression with resultType integer).
+        Specifies the expiry time of the written files. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". Default value is NULL. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "expiry_date_time")
 

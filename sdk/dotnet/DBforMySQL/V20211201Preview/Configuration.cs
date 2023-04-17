@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         public Output<string> AllowedValues { get; private set; } = null!;
 
         /// <summary>
+        /// Current value of the configuration.
+        /// </summary>
+        [Output("currentValue")]
+        public Output<string?> CurrentValue { get; private set; } = null!;
+
+        /// <summary>
         /// Data type of the configuration.
         /// </summary>
         [Output("dataType")]
@@ -38,6 +44,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The link used to get the document from community or Azure site.
+        /// </summary>
+        [Output("documentationLink")]
+        public Output<string> DocumentationLink { get; private set; } = null!;
 
         /// <summary>
         /// If is the configuration pending restart or not.
@@ -116,6 +128,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -144,6 +157,12 @@ namespace Pulumi.AzureNative.DBforMySQL.V20211201Preview
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
+
+        /// <summary>
+        /// Current value of the configuration.
+        /// </summary>
+        [Input("currentValue")]
+        public Input<string>? CurrentValue { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

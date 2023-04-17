@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview.Inputs
 
         public ClientPortMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new ClientPortMatchConditionParametersArgs Empty => new ClientPortMatchConditionParametersArgs();
     }

@@ -123,7 +123,7 @@ export class IotDpsResource extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devices:IotDpsResource" }, { type: "azure-native:devices/v20170821preview:IotDpsResource" }, { type: "azure-native:devices/v20171115:IotDpsResource" }, { type: "azure-native:devices/v20180122:IotDpsResource" }, { type: "azure-native:devices/v20200101:IotDpsResource" }, { type: "azure-native:devices/v20200301:IotDpsResource" }, { type: "azure-native:devices/v20200901preview:IotDpsResource" }, { type: "azure-native:devices/v20211015:IotDpsResource" }, { type: "azure-native:devices/v20220205:IotDpsResource" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices:IotDpsResource" }, { type: "azure-native:devices/v20170821preview:IotDpsResource" }, { type: "azure-native:devices/v20171115:IotDpsResource" }, { type: "azure-native:devices/v20180122:IotDpsResource" }, { type: "azure-native:devices/v20200101:IotDpsResource" }, { type: "azure-native:devices/v20200301:IotDpsResource" }, { type: "azure-native:devices/v20200901preview:IotDpsResource" }, { type: "azure-native:devices/v20211015:IotDpsResource" }, { type: "azure-native:devices/v20220205:IotDpsResource" }, { type: "azure-native:devices/v20230301preview:IotDpsResource" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotDpsResource.__pulumiType, name, resourceInputs, opts);
     }

@@ -40,7 +40,7 @@ export interface ListBotConnectionWithSecretsArgs {
  */
 export interface ListBotConnectionWithSecretsResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**
@@ -75,6 +75,10 @@ export interface ListBotConnectionWithSecretsResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
+    /**
+     * Entity zones
+     */
+    readonly zones: string[];
 }
 /**
  * Get a Connection Setting registration for a Bot Service

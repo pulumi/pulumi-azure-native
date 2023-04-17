@@ -205,6 +205,43 @@ namespace Pulumi.AzureNative.DataBox.V20221201
     }
 
     /// <summary>
+    /// Defines Hardware level encryption (Only for disk)
+    /// </summary>
+    [EnumType]
+    public readonly struct HardwareEncryption : IEquatable<HardwareEncryption>
+    {
+        private readonly string _value;
+
+        private HardwareEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Hardware-based encryption is enabled.
+        /// </summary>
+        public static HardwareEncryption Enabled { get; } = new HardwareEncryption("Enabled");
+        /// <summary>
+        /// Hardware-based encryption is enabled.
+        /// </summary>
+        public static HardwareEncryption Disabled { get; } = new HardwareEncryption("Disabled");
+
+        public static bool operator ==(HardwareEncryption left, HardwareEncryption right) => left.Equals(right);
+        public static bool operator !=(HardwareEncryption left, HardwareEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(HardwareEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HardwareEncryption other && Equals(other);
+        public bool Equals(HardwareEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Delivery type of Job.
     /// </summary>
     [EnumType]

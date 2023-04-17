@@ -11,14 +11,37 @@ from ... import _utilities
 from . import outputs
 
 __all__ = [
+    'DescendantParentGroupInfoResponse',
     'EntityInfoResponse',
     'EntityParentGroupInfoResponse',
     'ManagementGroupChildInfoResponse',
     'ManagementGroupDetailsResponse',
     'ManagementGroupPathElementResponse',
-    'ParentGroupBagInfoResponse',
     'ParentGroupInfoResponse',
 ]
+
+@pulumi.output_type
+class DescendantParentGroupInfoResponse(dict):
+    """
+    The ID of the parent management group.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The ID of the parent management group.
+        :param str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "id")
+
 
 @pulumi.output_type
 class EntityInfoResponse(dict):
@@ -443,70 +466,6 @@ class ManagementGroupPathElementResponse(dict):
     def name(self) -> Optional[str]:
         """
         The name of the group.
-        """
-        return pulumi.get(self, "name")
-
-
-@pulumi.output_type
-class ParentGroupBagInfoResponse(dict):
-    """
-    The ID, name and displayName of the parent management group.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "displayName":
-            suggest = "display_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ParentGroupBagInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ParentGroupBagInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ParentGroupBagInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 display_name: Optional[str] = None,
-                 id: Optional[str] = None,
-                 name: Optional[str] = None):
-        """
-        The ID, name and displayName of the parent management group.
-        :param str display_name: The friendly name of the parent management group.
-        :param str id: The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-        :param str name: The name of the parent management group. For example, 00000000-0000-0000-0000-000000000000
-        """
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        The friendly name of the parent management group.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the parent management group. For example, 00000000-0000-0000-0000-000000000000
         """
         return pulumi.get(self, "name")
 

@@ -180,6 +180,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 
         public RuleArgs()
         {
+            MatchProcessingBehavior = "Continue";
         }
         public static new RuleArgs Empty => new RuleArgs();
     }

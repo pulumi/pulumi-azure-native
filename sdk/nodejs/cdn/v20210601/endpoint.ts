@@ -164,8 +164,8 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["geoFilters"] = args ? args.geoFilters : undefined;
             resourceInputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
-            resourceInputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
-            resourceInputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
+            resourceInputs["isHttpAllowed"] = (args ? args.isHttpAllowed : undefined) ?? true;
+            resourceInputs["isHttpsAllowed"] = (args ? args.isHttpsAllowed : undefined) ?? true;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["optimizationType"] = args ? args.optimizationType : undefined;
             resourceInputs["originGroups"] = args ? args.originGroups : undefined;
@@ -174,7 +174,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["origins"] = args ? args.origins : undefined;
             resourceInputs["probePath"] = args ? args.probePath : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["queryStringCachingBehavior"] = args ? args.queryStringCachingBehavior : undefined;
+            resourceInputs["queryStringCachingBehavior"] = (args ? args.queryStringCachingBehavior : undefined) ?? "NotSet";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlSigningKeys"] = args ? args.urlSigningKeys : undefined;

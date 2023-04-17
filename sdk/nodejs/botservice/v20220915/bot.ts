@@ -38,7 +38,7 @@ export class Bot extends pulumi.CustomResource {
     }
 
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**

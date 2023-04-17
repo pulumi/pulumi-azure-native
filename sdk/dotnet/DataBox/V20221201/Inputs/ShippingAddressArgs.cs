@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataBox.V20221201.Inputs
         public Input<string>? PostalCode { get; set; }
 
         /// <summary>
+        /// Flag to indicate if customer has chosen to skip default address validation
+        /// </summary>
+        [Input("skipAddressValidation")]
+        public Input<bool>? SkipAddressValidation { get; set; }
+
+        /// <summary>
         /// Name of the State or Province.
         /// </summary>
         [Input("stateOrProvince")]
@@ -68,6 +74,12 @@ namespace Pulumi.AzureNative.DataBox.V20221201.Inputs
         /// </summary>
         [Input("streetAddress3")]
         public Input<string>? StreetAddress3 { get; set; }
+
+        /// <summary>
+        /// Tax Identification Number
+        /// </summary>
+        [Input("taxIdentificationNumber")]
+        public Input<string>? TaxIdentificationNumber { get; set; }
 
         /// <summary>
         /// Extended Zip Code.

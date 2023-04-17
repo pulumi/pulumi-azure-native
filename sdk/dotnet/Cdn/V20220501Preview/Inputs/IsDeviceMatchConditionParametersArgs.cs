@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview.Inputs
 
         public IsDeviceMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new IsDeviceMatchConditionParametersArgs Empty => new IsDeviceMatchConditionParametersArgs();
     }

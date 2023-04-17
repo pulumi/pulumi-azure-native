@@ -130,9 +130,9 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["customDomains"] = args ? args.customDomains : undefined;
             resourceInputs["enabledState"] = args ? args.enabledState : undefined;
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["forwardingProtocol"] = args ? args.forwardingProtocol : undefined;
-            resourceInputs["httpsRedirect"] = args ? args.httpsRedirect : undefined;
-            resourceInputs["linkToDefaultDomain"] = args ? args.linkToDefaultDomain : undefined;
+            resourceInputs["forwardingProtocol"] = (args ? args.forwardingProtocol : undefined) ?? "MatchRequest";
+            resourceInputs["httpsRedirect"] = (args ? args.httpsRedirect : undefined) ?? "Disabled";
+            resourceInputs["linkToDefaultDomain"] = (args ? args.linkToDefaultDomain : undefined) ?? "Disabled";
             resourceInputs["originGroup"] = args ? args.originGroup : undefined;
             resourceInputs["originPath"] = args ? args.originPath : undefined;
             resourceInputs["patternsToMatch"] = args ? args.patternsToMatch : undefined;

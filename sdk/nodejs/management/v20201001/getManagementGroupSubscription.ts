@@ -47,9 +47,9 @@ export interface GetManagementGroupSubscriptionResult {
      */
     readonly name: string;
     /**
-     * The ID, name and displayName of the parent management group.
+     * The ID of the parent management group.
      */
-    readonly parent?: outputs.management.v20201001.ParentGroupBagInfoResponse;
+    readonly parent?: outputs.management.v20201001.DescendantParentGroupInfoResponse;
     /**
      * The state of the subscription.
      */

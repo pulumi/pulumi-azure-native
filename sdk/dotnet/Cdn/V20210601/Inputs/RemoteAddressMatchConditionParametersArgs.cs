@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
 
         public RemoteAddressMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new RemoteAddressMatchConditionParametersArgs Empty => new RemoteAddressMatchConditionParametersArgs();
     }

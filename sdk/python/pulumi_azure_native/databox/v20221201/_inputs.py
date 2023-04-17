@@ -1149,15 +1149,19 @@ class DataImportDetailsArgs:
 @pulumi.input_type
 class EncryptionPreferencesArgs:
     def __init__(__self__, *,
-                 double_encryption: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]] = None):
+                 double_encryption: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]] = None,
+                 hardware_encryption: Optional[pulumi.Input[Union[str, 'HardwareEncryption']]] = None):
         """
         Preferences related to the Encryption.
         :param pulumi.Input[Union[str, 'DoubleEncryption']] double_encryption: Defines secondary layer of software-based encryption enablement.
+        :param pulumi.Input[Union[str, 'HardwareEncryption']] hardware_encryption: Defines Hardware level encryption (Only for disk)
         """
         if double_encryption is None:
             double_encryption = 'Disabled'
         if double_encryption is not None:
             pulumi.set(__self__, "double_encryption", double_encryption)
+        if hardware_encryption is not None:
+            pulumi.set(__self__, "hardware_encryption", hardware_encryption)
 
     @property
     @pulumi.getter(name="doubleEncryption")
@@ -1170,6 +1174,18 @@ class EncryptionPreferencesArgs:
     @double_encryption.setter
     def double_encryption(self, value: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]]):
         pulumi.set(self, "double_encryption", value)
+
+    @property
+    @pulumi.getter(name="hardwareEncryption")
+    def hardware_encryption(self) -> Optional[pulumi.Input[Union[str, 'HardwareEncryption']]]:
+        """
+        Defines Hardware level encryption (Only for disk)
+        """
+        return pulumi.get(self, "hardware_encryption")
+
+    @hardware_encryption.setter
+    def hardware_encryption(self, value: Optional[pulumi.Input[Union[str, 'HardwareEncryption']]]):
+        pulumi.set(self, "hardware_encryption", value)
 
 
 @pulumi.input_type
@@ -1748,9 +1764,11 @@ class ShippingAddressArgs:
                  city: Optional[pulumi.Input[str]] = None,
                  company_name: Optional[pulumi.Input[str]] = None,
                  postal_code: Optional[pulumi.Input[str]] = None,
+                 skip_address_validation: Optional[pulumi.Input[bool]] = None,
                  state_or_province: Optional[pulumi.Input[str]] = None,
                  street_address2: Optional[pulumi.Input[str]] = None,
                  street_address3: Optional[pulumi.Input[str]] = None,
+                 tax_identification_number: Optional[pulumi.Input[str]] = None,
                  zip_extended_code: Optional[pulumi.Input[str]] = None):
         """
         Shipping address where customer wishes to receive the device.
@@ -1760,9 +1778,11 @@ class ShippingAddressArgs:
         :param pulumi.Input[str] city: Name of the City.
         :param pulumi.Input[str] company_name: Name of the company.
         :param pulumi.Input[str] postal_code: Postal code.
+        :param pulumi.Input[bool] skip_address_validation: Flag to indicate if customer has chosen to skip default address validation
         :param pulumi.Input[str] state_or_province: Name of the State or Province.
         :param pulumi.Input[str] street_address2: Street Address line 2.
         :param pulumi.Input[str] street_address3: Street Address line 3.
+        :param pulumi.Input[str] tax_identification_number: Tax Identification Number
         :param pulumi.Input[str] zip_extended_code: Extended Zip Code.
         """
         pulumi.set(__self__, "country", country)
@@ -1777,12 +1797,16 @@ class ShippingAddressArgs:
             pulumi.set(__self__, "company_name", company_name)
         if postal_code is not None:
             pulumi.set(__self__, "postal_code", postal_code)
+        if skip_address_validation is not None:
+            pulumi.set(__self__, "skip_address_validation", skip_address_validation)
         if state_or_province is not None:
             pulumi.set(__self__, "state_or_province", state_or_province)
         if street_address2 is not None:
             pulumi.set(__self__, "street_address2", street_address2)
         if street_address3 is not None:
             pulumi.set(__self__, "street_address3", street_address3)
+        if tax_identification_number is not None:
+            pulumi.set(__self__, "tax_identification_number", tax_identification_number)
         if zip_extended_code is not None:
             pulumi.set(__self__, "zip_extended_code", zip_extended_code)
 
@@ -1859,6 +1883,18 @@ class ShippingAddressArgs:
         pulumi.set(self, "postal_code", value)
 
     @property
+    @pulumi.getter(name="skipAddressValidation")
+    def skip_address_validation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate if customer has chosen to skip default address validation
+        """
+        return pulumi.get(self, "skip_address_validation")
+
+    @skip_address_validation.setter
+    def skip_address_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_address_validation", value)
+
+    @property
     @pulumi.getter(name="stateOrProvince")
     def state_or_province(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1893,6 +1929,18 @@ class ShippingAddressArgs:
     @street_address3.setter
     def street_address3(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "street_address3", value)
+
+    @property
+    @pulumi.getter(name="taxIdentificationNumber")
+    def tax_identification_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tax Identification Number
+        """
+        return pulumi.get(self, "tax_identification_number")
+
+    @tax_identification_number.setter
+    def tax_identification_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tax_identification_number", value)
 
     @property
     @pulumi.getter(name="zipExtendedCode")

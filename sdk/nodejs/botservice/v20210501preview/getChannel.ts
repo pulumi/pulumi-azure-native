@@ -40,7 +40,7 @@ export interface GetChannelArgs {
  */
 export interface GetChannelResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**
@@ -75,6 +75,10 @@ export interface GetChannelResult {
      * Specifies the type of the resource.
      */
     readonly type: string;
+    /**
+     * Entity zones
+     */
+    readonly zones: string[];
 }
 /**
  * Returns a BotService Channel registration specified by the parameters.

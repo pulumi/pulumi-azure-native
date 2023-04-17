@@ -247,6 +247,8 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public AFDOriginArgs()
         {
             EnforceCertificateNameCheck = true;
+            HttpPort = 80;
+            HttpsPort = 443;
         }
         public static new AFDOriginArgs Empty => new AFDOriginArgs();
     }

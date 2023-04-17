@@ -10,6 +10,7 @@ __all__ = [
     'DataAccountType',
     'DoubleEncryption',
     'FilterFileType',
+    'HardwareEncryption',
     'JobDeliveryType',
     'KekType',
     'LogCollectionLevel',
@@ -101,6 +102,20 @@ class FilterFileType(str, Enum):
     AZURE_FILE = "AzureFile"
     """
     Filter file is of the type AzureFiles.
+    """
+
+
+class HardwareEncryption(str, Enum):
+    """
+    Defines Hardware level encryption (Only for disk)
+    """
+    ENABLED = "Enabled"
+    """
+    Hardware-based encryption is enabled.
+    """
+    DISABLED = "Disabled"
+    """
+    Hardware-based encryption is enabled.
     """
 
 

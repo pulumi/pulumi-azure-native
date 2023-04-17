@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.Devices.V20211015
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20200901preview:IotDpsResourcePrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -44,6 +44,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
 
         public HttpVersionMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new HttpVersionMatchConditionParametersArgs Empty => new HttpVersionMatchConditionParametersArgs();
     }

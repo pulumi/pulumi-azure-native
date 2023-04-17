@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview.Inputs
 
         public UrlPathMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new UrlPathMatchConditionParametersArgs Empty => new UrlPathMatchConditionParametersArgs();
     }

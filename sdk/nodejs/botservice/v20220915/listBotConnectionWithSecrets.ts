@@ -40,7 +40,7 @@ export interface ListBotConnectionWithSecretsArgs {
  */
 export interface ListBotConnectionWithSecretsResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**

@@ -62,6 +62,7 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview.Inputs
 
         public PostArgsMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new PostArgsMatchConditionParametersArgs Empty => new PostArgsMatchConditionParametersArgs();
     }

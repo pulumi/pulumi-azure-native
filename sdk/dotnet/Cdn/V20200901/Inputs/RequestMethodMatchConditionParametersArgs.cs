@@ -44,6 +44,7 @@ namespace Pulumi.AzureNative.Cdn.V20200901.Inputs
 
         public RequestMethodMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new RequestMethodMatchConditionParametersArgs Empty => new RequestMethodMatchConditionParametersArgs();
     }

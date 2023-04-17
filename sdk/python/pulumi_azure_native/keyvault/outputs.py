@@ -603,12 +603,12 @@ class ManagedHsmPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state.
         :param str scheduled_purge_date: The scheduled purge date in UTC.
         :param str status_message: Resource Status Message.
-        :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
-        :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        :param bool enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.
+        :param bool enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.
         :param Sequence[str] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
         :param 'MHSMNetworkRuleSetResponse' network_acls: Rules governing the accessibility of the key vault from specific network locations.
-        :param str public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-        :param int soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
+        :param str public_network_access: Control permission to the managed HSM from public networks.
+        :param int soft_delete_retention_in_days: Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         :param str tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
         """
         pulumi.set(__self__, "hsm_uri", hsm_uri)
@@ -628,6 +628,8 @@ class ManagedHsmPropertiesResponse(dict):
             pulumi.set(__self__, "initial_admin_object_ids", initial_admin_object_ids)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if soft_delete_retention_in_days is None:
@@ -681,7 +683,7 @@ class ManagedHsmPropertiesResponse(dict):
     @pulumi.getter(name="enablePurgeProtection")
     def enable_purge_protection(self) -> Optional[bool]:
         """
-        Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
+        Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.
         """
         return pulumi.get(self, "enable_purge_protection")
 
@@ -689,7 +691,7 @@ class ManagedHsmPropertiesResponse(dict):
     @pulumi.getter(name="enableSoftDelete")
     def enable_soft_delete(self) -> Optional[bool]:
         """
-        Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
+        Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.
         """
         return pulumi.get(self, "enable_soft_delete")
 
@@ -713,7 +715,7 @@ class ManagedHsmPropertiesResponse(dict):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[str]:
         """
-        Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        Control permission to the managed HSM from public networks.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -721,7 +723,7 @@ class ManagedHsmPropertiesResponse(dict):
     @pulumi.getter(name="softDeleteRetentionInDays")
     def soft_delete_retention_in_days(self) -> Optional[int]:
         """
-        softDelete data retention days. It accepts >=7 and <=90.
+        Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         """
         return pulumi.get(self, "soft_delete_retention_in_days")
 

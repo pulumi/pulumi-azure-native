@@ -38,7 +38,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
@@ -69,6 +69,10 @@ export class Channel extends pulumi.CustomResource {
      * Specifies the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Entity zones
+     */
+    public /*out*/ readonly zones!: pulumi.Output<string[]>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -98,6 +102,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -107,6 +112,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:botservice:Channel" }, { type: "azure-native:botservice/v20171201:Channel" }, { type: "azure-native:botservice/v20180712:Channel" }, { type: "azure-native:botservice/v20200602:Channel" }, { type: "azure-native:botservice/v20210301:Channel" }, { type: "azure-native:botservice/v20220615preview:Channel" }, { type: "azure-native:botservice/v20220915:Channel" }] };

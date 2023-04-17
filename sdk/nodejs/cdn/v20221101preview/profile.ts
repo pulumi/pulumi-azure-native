@@ -40,7 +40,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Key-Value pair representing additional properties for profiles.
      */
-    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly extendedProperties!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Id of the frontdoor.
      */
@@ -107,7 +107,6 @@ export class Profile extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["originResponseTimeoutSeconds"] = args ? args.originResponseTimeoutSeconds : undefined;
@@ -115,6 +114,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["frontDoorId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -148,10 +148,6 @@ export class Profile extends pulumi.CustomResource {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
-    /**
-     * Key-Value pair representing additional properties for profiles.
-     */
-    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Managed service identity (system assigned and/or user assigned identities).
      */

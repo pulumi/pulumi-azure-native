@@ -40,7 +40,7 @@ export interface GetBotConnectionArgs {
  */
 export interface GetBotConnectionResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**

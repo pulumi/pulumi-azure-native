@@ -116,6 +116,7 @@ export type ManagedHsmSkuFamily = (typeof ManagedHsmSkuFamily)[keyof typeof Mana
 export const ManagedHsmSkuName = {
     Standard_B1: "Standard_B1",
     Custom_B32: "Custom_B32",
+    Custom_B6: "Custom_B6",
 } as const;
 
 /**
@@ -161,7 +162,7 @@ export const PublicNetworkAccess = {
 } as const;
 
 /**
- * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+ * Control permission to the managed HSM from public networks.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 

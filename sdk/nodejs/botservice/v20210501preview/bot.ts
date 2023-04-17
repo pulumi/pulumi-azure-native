@@ -38,7 +38,7 @@ export class Bot extends pulumi.CustomResource {
     }
 
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
@@ -69,6 +69,10 @@ export class Bot extends pulumi.CustomResource {
      * Specifies the type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * Entity zones
+     */
+    public /*out*/ readonly zones!: pulumi.Output<string[]>;
 
     /**
      * Create a Bot resource with the given unique name, arguments, and options.
@@ -94,6 +98,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -103,6 +108,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:botservice:Bot" }, { type: "azure-native:botservice/v20171201:Bot" }, { type: "azure-native:botservice/v20180712:Bot" }, { type: "azure-native:botservice/v20200602:Bot" }, { type: "azure-native:botservice/v20210301:Bot" }, { type: "azure-native:botservice/v20220615preview:Bot" }, { type: "azure-native:botservice/v20220915:Bot" }] };

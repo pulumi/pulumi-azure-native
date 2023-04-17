@@ -62,6 +62,7 @@ namespace Pulumi.AzureNative.Cdn.V20220501Preview.Inputs
 
         public CookiesMatchConditionParametersArgs()
         {
+            NegateCondition = false;
         }
         public static new CookiesMatchConditionParametersArgs Empty => new CookiesMatchConditionParametersArgs();
     }

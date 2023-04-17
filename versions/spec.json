@@ -1830,6 +1830,10 @@
     "2021-04-01": [
       "B2CTenant",
       "GuestUsage"
+    ],
+    "2023-01-18-preview": [
+      "B2CTenant",
+      "GuestUsage"
     ]
   },
   "AzureArcData": {
@@ -2599,6 +2603,11 @@
       "Capability",
       "Experiment",
       "Target"
+    ],
+    "2023-04-01-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
     ]
   },
   "CognitiveServices": {
@@ -3326,6 +3335,9 @@
       "ContainerGroup"
     ],
     "2023-02-01-preview": [
+      "ContainerGroup"
+    ],
+    "2023-05-01": [
       "ContainerGroup"
     ]
   },
@@ -4260,6 +4272,17 @@
       "FirewallRule",
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2022-01-01": [
+      "AzureADAdministrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2022-09-30-preview": [
+      "PrivateEndpointConnection"
     ]
   },
   "DBforPostgreSQL": {
@@ -5283,6 +5306,10 @@
     "2022-04-01-preview": [
       "Workflow",
       "getGitHubOAuth"
+    ],
+    "2022-10-11-preview": [
+      "Workflow",
+      "getGitHubOAuth"
     ]
   },
   "DevOps": {
@@ -5625,6 +5652,13 @@
       "listIotHubResourceKeysForKeyName"
     ],
     "2022-12-12": [
+      "DpsCertificate",
+      "IotDpsResource",
+      "IotDpsResourcePrivateEndpointConnection",
+      "listIotDpsResourceKeys",
+      "listIotDpsResourceKeysForKeyName"
+    ],
+    "2023-03-01-preview": [
       "DpsCertificate",
       "IotDpsResource",
       "IotDpsResourcePrivateEndpointConnection",
@@ -6350,6 +6384,33 @@
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
       "listMongoClusterConnectionStrings",
+      "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2023-03-15": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "DatabaseAccount",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
       "listNotebookWorkspaceConnectionInfo"
     ]
   },
@@ -13196,6 +13257,10 @@
   },
   "ResourceHealth": {
     "": [],
+    "2022-10-01": [
+      "listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId",
+      "listSecurityAdvisoryImpactedResourceByTenantIdAndEventId"
+    ],
     "2022-10-01-preview": [
       "listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId",
       "listSecurityAdvisoryImpactedResourceByTenantIdAndEventId"
@@ -13356,6 +13421,11 @@
     "2022-02-01": [
       "TemplateSpec",
       "TemplateSpecVersion"
+    ],
+    "2022-08-01-preview": [
+      "DeploymentStackAtManagementGroup",
+      "DeploymentStackAtResourceGroup",
+      "DeploymentStackAtSubscription"
     ],
     "2022-09-01": [
       "Deployment",
@@ -14004,6 +14074,40 @@
       "ThreatIntelligenceIndicator",
       "Watchlist",
       "WatchlistItem",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2023-04-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
       "getEntitiesGetTimeline",
       "getEntityInsights",
       "listSourceControlRepositories"

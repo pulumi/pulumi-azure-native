@@ -94,6 +94,22 @@ export const FilterFileType = {
  */
 export type FilterFileType = (typeof FilterFileType)[keyof typeof FilterFileType];
 
+export const HardwareEncryption = {
+    /**
+     * Hardware-based encryption is enabled.
+     */
+    Enabled: "Enabled",
+    /**
+     * Hardware-based encryption is enabled.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Defines Hardware level encryption (Only for disk)
+ */
+export type HardwareEncryption = (typeof HardwareEncryption)[keyof typeof HardwareEncryption];
+
 export const JobDeliveryType = {
     /**
      * Non Scheduled job.

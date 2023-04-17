@@ -19,7 +19,6 @@ class ProfileArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -29,7 +28,6 @@ class ProfileArgs:
         The set of arguments for constructing a Profile resource.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Key-Value pair representing additional properties for profiles.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
@@ -38,8 +36,6 @@ class ProfileArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        if extended_properties is not None:
-            pulumi.set(__self__, "extended_properties", extended_properties)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -74,18 +70,6 @@ class ProfileArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Key-Value pair representing additional properties for profiles.
-        """
-        return pulumi.get(self, "extended_properties")
-
-    @extended_properties.setter
-    def extended_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "extended_properties", value)
 
     @property
     @pulumi.getter
@@ -153,7 +137,6 @@ class Profile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -167,7 +150,6 @@ class Profile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Key-Value pair representing additional properties for profiles.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
@@ -200,7 +182,6 @@ class Profile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  origin_response_timeout_seconds: Optional[pulumi.Input[int]] = None,
@@ -217,7 +198,6 @@ class Profile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProfileArgs.__new__(ProfileArgs)
 
-            __props__.__dict__["extended_properties"] = extended_properties
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["origin_response_timeout_seconds"] = origin_response_timeout_seconds
@@ -229,6 +209,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["extended_properties"] = None
             __props__.__dict__["front_door_id"] = None
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
@@ -277,7 +258,7 @@ class Profile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendedProperties")
-    def extended_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    def extended_properties(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Key-Value pair representing additional properties for profiles.
         """
