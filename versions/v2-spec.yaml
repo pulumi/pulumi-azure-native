@@ -177,6 +177,7 @@ DBforMariaDB:
 DBforMySQL:
     tracking: "2021-05-01"
     additions:
+        AzureADAdministrator: "2022-01-01"
         PrivateEndpointConnection: "2018-06-01"
         ServerAdministrator: "2017-12-01"
         ServerKey: "2020-01-01"
