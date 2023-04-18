@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// If set to true, it sets the pipeline run return value.
+        /// </summary>
+        public readonly bool? SetSystemVariable;
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'SetVariable'.
         /// </summary>
@@ -38,7 +42,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
         /// <summary>
-        /// Value to be set. Could be a static value or Expression
+        /// Value to be set. Could be a static value or Expression.
         /// </summary>
         public readonly object? Value;
         /// <summary>
@@ -54,6 +58,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            bool? setSystemVariable,
+
             string type,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             DependsOn = dependsOn;
             Description = description;
             Name = name;
+            SetSystemVariable = setSystemVariable;
             Type = type;
             UserProperties = userProperties;
             Value = value;

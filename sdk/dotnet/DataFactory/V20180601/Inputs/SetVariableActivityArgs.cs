@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// If set to true, it sets the pipeline run return value.
+        /// </summary>
+        [Input("setSystemVariable")]
+        public Input<bool>? SetSystemVariable { get; set; }
+
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'SetVariable'.
         /// </summary>
@@ -59,7 +65,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         }
 
         /// <summary>
-        /// Value to be set. Could be a static value or Expression
+        /// Value to be set. Could be a static value or Expression.
         /// </summary>
         [Input("value")]
         public Input<object>? Value { get; set; }

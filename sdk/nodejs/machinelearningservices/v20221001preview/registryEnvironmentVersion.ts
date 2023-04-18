@@ -92,7 +92,7 @@ export class RegistryEnvironmentVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221201preview:RegistryEnvironmentVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryEnvironmentVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryEnvironmentVersion.__pulumiType, name, resourceInputs, opts);
     }

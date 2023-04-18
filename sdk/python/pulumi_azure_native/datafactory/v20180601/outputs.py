@@ -66066,6 +66066,8 @@ class SetVariableActivityResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "setSystemVariable":
+            suggest = "set_system_variable"
         elif key == "userProperties":
             suggest = "user_properties"
         elif key == "variableName":
@@ -66087,6 +66089,7 @@ class SetVariableActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 set_system_variable: Optional[bool] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  value: Optional[Any] = None,
                  variable_name: Optional[str] = None):
@@ -66097,8 +66100,9 @@ class SetVariableActivityResponse(dict):
                Expected value is 'SetVariable'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param bool set_system_variable: If set to true, it sets the pipeline run return value.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
-        :param Any value: Value to be set. Could be a static value or Expression
+        :param Any value: Value to be set. Could be a static value or Expression.
         :param str variable_name: Name of the variable whose value needs to be set.
         """
         pulumi.set(__self__, "name", name)
@@ -66107,6 +66111,8 @@ class SetVariableActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if set_system_variable is not None:
+            pulumi.set(__self__, "set_system_variable", set_system_variable)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
         if value is not None:
@@ -66148,6 +66154,14 @@ class SetVariableActivityResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="setSystemVariable")
+    def set_system_variable(self) -> Optional[bool]:
+        """
+        If set to true, it sets the pipeline run return value.
+        """
+        return pulumi.get(self, "set_system_variable")
+
+    @property
     @pulumi.getter(name="userProperties")
     def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
         """
@@ -66159,7 +66173,7 @@ class SetVariableActivityResponse(dict):
     @pulumi.getter
     def value(self) -> Optional[Any]:
         """
-        Value to be set. Could be a static value or Expression
+        Value to be set. Could be a static value or Expression.
         """
         return pulumi.get(self, "value")
 
