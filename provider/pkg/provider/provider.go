@@ -1060,6 +1060,13 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		inputs = resource.NewPropertyMapFromMap(inputMap)
 	} else {
 		// It's hard to infer the changes in the inputs shape based on the outputs without false positives.
+		// We can't read inputs directly, so we calculate an approximation based on old inputs,
+		// old outputs, and new outputs. Inputs are usually a subset of outputs, but the complication
+		// is that a lot of outputs are default values assigned on the service side, and we don't
+		// want to copy all of them to inputs to avoid noisy diffs.
+		// Instead, we compare old outputs to new outputs, and if properties changed, we assume they
+		// aren't default values anymore, and we need to copy them to new inputs.
+
 		// The current approach is complicated but it's aimed to minimize the noise while refreshing:
 		// 0. We have "old" inputs and outputs before refresh and "new" outputs read from Azure.
 		// 1. Project old outputs to their corresponding input shape (exclude read-only properties).
