@@ -21,7 +21,8 @@
   "Addons": [],
   "Advisor": [
     "2022-09-01",
-    "2022-10-01"
+    "2022-10-01",
+    "2023-01-01"
   ],
   "AgFoodPlatform": [
     "2021-09-01-preview"
@@ -574,7 +575,9 @@
   ],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
-  "Easm": [],
+  "Easm": [
+    "2023-04-01-preview"
+  ],
   "EdgeOrder": [
     "2022-05-01-preview"
   ],
@@ -822,6 +825,7 @@
     "2022-10-01-preview",
     "2022-12-01-preview",
     "2023-02-01-preview",
+    "2023-04-01",
     "2023-04-01-preview"
   ],
   "Maintenance": [
@@ -897,7 +901,9 @@
   "MobileNetwork": [
     "2022-11-01"
   ],
-  "Monitor": [],
+  "Monitor": [
+    "2023-04-03"
+  ],
   "NetApp": [
     "2021-02-01",
     "2021-04-01",

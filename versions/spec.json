@@ -180,6 +180,9 @@
     ],
     "2022-10-01": [
       "Suppression"
+    ],
+    "2023-01-01": [
+      "Suppression"
     ]
   },
   "AgFoodPlatform": {
@@ -6529,6 +6532,10 @@
     "2022-04-01-preview": [
       "LabelByWorkspace",
       "Workspace"
+    ],
+    "2023-04-01-preview": [
+      "LabelByWorkspace",
+      "Workspace"
     ]
   },
   "EdgeOrder": {
@@ -8694,6 +8701,51 @@
       "listWorkspaceNotebookKeys",
       "listWorkspaceStorageAccountKeys"
     ],
+    "2023-04-01": [
+      "BatchDeployment",
+      "BatchEndpoint",
+      "CodeContainer",
+      "CodeVersion",
+      "ComponentContainer",
+      "ComponentVersion",
+      "Compute",
+      "DataContainer",
+      "DataVersion",
+      "Datastore",
+      "EnvironmentContainer",
+      "EnvironmentVersion",
+      "Job",
+      "ModelContainer",
+      "ModelVersion",
+      "OnlineDeployment",
+      "OnlineEndpoint",
+      "PrivateEndpointConnection",
+      "Registry",
+      "RegistryCodeContainer",
+      "RegistryCodeVersion",
+      "RegistryComponentContainer",
+      "RegistryComponentVersion",
+      "RegistryDataContainer",
+      "RegistryDataVersion",
+      "RegistryEnvironmentContainer",
+      "RegistryEnvironmentVersion",
+      "RegistryModelContainer",
+      "RegistryModelVersion",
+      "Schedule",
+      "Workspace",
+      "WorkspaceConnection",
+      "getOnlineDeploymentLogs",
+      "getOnlineEndpointToken",
+      "listBatchEndpointKeys",
+      "listComputeKeys",
+      "listComputeNodes",
+      "listDatastoreSecrets",
+      "listOnlineEndpointKeys",
+      "listWorkspaceKeys",
+      "listWorkspaceNotebookAccessToken",
+      "listWorkspaceNotebookKeys",
+      "listWorkspaceStorageAccountKeys"
+    ],
     "2023-04-01-preview": [
       "BatchDeployment",
       "BatchEndpoint",
@@ -9318,6 +9370,9 @@
   },
   "Monitor": {
     "2021-06-03-preview": [
+      "AzureMonitorWorkspace"
+    ],
+    "2023-04-03": [
       "AzureMonitorWorkspace"
     ]
   },

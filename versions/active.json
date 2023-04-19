@@ -4280,6 +4280,14 @@
       "2022-11-01-beta"
     ]
   },
+  "carbon": {
+    "": [
+      "2023-04-01-preview"
+    ],
+    "carbonemissionreports": [
+      "2023-04-01-preview"
+    ]
+  },
   "cdn": {
     "": [
       "2015-06-01",
