@@ -42,12 +42,10 @@ func GenerateVersionMetadata(rootDir string, majorVersion MajorVersion, provider
 func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionSources, providers map[string]map[string]openapi.VersionResources) (VersionMetadata, error) {
 	// map[LoweredProviderName]map[ResourcePath]ApiVersions
 	activePathVersions := versionSources.activePathVersions
+	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
 	// provider->version->[]resource
 	specVersions := FindSpecVersions(providers)
-	// provider->resource->[]version
-	specResourceVersions := FormatResourceVersions(specVersions)
-	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
 	// ProviderName->ProviderSpec (tracking + additions)
 	v1Spec := versionSources.v1Spec
@@ -59,28 +57,32 @@ func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionS
 	deprecated := FindDeprecations(specVersions, v1Lock)
 	specAfterRemovals := RemoveDeprecations(specVersions, deprecated)
 
-	specAfterSqueezing := specAfterRemovals
-	if majorVersion == V2 {
-		specAfterSqueezing = SqueezeSpec(specAfterRemovals, versionSources.v1Squeeze)
-	}
-
 	v2Spec := versionSources.v2Spec
 
 	v2Config := versionSources.v2Config
-	v2Spec = BuildDefaultConfig(specAfterSqueezing, v2Config, v2Spec)
+	v2Spec = BuildDefaultConfig(specAfterRemovals, v2Config, v2Spec)
 
 	violations := ValidateDefaultConfig(v2Spec, v2Config)
 	PrintViolationsAsWarnings(versionSources.v2ConfigPath, violations)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
-	v2Lock, err := DefaultConfigToDefaultVersionLock(specAfterSqueezing, v2Spec)
+
+	v2Lock, err := DefaultConfigToDefaultVersionLock(specAfterRemovals, v2Spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
 
+	specAfterSqueezing := specVersions
+	if majorVersion == V2 {
+		specAfterSqueezing = SqueezeSpec(specVersions, versionSources.v1Squeeze)
+	}
+
+	// provider->resource->[]version
+	specResourceVersions := FormatResourceVersions(specVersions)
+
 	return VersionMetadata{
-		Spec:          specVersions,
+		Spec:          specAfterSqueezing,
 		SpecResources: specResourceVersions,
 		V1Lock:        v1Lock,
 		Deprecated:    deprecated,
