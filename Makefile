@@ -151,7 +151,7 @@ test: build install_sdks
 
 .PHONY: schema_squeeze
 schema_squeeze: bin/schema-tools bin/schema-full.json
-	./bin/schema-tools squeeze -s bin/schema-full.json --out bin/v1-squeeze.json
+	./bin/schema-tools squeeze -s bin/schema-full.json --out versions/v1-squeeze.json
 
 .PHONY: explode_schema_v2
 explode_schema_v2: bin/v2/schema-full.json

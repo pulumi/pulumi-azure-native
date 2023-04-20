@@ -116,7 +116,7 @@ func DefaultConfigToDefaultVersionLock(spec SpecVersions, defaultConfig DefaultC
 	defaultVersionLock := openapi.DefaultVersionLock{}
 	for providerName, versionResources := range spec {
 		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
-		providerSpec, ok := defaultConfig[providerName]
+		providerConfig, ok := defaultConfig[providerName]
 		if !ok {
 			if len(versionResources) > 0 {
 				var versions []string
@@ -132,13 +132,13 @@ func DefaultConfigToDefaultVersionLock(spec SpecVersions, defaultConfig DefaultC
 			}
 		}
 
-		if providerSpec.Tracking != nil {
-			for _, resourceName := range versionResources[*providerSpec.Tracking] {
-				definitions[resourceName] = *providerSpec.Tracking
+		if providerConfig.Tracking != nil {
+			for _, resourceName := range versionResources[*providerConfig.Tracking] {
+				definitions[resourceName] = *providerConfig.Tracking
 			}
 		}
-		if providerSpec.Additions != nil {
-			for resourceName, apiVersion := range *providerSpec.Additions {
+		if providerConfig.Additions != nil {
+			for resourceName, apiVersion := range *providerConfig.Additions {
 				if existingVersion, ok := definitions[resourceName]; ok {
 					err = multierror.Append(err, fmt.Errorf("duplicate resource %s:%s from %s and %s", providerName, resourceName, apiVersion, existingVersion))
 				} else {
