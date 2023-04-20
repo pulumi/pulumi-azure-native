@@ -14,14 +14,14 @@ import (
 )
 
 type VersionMetadata struct {
-	Spec          SpecVersions
-	SpecResources ProviderResourceVersions
-	V1Lock        openapi.DefaultVersionLock
-	Deprecated    openapi.ProviderVersionList
-	Active        providerlist.ProviderPathVersionsJson
-	Pending       openapi.ProviderVersionList
-	V2Spec        DefaultConfig
-	V2Lock        openapi.DefaultVersionLock
+	AllResourcesByVersion         ProvidersVersionResources
+	AllResourceVersionsByResource ProviderResourceVersions
+	V1Lock                        openapi.DefaultVersionLock
+	Deprecated                    openapi.ProviderVersionList
+	Active                        providerlist.ProviderPathVersionsJson
+	Pending                       openapi.ProviderVersionList
+	V2Spec                        Spec
+	V2Lock                        openapi.DefaultVersionLock
 }
 
 type MajorVersion int
@@ -45,22 +45,22 @@ func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionS
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
 	// provider->version->[]resource
-	specVersions := FindSpecVersions(providers)
+	allResourcesByVersion := FindAllResources(providers)
 
 	// ProviderName->ProviderSpec (tracking + additions)
 	v1Spec := versionSources.v1Spec
-	v1Lock, err := DefaultConfigToDefaultVersionLock(specVersions, v1Spec)
+	v1Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersion, v1Spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
 
-	deprecated := FindDeprecations(specVersions, v1Lock)
-	specAfterRemovals := RemoveDeprecations(specVersions, deprecated)
+	deprecated := FindDeprecations(allResourcesByVersion, v1Lock)
+	allResourcesByVersionWithoutDeprecations := RemoveDeprecations(allResourcesByVersion, deprecated)
 
 	v2Spec := versionSources.v2Spec
 
 	v2Config := versionSources.v2Config
-	v2Spec = BuildDefaultConfig(specAfterRemovals, v2Config, v2Spec)
+	v2Spec = BuildSpec(allResourcesByVersionWithoutDeprecations, v2Config, v2Spec)
 
 	violations := ValidateDefaultConfig(v2Spec, v2Config)
 	PrintViolationsAsWarnings(versionSources.v2ConfigPath, violations)
@@ -68,48 +68,48 @@ func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionS
 		return VersionMetadata{}, err
 	}
 
-	v2Lock, err := DefaultConfigToDefaultVersionLock(specAfterRemovals, v2Spec)
+	squeezedResources := allResourcesByVersionWithoutDeprecations
+	if majorVersion == V2 {
+		squeezedResources = SqueezeSpec(allResourcesByVersionWithoutDeprecations, versionSources.v1Squeeze)
+	}
+
+	v2Lock, err := DefaultConfigToDefaultVersionLock(squeezedResources, v2Spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}
 
-	specAfterSqueezing := specVersions
-	if majorVersion == V2 {
-		specAfterSqueezing = SqueezeSpec(specVersions, versionSources.v1Squeeze)
-	}
-
 	// provider->resource->[]version
-	specResourceVersions := FormatResourceVersions(specVersions)
+	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
 	return VersionMetadata{
-		Spec:          specAfterSqueezing,
-		SpecResources: specResourceVersions,
-		V1Lock:        v1Lock,
-		Deprecated:    deprecated,
-		Active:        activePathVersionsJson,
-		Pending:       FindNewerVersions(specVersions, v1Lock),
-		V2Spec:        v2Spec,
-		V2Lock:        v2Lock,
+		AllResourcesByVersion:         allResourcesByVersion,
+		AllResourceVersionsByResource: allResourceVersionsByResource,
+		V1Lock:                        v1Lock,
+		Deprecated:                    deprecated,
+		Active:                        activePathVersionsJson,
+		Pending:                       FindNewerVersions(allResourcesByVersion, v1Lock),
+		V2Spec:                        v2Spec,
+		V2Lock:                        v2Lock,
 	}, nil
 }
 
 func (v VersionMetadata) WriteTo(outputDir string) error {
 	return gen.EmitFiles(outputDir, gen.FileMap{
-		"spec.json":           v.Spec,
-		"spec-resources.json": v.SpecResources,
-		"v1-lock.json":        v.V1Lock,
-		"deprecated.json":     v.Deprecated,
-		"active.json":         v.Active,
-		"pending.json":        v.Pending,
-		"v2-spec.yaml":        v.V2Spec,
-		"v2-lock.json":        v.V2Lock,
+		"allResourcesByVersion.json":         v.AllResourcesByVersion,
+		"allResourceVersionsByResource.json": v.AllResourceVersionsByResource,
+		"v1-lock.json":                       v.V1Lock,
+		"deprecated.json":                    v.Deprecated,
+		"active.json":                        v.Active,
+		"pending.json":                       v.Pending,
+		"v2-spec.yaml":                       v.V2Spec,
+		"v2-lock.json":                       v.V2Lock,
 	})
 }
 
 type VersionSources struct {
 	activePathVersions providerlist.ProviderPathVersions
-	v1Spec             DefaultConfig
-	v2Spec             DefaultConfig
+	v1Spec             Spec
+	v2Spec             Spec
 	v2Config           Curations
 	v2ConfigPath       string
 	v1Squeeze          Squeeze
@@ -121,12 +121,12 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 		return VersionSources{}, err
 	}
 
-	v1Spec, err := ReadDefaultConfig(path.Join(rootDir, "versions", "v1-spec.yaml"))
+	v1Spec, err := ReadSpec(path.Join(rootDir, "versions", "v1-spec.yaml"))
 	if err != nil {
 		return VersionSources{}, err
 	}
 
-	v2Spec, err := ReadDefaultConfig(path.Join(rootDir, "versions", "v2-spec.yaml"))
+	v2Spec, err := ReadSpec(path.Join(rootDir, "versions", "v2-spec.yaml"))
 	if err != nil {
 		return VersionSources{}, err
 	}

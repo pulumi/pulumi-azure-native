@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
-func FindDeprecations(specVersions SpecVersions, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
+func FindDeprecations(specVersions ProvidersVersionResources, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
 	deprecationCutoff := "2021-01-01"
 	olderVersions := findOlderVersions(specVersions, defaultVersion)
 	for name, versions := range olderVersions {
@@ -23,8 +23,8 @@ func FindDeprecations(specVersions SpecVersions, defaultVersion openapi.DefaultV
 	return olderVersions
 }
 
-func RemoveDeprecations(versions SpecVersions, deprecations openapi.ProviderVersionList) SpecVersions {
-	filteredSpec := SpecVersions{}
+func RemoveDeprecations(versions ProvidersVersionResources, deprecations openapi.ProviderVersionList) ProvidersVersionResources {
+	filteredSpec := ProvidersVersionResources{}
 	for providerName, versionResources := range versions {
 		filteredVersions := VersionResources{}
 		versionsToRemove := codegen.NewStringSet(deprecations[providerName]...)
@@ -39,12 +39,12 @@ func RemoveDeprecations(versions SpecVersions, deprecations openapi.ProviderVers
 	return filteredSpec
 }
 
-func SqueezeSpec(versions SpecVersions, squeeze Squeeze) SpecVersions {
+func SqueezeSpec(versions ProvidersVersionResources, squeeze Squeeze) ProvidersVersionResources {
 	if squeeze == nil {
 		return versions
 	}
 
-	filteredSpec := SpecVersions{}
+	filteredSpec := ProvidersVersionResources{}
 	for providerName, versionResources := range versions {
 		lowerProvider := strings.ToLower(providerName)
 		filteredVersionResources := VersionResources{}

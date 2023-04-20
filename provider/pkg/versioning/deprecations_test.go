@@ -7,7 +7,7 @@ import (
 )
 
 func TestSqueezeSimple(t *testing.T) {
-	specVersions := SpecVersions{
+	specVersions := ProvidersVersionResources{
 		"providerA": {
 			"versionA": []string{"resourceA", "resourceB"},
 			"versionB": []string{"resourceA", "resourceB"},
@@ -19,7 +19,7 @@ func TestSqueezeSimple(t *testing.T) {
 	}
 
 	filteredSpec := SqueezeSpec(specVersions, squeeze)
-	expected := SpecVersions{
+	expected := ProvidersVersionResources{
 		"providerA": {
 			"versionA": []string{"resourceB"},
 			"versionB": []string{"resourceA", "resourceB"},
