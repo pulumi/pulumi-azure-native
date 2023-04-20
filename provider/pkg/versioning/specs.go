@@ -11,6 +11,7 @@ import (
 
 type VersionResources = map[openapi.ApiVersion][]openapi.ResourceName
 
+// provider->version->[]resource, usually stored in spec.json
 type SpecVersions = map[openapi.ProviderName]VersionResources
 
 // ReadSpecVersions parses spec versions from a JSON file
