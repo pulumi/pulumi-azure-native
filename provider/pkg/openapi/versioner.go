@@ -3,7 +3,10 @@
 package openapi
 
 import (
+	"fmt"
 	"io"
+	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -103,4 +106,64 @@ func calculatePathVersions(versionMap ProviderVersions) map[string]codegen.Strin
 
 func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
 	return "v" + strings.ReplaceAll(apiVersion, "-", "")
+}
+
+type Squeeze map[string]string
+
+func (s Squeeze) canBeUpgraded(azureProvider, resource, version string) bool {
+	// construct fully qualified name like azure-native:aad/v20210301:DomainService
+	const fqnFmt = "azure-native:%s/%s:%s"
+	if !strings.HasPrefix(version, "v") {
+		version = ApiToSdkVersion(version)
+	}
+	fqn := fmt.Sprintf(fqnFmt, strings.ToLower(azureProvider), version, resource)
+
+	_, ok := s[fqn]
+	return ok
+}
+
+func SqueezeResources(providers AzureProviders, squeeze Squeeze) AzureProviders {
+	result := AzureProviders{}
+	squeezeCount := 0
+	for provider, versions := range providers {
+		newVersions := ProviderVersions{}
+		for version, resources := range versions {
+			filteredResources := VersionResources{
+				Resources: make(map[string]*ResourceSpec),
+				Invokes:   resources.Invokes,
+			}
+			for resourceName, resource := range resources.Resources {
+				if squeeze.canBeUpgraded(provider, resourceName, version) {
+					// log.Printf("Squeezing %s:%s from the spec", resourceName, version)
+					squeezeCount++
+					continue
+				}
+				filteredResources.Resources[resourceName] = resource
+			}
+			newVersions[version] = filteredResources
+		}
+		result[provider] = newVersions
+	}
+	log.Printf("Squeezed %d resources from the spec", squeezeCount)
+	return result
+}
+
+func ReadSqueeze(path string) (Squeeze, error) {
+	jsonFile, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer jsonFile.Close()
+
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		return nil, err
+	}
+
+	result := make(Squeeze)
+	err = json.Unmarshal(byteValue, &result)
+	if err != nil {
+		return nil, err
+	}
+	return result, nil
 }

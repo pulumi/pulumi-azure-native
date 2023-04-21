@@ -68,12 +68,7 @@ func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionS
 		return VersionMetadata{}, err
 	}
 
-	squeezedResources := allResourcesByVersionWithoutDeprecations
-	if majorVersion == V2 {
-		squeezedResources = SqueezeSpec(allResourcesByVersionWithoutDeprecations, versionSources.v1Squeeze)
-	}
-
-	v2Lock, err := DefaultConfigToDefaultVersionLock(squeezedResources, v2Spec)
+	v2Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersionWithoutDeprecations, v2Spec)
 	if err != nil {
 		return VersionMetadata{}, err
 	}

@@ -61,6 +61,52 @@ func TestFindingPathVersions(t *testing.T) {
 	assert.Equal(t, actual, expected)
 }
 
+func TestSqueezeSimple(t *testing.T) {
+	providers := AzureProviders{
+		"provider": {
+			"version1": {
+				Resources: map[ResourceName]*ResourceSpec{
+					"resourceA": nil,
+					"resourceB": nil,
+				},
+				Invokes: map[InvokeName]*ResourceSpec{},
+			},
+			"version2": {
+				Resources: map[ResourceName]*ResourceSpec{
+					"resourceA": nil,
+					"resourceB": nil,
+				},
+				Invokes: map[InvokeName]*ResourceSpec{},
+			},
+		},
+	}
+
+	squeeze := Squeeze{
+		"azure-native:provider/version1:resourceA": "azure-native:provider/version2:resourceA",
+	}
+
+	filteredSpec := SqueezeResources(providers, squeeze)
+
+	expected := AzureProviders{
+		"provider": {
+			"version1": {
+				Resources: map[ResourceName]*ResourceSpec{
+					"resourceB": nil,
+				},
+				Invokes: map[InvokeName]*ResourceSpec{},
+			},
+			"version2": {
+				Resources: map[ResourceName]*ResourceSpec{
+					"resourceA": nil,
+					"resourceB": nil,
+				},
+				Invokes: map[InvokeName]*ResourceSpec{},
+			},
+		},
+	}
+	assert.Equal(t, expected, filteredSpec)
+}
+
 func makeResource(path, description string) *ResourceSpec {
 	return &ResourceSpec{
 		Path: path,
