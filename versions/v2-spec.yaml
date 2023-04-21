@@ -379,6 +379,18 @@ MachineLearningExperimentation:
     tracking: 2017-05-01-preview
 MachineLearningServices:
     tracking: "2022-10-01"
+    additions:
+        Registry: "2023-04-01"
+        RegistryCodeContainer: "2023-04-01"
+        RegistryCodeVersion: "2023-04-01"
+        RegistryComponentContainer: "2023-04-01"
+        RegistryComponentVersion: "2023-04-01"
+        RegistryDataContainer: "2023-04-01"
+        RegistryDataVersion: "2023-04-01"
+        RegistryEnvironmentContainer: "2023-04-01"
+        RegistryEnvironmentVersion: "2023-04-01"
+        RegistryModelContainer: "2023-04-01"
+        RegistryModelVersion: "2023-04-01"
 Maintenance:
     tracking: 2022-11-01-preview
 ManagedIdentity:
@@ -686,6 +698,10 @@ SaaS:
     tracking: 2018-03-01-beta
 ScVmm:
     tracking: 2020-06-05-preview
+    additions:
+        GuestAgent: 2022-05-21-preview
+        HybridIdentityMetadata: 2022-05-21-preview
+        MachineExtension: 2022-05-21-preview
 Scheduler:
     tracking: "2016-03-01"
 Search:

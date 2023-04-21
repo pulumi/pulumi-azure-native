@@ -4534,6 +4534,8 @@
       {
         "resourceType": "reservationOrderAliases",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01-beta",
           "2022-11-01-beta",
           "2022-11-01",
           "2022-06-02-privatepreview",
@@ -4543,6 +4545,8 @@
       {
         "resourceType": "savingsPlanOrderAliases",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01-beta",
           "2022-11-01-beta",
           "2022-11-01",
           "2022-06-02-privatepreview",
@@ -4554,6 +4558,8 @@
       {
         "resourceType": "savingsPlanOrders",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01-beta",
           "2022-11-01-beta",
           "2022-11-01",
           "2022-06-02-privatepreview",
@@ -4565,6 +4571,8 @@
       {
         "resourceType": "savingsPlanOrders/savingsPlans",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01-beta",
           "2022-11-01-beta",
           "2022-11-01",
           "2022-06-02-privatepreview",
@@ -4576,6 +4584,8 @@
       {
         "resourceType": "savingsPlans",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-07-01-beta",
           "2022-11-01-beta",
           "2022-11-01",
           "2022-06-02-privatepreview",
@@ -5700,6 +5710,17 @@
           "2018-06-01",
           "2017-11-01-beta",
           "2017-11-01"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "Microsoft.Carbon",
+    "resourceTypes": [
+      {
+        "resourceType": "carbonEmissionReports",
+        "apiVersions": [
+          "2023-04-01-preview"
         ]
       }
     ]
@@ -13594,6 +13615,17 @@
           "2020-10-01-preview",
           "2020-09-01",
           "2019-11-01"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "Microsoft.DatabaseWatcher",
+    "resourceTypes": [
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2023-03-01-preview"
         ]
       }
     ]
@@ -21943,6 +21975,23 @@
           "2022-12-01-privatepreview",
           "2022-11-01",
           "2022-04-01-preview"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "Microsoft.MobilePacketCore",
+    "resourceTypes": [
+      {
+        "resourceType": "Locations",
+        "apiVersions": [
+          "2023-04-15-preview"
+        ]
+      },
+      {
+        "resourceType": "Locations/OperationStatuses",
+        "apiVersions": [
+          "2023-04-15-preview"
         ]
       }
     ]

@@ -21,7 +21,8 @@
   "Addons": [],
   "Advisor": [
     "2022-09-01",
-    "2022-10-01"
+    "2022-10-01",
+    "2023-01-01"
   ],
   "AgFoodPlatform": [
     "2021-09-01-preview"
@@ -354,7 +355,9 @@
     "2023-01-01",
     "2023-01-02-preview",
     "2023-02-01",
-    "2023-02-02-preview"
+    "2023-02-02-preview",
+    "2023-03-01",
+    "2023-03-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -574,7 +577,9 @@
   ],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
-  "Easm": [],
+  "Easm": [
+    "2023-04-01-preview"
+  ],
   "EdgeOrder": [
     "2022-05-01-preview"
   ],
@@ -663,7 +668,8 @@
     "2022-05-10-preview",
     "2022-08-11-preview",
     "2022-11-10",
-    "2022-12-27-preview"
+    "2022-12-27-preview",
+    "2023-03-15-preview"
   ],
   "HybridConnectivity": [
     "2023-03-15"
@@ -822,6 +828,7 @@
     "2022-10-01-preview",
     "2022-12-01-preview",
     "2023-02-01-preview",
+    "2023-04-01",
     "2023-04-01-preview"
   ],
   "Maintenance": [
@@ -897,7 +904,9 @@
   "MobileNetwork": [
     "2022-11-01"
   ],
-  "Monitor": [],
+  "Monitor": [
+    "2023-04-03"
+  ],
   "NetApp": [
     "2021-02-01",
     "2021-04-01",
@@ -1090,7 +1099,9 @@
     "2022-09-01"
   ],
   "SaaS": [],
-  "ScVmm": [],
+  "ScVmm": [
+    "2022-05-21-preview"
+  ],
   "Scheduler": [],
   "Search": [
     "2020-08-01-preview",
@@ -1262,7 +1273,8 @@
     "2021-04-01-preview",
     "2021-05-01",
     "2021-06-01",
-    "2021-06-01-preview"
+    "2021-06-01-preview",
+    "2023-05-01"
   ],
   "Syntex": [],
   "TestBase": [],

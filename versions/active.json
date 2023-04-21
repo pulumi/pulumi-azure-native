@@ -3293,7 +3293,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "calculatemigrationcost": [
       "2021-07-01-beta",
@@ -3321,7 +3323,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "savingsplanorderaliases": [
       "2021-07-01-beta",
@@ -3329,7 +3333,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "savingsplanorders": [
       "2021-07-01-beta",
@@ -3337,7 +3343,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "savingsplanorders/savingsplans": [
       "2021-07-01-beta",
@@ -3345,7 +3353,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "savingsplans": [
       "2021-07-01-beta",
@@ -3353,7 +3363,9 @@
       "2022-06-02-beta",
       "2022-06-02-privatepreview",
       "2022-11-01",
-      "2022-11-01-beta"
+      "2022-11-01-beta",
+      "2023-07-01-beta",
+      "2023-07-01-preview"
     ],
     "validate": [
       "2021-07-01-beta",
@@ -4278,6 +4290,14 @@
       "2022-06-02-privatepreview",
       "2022-11-01",
       "2022-11-01-beta"
+    ]
+  },
+  "carbon": {
+    "": [
+      "2023-04-01-preview"
+    ],
+    "carbonemissionreports": [
+      "2023-04-01-preview"
     ]
   },
   "cdn": {
@@ -9114,6 +9134,14 @@
     ],
     "locations/operationstatuses": [
       "2021-11-15-privatepreview"
+    ]
+  },
+  "databasewatcher": {
+    "": [
+      "2023-03-01-preview"
+    ],
+    "locations": [
+      "2023-03-01-preview"
     ]
   },
   "databox": {
@@ -17971,6 +17999,17 @@
       "2022-04-01-preview",
       "2022-11-01",
       "2022-12-01-privatepreview"
+    ]
+  },
+  "mobilepacketcore": {
+    "": [
+      "2023-04-15-preview"
+    ],
+    "locations": [
+      "2023-04-15-preview"
+    ],
+    "locations/operationstatuses": [
+      "2023-04-15-preview"
     ]
   },
   "modsimworkbench": {
