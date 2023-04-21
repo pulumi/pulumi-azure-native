@@ -22,11 +22,13 @@ type ProviderSpec struct {
 	Additions *map[openapi.ResourceName]openapi.ApiVersion `yaml:"additions,omitempty"`
 }
 
-type DefaultConfig map[openapi.ProviderName]ProviderSpec
+// A Spec describes what versions of what resources should be included in the provider.
+// It is the input to schema generation.
+type Spec map[openapi.ProviderName]ProviderSpec
 
-// BuildDefaultConfig calculates a config from available API versions
-func BuildDefaultConfig(spec SpecVersions, curations Curations, existingConfig DefaultConfig) DefaultConfig {
-	specs := DefaultConfig{}
+// BuildSpec calculates a Spec from available API versions and manual curations (config).
+func BuildSpec(spec ProvidersVersionResources, curations Curations, existingConfig Spec) Spec {
+	specs := Spec{}
 	for providerName, versionResources := range spec {
 		existing := existingConfig[providerName]
 		specs[providerName] = buildSpec(providerName, versionResources, curations, existing)
@@ -39,7 +41,7 @@ type CurationViolation struct {
 	Detail   string
 }
 
-func ValidateDefaultConfig(config DefaultConfig, curations Curations) []CurationViolation {
+func ValidateDefaultConfig(config Spec, curations Curations) []CurationViolation {
 	var violations []CurationViolation
 	for provider, providerSpec := range config {
 		providerCuration := curations[provider]
@@ -93,8 +95,8 @@ func PrintViolationsAsWarnings(curationsPath string, violations []CurationViolat
 	}
 }
 
-// ReadDefaultConfig parses a default config from a YAML file
-func ReadDefaultConfig(path string) (DefaultConfig, error) {
+// ReadSpec parses a spec from a YAML file
+func ReadSpec(path string) (Spec, error) {
 	jsonFile, err := os.Open(path)
 	if err != nil {
 		return nil, err
@@ -106,12 +108,12 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 		return nil, err
 	}
 
-	var curatedVersion DefaultConfig
+	var curatedVersion Spec
 	err = yaml.Unmarshal(byteValue, &curatedVersion)
 	return curatedVersion, err
 }
 
-func DefaultConfigToDefaultVersionLock(spec SpecVersions, defaultConfig DefaultConfig) (openapi.DefaultVersionLock, error) {
+func DefaultConfigToDefaultVersionLock(spec ProvidersVersionResources, defaultConfig Spec) (openapi.DefaultVersionLock, error) {
 	var err error
 	defaultVersionLock := openapi.DefaultVersionLock{}
 	for providerName, versionResources := range spec {

@@ -103,7 +103,7 @@ func main() {
 			panic(err)
 		}
 
-		if err = emitSchema(*pkgSpec2, version, path.Join("bin", "v2"), "v2", true); err != nil {
+		if err = emitSchema(*pkgSpec2, version, path.Join("bin", "v2"), "v2"); err != nil {
 			panic(err)
 		}
 		fmt.Println("Emitted `bin/v2/schema-full.json`")
@@ -134,7 +134,7 @@ func main() {
 			panic(err)
 		}
 
-		if err = emitSchema(*pkgSpec, version, "bin", "main", true); err != nil {
+		if err = emitSchema(*pkgSpec, version, "bin", "main"); err != nil {
 			panic(err)
 		}
 		fmt.Println("Emitted `bin/schema-full.json`")
@@ -222,7 +222,7 @@ func main() {
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageName string, emitJSON bool) error {
+func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageName string) error {
 	pkgSpec.Version = version
 	schemaJSON, err := json.Marshal(pkgSpec)
 	if err != nil {
