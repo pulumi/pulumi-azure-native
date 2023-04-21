@@ -39,7 +39,7 @@ func RemoveDeprecations(versions ProvidersVersionResources, deprecations openapi
 	return filteredSpec
 }
 
-func SqueezeSpec(versions ProvidersVersionResources, squeeze Squeeze) ProvidersVersionResources {
+func SqueezeResources(versions ProvidersVersionResources, squeeze Squeeze) ProvidersVersionResources {
 	if squeeze == nil {
 		return versions
 	}
