@@ -110,15 +110,29 @@ func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
 
 type Squeeze map[string]string
 
-func (s Squeeze) canBeUpgraded(azureProvider, resource, version string) bool {
+// Returns azure-native:azureProvider/version:resource
+// TODO tkappler version should be optional
+func ToFullyQualifiedName(azureProvider, resource, version string) string {
 	// construct fully qualified name like azure-native:aad/v20210301:DomainService
 	const fqnFmt = "azure-native:%s/%s:%s"
 	if !strings.HasPrefix(version, "v") {
 		version = ApiToSdkVersion(version)
 	}
-	fqn := fmt.Sprintf(fqnFmt, strings.ToLower(azureProvider), version, resource)
+	return fmt.Sprintf(fqnFmt, strings.ToLower(azureProvider), version, resource)
+}
 
+func (s Squeeze) canBeUpgraded(azureProvider, resource, version string) bool {
+	fqn := ToFullyQualifiedName(azureProvider, resource, version)
 	_, ok := s[fqn]
+	return ok
+}
+
+func (s Squeeze) Preserve(azureProvider, resource, version string) bool {
+	fqn := ToFullyQualifiedName(azureProvider, resource, version)
+	_, ok := s[fqn]
+	if ok {
+		delete(s, fqn)
+	}
 	return ok
 }
 
