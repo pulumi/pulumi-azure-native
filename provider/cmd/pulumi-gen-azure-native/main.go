@@ -48,6 +48,14 @@ func main() {
 		panic(err)
 	}
 
+	schemaPath := filepath.Join(wd, "bin", "schema-full.json")
+	if len(os.Args) == 4 {
+		schemaPath = os.Args[3]
+		if !filepath.IsAbs(schemaPath) {
+			schemaPath = filepath.Join(wd, schemaPath)
+		}
+	}
+
 	specsDir, ok := os.LookupEnv("CODEGEN_SPECS_DIR")
 	if !ok {
 		specsDir = filepath.Join(wd, "azure-rest-api-specs")
@@ -165,7 +173,6 @@ func main() {
 
 	} else if languageSet.Subtract(codegen.NewStringSet("docs")).Any() {
 		// Just read existing schema if we're not re-generating
-		schemaPath := path.Join("bin", "schema-full.json")
 		schemaBytes, err := os.ReadFile(schemaPath)
 		if err != nil {
 			panic(err)
