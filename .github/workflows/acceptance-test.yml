@@ -16,6 +16,10 @@ on:
         type: boolean
         description: Skip longer running tests
         default: false
+      major_version_dir:
+        type: string
+        description: Major version to build, either "v2/" or empty
+        default: ""
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -49,6 +53,7 @@ jobs:
       ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}
       short_test: ${{ inputs.short_test || false }}
+      major_version_dir: ${{ inputs.major_version_dir }}
     secrets: inherit
 
   lint_workflows:
