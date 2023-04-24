@@ -18,6 +18,10 @@ on:
         type: string
         description: The Azure Active Directory application to authenticate the OIDC tests. Empty skips the OIDC tests.
         default: "89380e12-5be6-486a-89ef-eea107af2f47" # AD app 'oidc-test'
+      major_version_dir:
+        type: string
+        description: Major version to build, either "v2/" or empty
+        default: ""
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -54,7 +58,7 @@ jobs:
           skip_dotnet_and_java: "true"
 
       - name: Build schema and binaries
-        run: make codegen schema provider
+        run: make codegen schema provider VERSION_DIR=${{ inputs.major_version_dir }}
 
       - name: Artifact capture
         uses: ./.github/actions/prerequisites-artifact-capture
@@ -108,10 +112,10 @@ jobs:
         uses: ./.github/actions/prerequisites-artifact-restore
 
       - name: Mark prerequisites as up-to-date
-        run: make --touch codegen schema provider
+        run: make --touch codegen schema provider VERSION_DIR=${{ inputs.major_version_dir }}
 
       - name: Generate SDK
-        run: make generate_${{ matrix.language }}
+        run: make generate_${{ matrix.language }} VERSION_DIR=${{ inputs.major_version_dir }}
 
       - name: Build SDK
         run: make build_${{ matrix.language }}
