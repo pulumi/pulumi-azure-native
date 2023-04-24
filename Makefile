@@ -24,6 +24,8 @@ GOEXE ?= $(shell go env GOEXE)
 LOCAL_PROVIDER_FILENAME := $(PROVIDER)$(GOEXE)
 LOCAL_ARM2PULUMI_FILENAME := arm2pulumi$(GOEXE)
 
+VERSION_DIR ?= 
+
 ifeq ($(CI)$(PROVIDER_VERSION),true)
 $(error PROVIDER_VERSION must be set in CI environments)
 endif
@@ -62,8 +64,8 @@ arm2pulumi_prebuild: .make/arm2pulumi_prebuild
 
 # We don't include v2 here yet as this is executed on the nightly updates
 .PHONY: schema generate_schema generate_docs
-schema: bin/schema-full.json
-generate_schema: bin/schema-full.json
+schema: bin/$(VERSION_DIR)schema-full.json
+generate_schema: bin/$(VERSION_DIR)schema-full.json
 generate_docs: provider/cmd/pulumi-resource-azure-native/schema.json
 
 .PHONY: generate_java generate_nodejs generate_python generate_dotnet generate_go
@@ -257,13 +259,13 @@ dist/pulumi-azure-native_$(VERSION_GENERIC)_checksums.txt: dist/$(PROVIDER)-v$(P
 	cd provider && go mod download
 	@touch $@
 
-.make/arm2pulumi_prebuild: bin/schema-full.json bin/metadata-compact.json
-	cp bin/schema-full.json provider/cmd/arm2pulumi
+.make/arm2pulumi_prebuild: bin/$(VERSION_DIR)schema-full.json bin/metadata-compact.json
+	cp bin/$(VERSION_DIR)schema-full.json provider/cmd/arm2pulumi
 	cp bin/metadata-compact.json provider/cmd/arm2pulumi
 	@touch $@
 
-.make/provider_prebuild: bin/schema-full.json bin/metadata-compact.json
-	cp bin/schema-full.json provider/cmd/$(PROVIDER)
+.make/provider_prebuild: bin/$(VERSION_DIR)schema-full.json bin/metadata-compact.json
+	cp bin/$(VERSION_DIR)schema-full.json provider/cmd/$(PROVIDER)
 	cp bin/metadata-compact.json provider/cmd/$(PROVIDER)
 	@touch $@
 
@@ -283,38 +285,38 @@ export FAKE_MODULE
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
-.make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_nodejs: bin/pulumictl bin/$(CODEGEN) bin/$(VERSION_DIR)schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) nodejs $(VERSION_GENERIC)
+	bin/$(CODEGEN) nodejs $(VERSION_GENERIC) bin/$(VERSION_DIR)schema-full.json
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > sdk/nodejs/go.mod
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
 	@touch $@
 
-.make/generate_python: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_python: bin/pulumictl bin/$(CODEGEN) bin/$(VERSION_DIR)schema-full.json
 	mkdir -p sdk/python
 	rm -rf $$(find sdk/python -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) python $(VERSION_GENERIC)
+	bin/$(CODEGEN) python $(VERSION_GENERIC) bin/$(VERSION_DIR)schema-full.json
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_python_module/g' > sdk/python/go.mod
 	cp README.md sdk/python
 	@touch $@
 
-.make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_dotnet: bin/pulumictl bin/$(CODEGEN) bin/$(VERSION_DIR)schema-full.json
 	mkdir -p sdk/dotnet
 	rm -rf $$(find sdk/dotnet -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	bin/$(CODEGEN) dotnet $(VERSION_GENERIC)
+	bin/$(CODEGEN) dotnet $(VERSION_GENERIC) bin/$(VERSION_DIR)schema-full.json
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_dotnet_module/g' > sdk/dotnet/go.mod
 	sed -i.bak -e "s/<\/Nullable>/<\/Nullable>\n    <UseSharedCompilation>false<\/UseSharedCompilation>/g" sdk/dotnet/Pulumi.AzureNative.csproj
 	rm sdk/dotnet/Pulumi.AzureNative.csproj.bak
 	@touch $@
 
-.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) bin/schema-full.json
+.make/generate_go_local: bin/pulumictl bin/$(CODEGEN) bin/$(VERSION_DIR)schema-full.json
 	@mkdir -p sdk/pulumi-azure-native-sdk
 	@# Unmark this is as an up-to-date local build
 	rm -f .make/prepublish_go
 	rm -rf $$(find sdk/pulumi-azure-native-sdk -mindepth 1 -maxdepth 1 ! -name ".git")
-	bin/$(CODEGEN) go $(VERSION_GENERIC)
+	bin/$(CODEGEN) go $(VERSION_GENERIC) bin/$(VERSION_DIR)schema-full.json
 	@# Tidy up all go.mod files
 	find sdk/pulumi-azure-native-sdk -type d -maxdepth 1 -exec sh -c "cd \"{}\" && go mod tidy" \;
 	@touch $@
