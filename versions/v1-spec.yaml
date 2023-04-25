@@ -466,6 +466,8 @@ HealthBot:
   tracking: "2020-12-08"
 HealthcareApis:
   tracking: "2022-05-15"
+HybridCloud:
+  tracking: 2023-01-01-preview
 HybridCompute:
   tracking: "2020-08-02"
   additions:
