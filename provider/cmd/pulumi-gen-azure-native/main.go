@@ -171,7 +171,9 @@ func main() {
 		}
 		fmt.Println("Emitted `bin/metadata-compact.json`.")
 
-	} else if languageSet.Subtract(codegen.NewStringSet("docs")).Any() {
+	}
+
+	if languageSet.Subtract(codegen.NewStringSet("docs", "schema", "schema-v2")).Any() {
 		// Just read existing schema if we're not re-generating
 		schemaBytes, err := os.ReadFile(schemaPath)
 		if err != nil {
