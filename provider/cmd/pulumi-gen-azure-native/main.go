@@ -252,7 +252,7 @@ func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageNam
 	return gen.EmitFile(path.Join(outDir, "schema-full.json"), schemaJSON)
 }
 
-// emitDocsSchema writes the Pulumi schema JSON to the 'schema-docs.json' file in the given directory.
+// emitDocsSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
 func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
