@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The value of the parameter.
+        /// The value of the parameter. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Value;
 

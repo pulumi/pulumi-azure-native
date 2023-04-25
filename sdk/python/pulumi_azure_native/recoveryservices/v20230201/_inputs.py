@@ -14694,21 +14694,37 @@ class MonthlyRetentionScheduleArgs:
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VaultSubResourceType']]]]] = None,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
         """
         Private Endpoint Connection Response Properties
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VaultSubResourceType']]]] group_ids: Group Ids for the Private Endpoint
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Gets or sets private link service connection state
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Gets or sets provisioning state of the private endpoint connection
         """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VaultSubResourceType']]]]]:
+        """
+        Group Ids for the Private Endpoint
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VaultSubResourceType']]]]]):
+        pulumi.set(self, "group_ids", value)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -14774,33 +14790,33 @@ class PrivateEndpointArgs:
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 action_required: Optional[pulumi.Input[str]] = None,
+                 actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]] = None):
         """
         Private Link Service Connection State
-        :param pulumi.Input[str] action_required: Gets or sets actions required
+        :param pulumi.Input[str] actions_required: Gets or sets actions required
         :param pulumi.Input[str] description: Gets or sets description
         :param pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']] status: Gets or sets the status
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[pulumi.Input[str]]:
         """
         Gets or sets actions required
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
-    @action_required.setter
-    def action_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action_required", value)
+    @actions_required.setter
+    def actions_required(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "actions_required", value)
 
     @property
     @pulumi.getter

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class SSISAccessCredentialResponse
     {
         /// <summary>
-        /// Domain for windows authentication.
+        /// Domain for windows authentication. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Domain;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> Password;
         /// <summary>
-        /// UseName for windows authentication.
+        /// UseName for windows authentication. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object UserName;
 

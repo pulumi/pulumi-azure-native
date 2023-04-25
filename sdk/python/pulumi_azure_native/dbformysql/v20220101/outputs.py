@@ -63,6 +63,8 @@ class BackupResponse(dict):
         pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
         if backup_retention_days is not None:
             pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+        if geo_redundant_backup is None:
+            geo_redundant_backup = 'Disabled'
         if geo_redundant_backup is not None:
             pulumi.set(__self__, "geo_redundant_backup", geo_redundant_backup)
 
@@ -522,6 +524,8 @@ class StorageResponse(dict):
             suggest = "auto_grow"
         elif key == "autoIoScaling":
             suggest = "auto_io_scaling"
+        elif key == "logOnDisk":
+            suggest = "log_on_disk"
         elif key == "storageSizeGB":
             suggest = "storage_size_gb"
 
@@ -541,6 +545,7 @@ class StorageResponse(dict):
                  auto_grow: Optional[str] = None,
                  auto_io_scaling: Optional[str] = None,
                  iops: Optional[int] = None,
+                 log_on_disk: Optional[str] = None,
                  storage_size_gb: Optional[int] = None):
         """
         Storage Profile properties of a server
@@ -548,15 +553,24 @@ class StorageResponse(dict):
         :param str auto_grow: Enable Storage Auto Grow or not.
         :param str auto_io_scaling: Enable IO Auto Scaling or not.
         :param int iops: Storage IOPS for a server.
+        :param str log_on_disk: Enable Log On Disk or not.
         :param int storage_size_gb: Max storage size allowed for a server.
         """
         pulumi.set(__self__, "storage_sku", storage_sku)
+        if auto_grow is None:
+            auto_grow = 'Disabled'
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
+        if auto_io_scaling is None:
+            auto_io_scaling = 'Disabled'
         if auto_io_scaling is not None:
             pulumi.set(__self__, "auto_io_scaling", auto_io_scaling)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if log_on_disk is None:
+            log_on_disk = 'Disabled'
+        if log_on_disk is not None:
+            pulumi.set(__self__, "log_on_disk", log_on_disk)
         if storage_size_gb is not None:
             pulumi.set(__self__, "storage_size_gb", storage_size_gb)
 
@@ -591,6 +605,14 @@ class StorageResponse(dict):
         Storage IOPS for a server.
         """
         return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter(name="logOnDisk")
+    def log_on_disk(self) -> Optional[str]:
+        """
+        Enable Log On Disk or not.
+        """
+        return pulumi.get(self, "log_on_disk")
 
     @property
     @pulumi.getter(name="storageSizeGB")

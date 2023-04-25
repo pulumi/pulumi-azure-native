@@ -92,7 +92,7 @@ export class RegistryComponentVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221001preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:RegistryComponentVersion" }, { type: "azure-native:machinelearningservices/v20230401:RegistryComponentVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryComponentVersion.__pulumiType, name, resourceInputs, opts);
     }

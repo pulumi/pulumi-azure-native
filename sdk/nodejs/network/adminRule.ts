@@ -179,7 +179,7 @@ export class AdminRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:AdminRule" }, { type: "azure-native:network/v20210501preview:AdminRule" }, { type: "azure-native:network/v20220101:AdminRule" }, { type: "azure-native:network/v20220201preview:AdminRule" }, { type: "azure-native:network/v20220401preview:AdminRule" }, { type: "azure-native:network/v20220501:AdminRule" }, { type: "azure-native:network/v20220701:AdminRule" }, { type: "azure-native:network/v20220901:AdminRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:AdminRule" }, { type: "azure-native:network/v20210501preview:AdminRule" }, { type: "azure-native:network/v20220101:AdminRule" }, { type: "azure-native:network/v20220201preview:AdminRule" }, { type: "azure-native:network/v20220401preview:AdminRule" }, { type: "azure-native:network/v20220501:AdminRule" }, { type: "azure-native:network/v20220701:AdminRule" }, { type: "azure-native:network/v20220901:AdminRule" }, { type: "azure-native:network/v20221101:AdminRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AdminRule.__pulumiType, name, resourceInputs, opts);
     }

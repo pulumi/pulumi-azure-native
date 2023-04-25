@@ -86,15 +86,11 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230126Preview
         /// </summary>
         public readonly Outputs.LedgerPropertiesResponse Properties;
         /// <summary>
-        /// Object representing RunningState for Ledger.
-        /// </summary>
-        public readonly string? RunningState;
-        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Additional tags for Confidential Ledger
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -112,8 +108,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230126Preview
 
             Outputs.LedgerPropertiesResponse properties,
 
-            string? runningState,
-
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -124,7 +118,6 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230126Preview
             Location = location;
             Name = name;
             Properties = properties;
-            RunningState = runningState;
             SystemData = systemData;
             Tags = tags;
             Type = type;

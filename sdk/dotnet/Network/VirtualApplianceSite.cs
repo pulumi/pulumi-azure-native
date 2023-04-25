@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualApplianceSite"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualApplianceSite"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualApplianceSite"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualApplianceSite"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

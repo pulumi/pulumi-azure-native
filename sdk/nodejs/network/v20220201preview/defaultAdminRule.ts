@@ -169,7 +169,7 @@ export class DefaultAdminRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:DefaultAdminRule" }, { type: "azure-native:network/v20210201preview:DefaultAdminRule" }, { type: "azure-native:network/v20210501preview:DefaultAdminRule" }, { type: "azure-native:network/v20220101:DefaultAdminRule" }, { type: "azure-native:network/v20220401preview:DefaultAdminRule" }, { type: "azure-native:network/v20220501:DefaultAdminRule" }, { type: "azure-native:network/v20220701:DefaultAdminRule" }, { type: "azure-native:network/v20220901:DefaultAdminRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:DefaultAdminRule" }, { type: "azure-native:network/v20210201preview:DefaultAdminRule" }, { type: "azure-native:network/v20210501preview:DefaultAdminRule" }, { type: "azure-native:network/v20220101:DefaultAdminRule" }, { type: "azure-native:network/v20220401preview:DefaultAdminRule" }, { type: "azure-native:network/v20220501:DefaultAdminRule" }, { type: "azure-native:network/v20220701:DefaultAdminRule" }, { type: "azure-native:network/v20220901:DefaultAdminRule" }, { type: "azure-native:network/v20221101:DefaultAdminRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DefaultAdminRule.__pulumiType, name, resourceInputs, opts);
     }

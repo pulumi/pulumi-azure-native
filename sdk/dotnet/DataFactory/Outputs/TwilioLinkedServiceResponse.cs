@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The Account SID of Twilio service.
+        /// The Account SID of Twilio service. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object UserName;
 

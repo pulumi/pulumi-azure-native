@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview.Inputs
 
         /// <summary>
         /// 
-        /// Expected value is 'ModelPerformanceSignalBase'.
+        /// Expected value is 'ModelPerformance'.
         /// </summary>
         [Input("signalType", required: true)]
         public Input<string> SignalType { get; set; } = null!;

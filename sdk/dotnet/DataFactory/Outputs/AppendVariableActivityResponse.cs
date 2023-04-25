@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
         /// <summary>
-        /// Value to be appended. Could be a static value or Expression
+        /// Value to be appended. Type: could be a static value matching type of the variable item or Expression with resultType matching type of the variable item
         /// </summary>
         public readonly object? Value;
         /// <summary>

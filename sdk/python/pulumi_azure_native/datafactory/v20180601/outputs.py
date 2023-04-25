@@ -790,7 +790,7 @@ class AmazonMWSLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  mws_auth_token: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_key: Optional[Any] = None,
@@ -808,7 +808,7 @@ class AmazonMWSLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] mws_auth_token: The Amazon MWS authentication token.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_key: The secret key used to access data.
@@ -909,9 +909,9 @@ class AmazonMWSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -1269,7 +1269,7 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None):
         """
@@ -1280,7 +1280,7 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The Azure key vault secret reference of password in connection string.
         """
@@ -1342,9 +1342,9 @@ class AmazonRdsForOracleLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -1785,7 +1785,7 @@ class AmazonRdsForSqlServerLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
@@ -1798,7 +1798,7 @@ class AmazonRdsForSqlServerLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The on-premises Windows authentication password.
         :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
@@ -1873,9 +1873,9 @@ class AmazonRdsForSqlServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -2278,7 +2278,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
@@ -2292,7 +2292,7 @@ class AmazonRedshiftLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the Amazon Redshift source.
         :param Any port: The TCP port number that the Amazon Redshift server uses to listen for client connections. The default value is 5439. Type: integer (or Expression with resultType integer).
@@ -2369,9 +2369,9 @@ class AmazonRedshiftLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -2745,7 +2745,7 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  force_path_style: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
@@ -2758,7 +2758,7 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any force_path_style: If true, use S3 path-style access instead of virtual hosted-style access. Default value is false. Type: boolean (or Expression with resultType boolean).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Amazon S3 Compatible Identity and Access Management (IAM) user.
@@ -2827,9 +2827,9 @@ class AmazonS3CompatibleLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -3003,7 +3003,7 @@ class AmazonS3CompatibleReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -3019,7 +3019,7 @@ class AmazonS3CompatibleReadSettingsResponse(dict):
                Expected value is 'AmazonS3CompatibleReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -3083,9 +3083,9 @@ class AmazonS3CompatibleReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -3428,7 +3428,7 @@ class AmazonS3LinkedServiceResponse(dict):
                  authentication_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
                  service_url: Optional[Any] = None,
@@ -3442,7 +3442,7 @@ class AmazonS3LinkedServiceResponse(dict):
         :param Any authentication_type: The authentication type of S3. Allowed value: AccessKey (default) or TemporarySecurityCredentials. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Amazon S3 Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the S3 Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
@@ -3521,9 +3521,9 @@ class AmazonS3LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -3697,7 +3697,7 @@ class AmazonS3ReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -3713,7 +3713,7 @@ class AmazonS3ReadSettingsResponse(dict):
                Expected value is 'AmazonS3ReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -3777,9 +3777,9 @@ class AmazonS3ReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -3897,7 +3897,7 @@ class AppFiguresLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the AppFigures source.
         :param str type: Type of linked service.
                Expected value is 'AppFigures'.
-        :param Any user_name: The username of the Appfigures source.
+        :param Any user_name: The username of the Appfigures source. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -3945,7 +3945,7 @@ class AppFiguresLinkedServiceResponse(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> Any:
         """
-        The username of the Appfigures source.
+        The username of the Appfigures source. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
@@ -4024,7 +4024,7 @@ class AppendVariableActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
-        :param Any value: Value to be appended. Could be a static value or Expression
+        :param Any value: Value to be appended. Type: could be a static value matching type of the variable item or Expression with resultType matching type of the variable item
         :param str variable_name: Name of the variable whose value needs to be appended to.
         """
         pulumi.set(__self__, "name", name)
@@ -4085,7 +4085,7 @@ class AppendVariableActivityResponse(dict):
     @pulumi.getter
     def value(self) -> Optional[Any]:
         """
-        Value to be appended. Could be a static value or Expression
+        Value to be appended. Type: could be a static value matching type of the variable item or Expression with resultType matching type of the variable item
         """
         return pulumi.get(self, "value")
 
@@ -4148,7 +4148,7 @@ class AsanaLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for Asana.
@@ -4158,7 +4158,7 @@ class AsanaLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "api_token", api_token)
@@ -4217,9 +4217,9 @@ class AsanaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -4888,7 +4888,7 @@ class AzureBatchLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Azure Batch linked service.
@@ -4903,7 +4903,7 @@ class AzureBatchLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -5009,9 +5009,9 @@ class AzureBatchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -5466,7 +5466,7 @@ class AzureBlobFSLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  sas_token: Optional[Any] = None,
                  sas_uri: Optional[Any] = None,
@@ -5486,7 +5486,7 @@ class AzureBlobFSLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Data Lake Storage Gen2 service. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -5590,9 +5590,9 @@ class AzureBlobFSLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -6369,7 +6369,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
     def __init__(__self__, *,
                  type: str,
                  account_key: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
-                 account_kind: Optional[str] = None,
+                 account_kind: Optional[Any] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  authentication_type: Optional[str] = None,
                  azure_cloud_type: Optional[Any] = None,
@@ -6382,7 +6382,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  sas_token: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  sas_uri: Optional[Any] = None,
-                 service_endpoint: Optional[str] = None,
+                 service_endpoint: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None):
@@ -6391,7 +6391,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureBlobStorage'.
         :param 'AzureKeyVaultSecretReferenceResponse' account_key: The Azure key vault secret reference of accountKey in connection string.
-        :param str account_kind: Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
+        :param Any account_kind: Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The type used for authentication. Type: string.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
@@ -6400,11 +6400,11 @@ class AzureBlobStorageLinkedServiceResponse(dict):
         :param Any container_uri: Container uri of the Azure Blob Storage resource only support for anonymous access. Type: string (or Expression with resultType string).
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Blob Storage resource. It is mutually exclusive with connectionString, serviceEndpoint property. Type: string, SecureString or AzureKeyVaultSecretReference.
-        :param str service_endpoint: Blob service endpoint of the Azure Blob Storage resource. It is mutually exclusive with connectionString, sasUri property.
+        :param Any service_endpoint: Blob service endpoint of the Azure Blob Storage resource. It is mutually exclusive with connectionString, sasUri property.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure SQL Data Warehouse.
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
@@ -6466,7 +6466,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="accountKind")
-    def account_kind(self) -> Optional[str]:
+    def account_kind(self) -> Optional[Any]:
         """
         Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
         """
@@ -6540,7 +6540,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -6570,7 +6570,7 @@ class AzureBlobStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="serviceEndpoint")
-    def service_endpoint(self) -> Optional[str]:
+    def service_endpoint(self) -> Optional[Any]:
         """
         Blob service endpoint of the Azure Blob Storage resource. It is mutually exclusive with connectionString, sasUri property.
         """
@@ -6724,7 +6724,7 @@ class AzureBlobStorageReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -6740,7 +6740,7 @@ class AzureBlobStorageReadSettingsResponse(dict):
                Expected value is 'AzureBlobStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -6804,9 +6804,9 @@ class AzureBlobStorageReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -7775,7 +7775,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  data_lake_analytics_uri: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  resource_group_name: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
@@ -7791,7 +7791,7 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any data_lake_analytics_uri: Azure Data Lake Analytics URI Type: string (or Expression with resultType string).
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any resource_group_name: Data Lake Analytics account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Analytics account. Type: string (or Expression with resultType string).
@@ -7881,9 +7881,9 @@ class AzureDataLakeAnalyticsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -8151,7 +8151,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  resource_group_name: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
@@ -8169,7 +8169,7 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any resource_group_name: Data Lake Store account resource group name (if different from Data Factory account). Type: string (or Expression with resultType string).
         :param Any service_principal_id: The ID of the application used to authenticate against the Azure Data Lake Store account. Type: string (or Expression with resultType string).
@@ -8273,9 +8273,9 @@ class AzureDataLakeStoreLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -9288,7 +9288,7 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  workspace_resource_id: Optional[Any] = None):
         """
@@ -9302,7 +9302,7 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any workspace_resource_id: Workspace resource id for databricks REST API. Type: string (or Expression with resultType string).
         """
@@ -9394,9 +9394,9 @@ class AzureDatabricksDeltaLakeLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -9752,7 +9752,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  existing_cluster_id: Optional[Any] = None,
                  instance_pool_id: Optional[Any] = None,
                  new_cluster_custom_tags: Optional[Mapping[str, Any]] = None,
@@ -9779,7 +9779,7 @@ class AzureDatabricksLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any existing_cluster_id: The id of an existing interactive cluster that will be used for all runs of this activity. Type: string (or Expression with resultType string).
         :param Any instance_pool_id: The id of an existing instance pool that will be used for all runs of this activity. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] new_cluster_custom_tags: Additional tags for cluster resources. This property is ignored in instance pool configurations.
@@ -9910,9 +9910,9 @@ class AzureDatabricksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -10080,7 +10080,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  file_share: Optional[Any] = None,
                  host: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -10098,7 +10098,7 @@ class AzureFileStorageLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any file_share: The azure file share name. It is required when auth with accountKey/sasToken. Type: string (or Expression with resultType string).
         :param Any host: Host name of the server. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
@@ -10189,9 +10189,9 @@ class AzureFileStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -10371,7 +10371,7 @@ class AzureFileStorageReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -10387,7 +10387,7 @@ class AzureFileStorageReadSettingsResponse(dict):
                Expected value is 'AzureFileStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -10451,9 +10451,9 @@ class AzureFileStorageReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -10813,7 +10813,7 @@ class AzureFunctionLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  function_key: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  resource_id: Optional[Any] = None):
@@ -10827,7 +10827,7 @@ class AzureFunctionLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] function_key: Function or Host key for Azure Function App.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any resource_id: Allowed token audiences for azure function.
@@ -10912,9 +10912,9 @@ class AzureFunctionLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -11560,7 +11560,7 @@ class AzureMLLinkedServiceResponse(dict):
                  authentication: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
@@ -11576,7 +11576,7 @@ class AzureMLLinkedServiceResponse(dict):
         :param Any authentication: Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML Studio web service. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against the ARM-based updateResourceEndpoint of an Azure ML Studio web service.
@@ -11666,9 +11666,9 @@ class AzureMLLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -11755,7 +11755,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
@@ -11770,7 +11770,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any service_principal_id: The ID of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against the endpoint of a published Azure ML Service pipeline.
@@ -11856,9 +11856,9 @@ class AzureMLServiceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -12134,7 +12134,7 @@ class AzureMariaDBLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -12145,7 +12145,7 @@ class AzureMariaDBLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
@@ -12208,9 +12208,9 @@ class AzureMariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -12536,7 +12536,7 @@ class AzureMySqlLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -12547,7 +12547,7 @@ class AzureMySqlLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
@@ -12609,9 +12609,9 @@ class AzureMySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -13086,7 +13086,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -13097,7 +13097,7 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
@@ -13160,9 +13160,9 @@ class AzurePostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -14032,7 +14032,7 @@ class AzureSearchLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  key: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
@@ -14043,7 +14043,7 @@ class AzureSearchLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] key: Admin Key for Azure Search service
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
@@ -14105,9 +14105,9 @@ class AzureSearchLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -14168,7 +14168,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  service_principal_id: Optional[Any] = None,
@@ -14184,7 +14184,7 @@ class AzureSqlDWLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
@@ -14275,9 +14275,9 @@ class AzureSqlDWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -14515,7 +14515,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  service_principal_id: Optional[Any] = None,
@@ -14532,7 +14532,7 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Database. Type: string (or Expression with resultType string).
@@ -14633,9 +14633,9 @@ class AzureSqlDatabaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -14723,7 +14723,7 @@ class AzureSqlMILinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  service_principal_id: Optional[Any] = None,
@@ -14740,7 +14740,7 @@ class AzureSqlMILinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         :param Any service_principal_id: The ID of the service principal used to authenticate against Azure SQL Managed Instance. Type: string (or Expression with resultType string).
@@ -14841,9 +14841,9 @@ class AzureSqlMILinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -15696,7 +15696,7 @@ class AzureStorageLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -15774,7 +15774,7 @@ class AzureStorageLinkedServiceResponse(dict):
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -16448,7 +16448,7 @@ class AzureTableStorageLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' sas_token: The Azure key vault secret reference of sasToken in sas uri.
         :param Any sas_uri: SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.
@@ -16526,7 +16526,7 @@ class AzureTableStorageLinkedServiceResponse(dict):
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -17743,7 +17743,7 @@ class CassandraLinkedServiceResponse(dict):
                  authentication_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
@@ -17757,7 +17757,7 @@ class CassandraLinkedServiceResponse(dict):
         :param Any authentication_type: AuthenticationType to be used for connection. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any port: The port for the connection. Type: integer (or Expression with resultType integer).
@@ -17835,9 +17835,9 @@ class CassandraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -18547,7 +18547,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  host_name: Optional[Any] = None,
                  organization_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -18567,7 +18567,7 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_name: The host name of the on-premises Common Data Service for Apps server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Common Data Service for Apps instance. The property is required for on-prem and required for online when there are more than one Common Data Service for Apps instances associated with the user. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
@@ -18662,9 +18662,9 @@ class CommonDataServiceForAppsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -19142,7 +19142,7 @@ class ConcurLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_properties: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
@@ -19158,7 +19158,7 @@ class ConcurLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Concur. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the username field.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
@@ -19248,9 +19248,9 @@ class ConcurLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -20219,10 +20219,10 @@ class CosmosDbLinkedServiceResponse(dict):
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  database: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  service_principal_credential: Optional[Any] = None,
-                 service_principal_credential_type: Optional[str] = None,
+                 service_principal_credential_type: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  tenant: Optional[Any] = None):
         """
@@ -20234,15 +20234,15 @@ class CosmosDbLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
-        :param str connection_mode: The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+        :param str connection_mode: The connection mode used to access CosmosDB account. Type: string.
         :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param Any database: The name of the database. Type: string (or Expression with resultType string)
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_credential: The credential of the service principal object in Azure Active Directory. If servicePrincipalCredentialType is 'ServicePrincipalKey', servicePrincipalCredential can be SecureString or AzureKeyVaultSecretReference. If servicePrincipalCredentialType is 'ServicePrincipalCert', servicePrincipalCredential can only be AzureKeyVaultSecretReference.
-        :param str service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        :param Any service_principal_credential_type: The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string.
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).
         :param Any tenant: The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).
         """
@@ -20333,7 +20333,7 @@ class CosmosDbLinkedServiceResponse(dict):
     @pulumi.getter(name="connectionMode")
     def connection_mode(self) -> Optional[str]:
         """
-        The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+        The connection mode used to access CosmosDB account. Type: string.
         """
         return pulumi.get(self, "connection_mode")
 
@@ -20371,9 +20371,9 @@ class CosmosDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -20395,9 +20395,9 @@ class CosmosDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="servicePrincipalCredentialType")
-    def service_principal_credential_type(self) -> Optional[str]:
+    def service_principal_credential_type(self) -> Optional[Any]:
         """
-        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
+        The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string.
         """
         return pulumi.get(self, "service_principal_credential_type")
 
@@ -21452,7 +21452,7 @@ class CouchbaseLinkedServiceResponse(dict):
                  connection_string: Optional[Any] = None,
                  cred_string: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Couchbase server linked service.
@@ -21463,7 +21463,7 @@ class CouchbaseLinkedServiceResponse(dict):
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param 'AzureKeyVaultSecretReferenceResponse' cred_string: The Azure key vault secret reference of credString in connection string.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Couchbase')
@@ -21533,9 +21533,9 @@ class CouchbaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -23782,7 +23782,7 @@ class DataworldLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for Dataworld.
@@ -23792,7 +23792,7 @@ class DataworldLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "api_token", api_token)
@@ -23851,9 +23851,9 @@ class DataworldLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -23907,7 +23907,7 @@ class Db2LinkedServiceResponse(dict):
                  connection_string: Optional[Any] = None,
                  database: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  package_collection: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
@@ -23924,7 +23924,7 @@ class Db2LinkedServiceResponse(dict):
         :param Any connection_string: The connection string. It is mutually exclusive with server, database, authenticationType, userName, packageCollection and certificateCommonName property. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param Any database: Database name for connection. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string.
         :param Any package_collection: Under where packages are created when querying database. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
@@ -24026,9 +24026,9 @@ class Db2LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. It is mutually exclusive with connectionString property. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -25798,7 +25798,7 @@ class DrillLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -25809,7 +25809,7 @@ class DrillLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
@@ -25872,9 +25872,9 @@ class DrillLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -26220,7 +26220,7 @@ class DynamicsAXLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Dynamics AX linked service.
@@ -26234,7 +26234,7 @@ class DynamicsAXLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "aad_resource_id", aad_resource_id)
@@ -26329,9 +26329,9 @@ class DynamicsAXLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -26813,7 +26813,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  host_name: Optional[Any] = None,
                  organization_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -26833,7 +26833,7 @@ class DynamicsCrmLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_name: The host name of the on-premises Dynamics CRM server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Dynamics CRM instance. The property is required for on-prem and required for online when there are more than one Dynamics CRM instances associated with the user. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
@@ -26928,9 +26928,9 @@ class DynamicsCrmLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -27486,7 +27486,7 @@ class DynamicsLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  host_name: Optional[Any] = None,
                  organization_name: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -27507,7 +27507,7 @@ class DynamicsLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_name: The host name of the on-premises Dynamics server. The property is required for on-prem and not allowed for online. Type: string (or Expression with resultType string).
         :param Any organization_name: The organization name of the Dynamics instance. The property is required for on-prem and required for online when there are more than one Dynamics instances associated with the user. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
@@ -27612,9 +27612,9 @@ class DynamicsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -28021,7 +28021,7 @@ class EloquaLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
@@ -28036,7 +28036,7 @@ class EloquaLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
@@ -28116,9 +28116,9 @@ class EloquaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -30617,7 +30617,7 @@ class FileServerLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_id: Optional[Any] = None):
@@ -30629,7 +30629,7 @@ class FileServerLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the server.
         :param Any user_id: User ID to logon the server. Type: string (or Expression with resultType string).
@@ -30694,9 +30694,9 @@ class FileServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -30838,7 +30838,7 @@ class FileServerReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_filter: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
@@ -30854,7 +30854,7 @@ class FileServerReadSettingsResponse(dict):
                Expected value is 'FileServerReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_filter: Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
@@ -30918,9 +30918,9 @@ class FileServerReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -31988,12 +31988,12 @@ class FtpReadSettingsResponse(dict):
                  delete_files_after_completion: Optional[Any] = None,
                  disable_chunking: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_root_path: Optional[Any] = None,
                  recursive: Optional[Any] = None,
-                 use_binary_transfer: Optional[bool] = None,
+                 use_binary_transfer: Optional[Any] = None,
                  wildcard_file_name: Optional[Any] = None,
                  wildcard_folder_path: Optional[Any] = None):
         """
@@ -32003,12 +32003,12 @@ class FtpReadSettingsResponse(dict):
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_chunking: If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_root_path: Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
         :param Any recursive: If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).
-        :param bool use_binary_transfer: Specify whether to use binary transfer mode for FTP stores.
+        :param Any use_binary_transfer: Specify whether to use binary transfer mode for FTP stores. Type: boolean (or Expression with resultType boolean).
         :param Any wildcard_file_name: Ftp wildcardFileName. Type: string (or Expression with resultType string).
         :param Any wildcard_folder_path: Ftp wildcardFolderPath. Type: string (or Expression with resultType string).
         """
@@ -32071,9 +32071,9 @@ class FtpReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -32111,9 +32111,9 @@ class FtpReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="useBinaryTransfer")
-    def use_binary_transfer(self) -> Optional[bool]:
+    def use_binary_transfer(self) -> Optional[Any]:
         """
-        Specify whether to use binary transfer mode for FTP stores.
+        Specify whether to use binary transfer mode for FTP stores. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_binary_transfer")
 
@@ -32175,7 +32175,7 @@ class FtpServerLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  enable_server_certificate_validation: Optional[Any] = None,
                  enable_ssl: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
@@ -32191,7 +32191,7 @@ class FtpServerLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param Any enable_server_certificate_validation: If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any enable_ssl: If true, connect to the FTP server over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to logon the FTP server.
         :param Any port: The TCP port number that the FTP server uses to listen for client connections. Default value is 21. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -32289,9 +32289,9 @@ class FtpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -32707,7 +32707,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  developer_token: Optional[Any] = None,
                  email: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  key_file_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  refresh_token: Optional[Any] = None,
@@ -32719,20 +32719,20 @@ class GoogleAdWordsLinkedServiceResponse(dict):
                Expected value is 'GoogleAdWords'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param str authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-        :param Any client_customer_id: The Client customer ID of the AdWords account that you want to fetch report data for.
+        :param Any client_customer_id: The Client customer ID of the AdWords account that you want to fetch report data for. Type: string (or Expression with resultType string).
         :param Any client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of the google application used to acquire the refresh token.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] developer_token: The developer token associated with the manager account that you use to grant access to the AdWords API.
-        :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained from Google for authorizing access to AdWords for UserAuthentication.
-        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "type", 'GoogleAdWords')
         if annotations is not None:
@@ -32797,7 +32797,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
     @pulumi.getter(name="clientCustomerID")
     def client_customer_id(self) -> Optional[Any]:
         """
-        The Client customer ID of the AdWords account that you want to fetch report data for.
+        The Client customer ID of the AdWords account that you want to fetch report data for. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "client_customer_id")
 
@@ -32853,15 +32853,15 @@ class GoogleAdWordsLinkedServiceResponse(dict):
     @pulumi.getter
     def email(self) -> Optional[Any]:
         """
-        The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
+        The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -32869,7 +32869,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
     @pulumi.getter(name="keyFilePath")
     def key_file_path(self) -> Optional[Any]:
         """
-        The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "key_file_path")
 
@@ -32893,7 +32893,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
     @pulumi.getter(name="trustedCertPath")
     def trusted_cert_path(self) -> Optional[Any]:
         """
-        The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "trusted_cert_path")
 
@@ -32901,7 +32901,7 @@ class GoogleAdWordsLinkedServiceResponse(dict):
     @pulumi.getter(name="useSystemTrustStore")
     def use_system_trust_store(self) -> Optional[Any]:
         """
-        Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_system_trust_store")
 
@@ -33232,7 +33232,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  email: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  key_file_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  refresh_token: Optional[Any] = None,
@@ -33242,23 +33242,23 @@ class GoogleBigQueryLinkedServiceResponse(dict):
         """
         Google BigQuery service linked service.
         :param str authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
-        :param Any project: The default BigQuery project to query against.
+        :param Any project: The default BigQuery project to query against. Type: string (or Expression with resultType string).
         :param str type: Type of linked service.
                Expected value is 'GoogleBigQuery'.
-        :param Any additional_projects: A comma-separated list of public BigQuery projects to access.
+        :param Any additional_projects: A comma-separated list of public BigQuery projects to access. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any client_id: The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of the google application used to acquire the refresh token.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        :param Any email: The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any key_file_path: The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained from Google for authorizing access to BigQuery for UserAuthentication.
-        :param Any request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
-        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
-        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        :param Any request_google_drive_scope: Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false. Type: string (or Expression with resultType string).
+        :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
+        :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.Type: boolean (or Expression with resultType boolean).
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "project", project)
@@ -33304,7 +33304,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     @pulumi.getter
     def project(self) -> Any:
         """
-        The default BigQuery project to query against.
+        The default BigQuery project to query against. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "project")
 
@@ -33321,7 +33321,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     @pulumi.getter(name="additionalProjects")
     def additional_projects(self) -> Optional[Any]:
         """
-        A comma-separated list of public BigQuery projects to access.
+        A comma-separated list of public BigQuery projects to access. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "additional_projects")
 
@@ -33369,15 +33369,15 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     @pulumi.getter
     def email(self) -> Optional[Any]:
         """
-        The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
+        The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -33385,7 +33385,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     @pulumi.getter(name="keyFilePath")
     def key_file_path(self) -> Optional[Any]:
         """
-        The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "key_file_path")
 
@@ -33409,7 +33409,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     @pulumi.getter(name="requestGoogleDriveScope")
     def request_google_drive_scope(self) -> Optional[Any]:
         """
-        Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false.
+        Whether to request access to Google Drive. Allowing Google Drive access enables support for federated tables that combine BigQuery data with data from Google Drive. The default value is false. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "request_google_drive_scope")
 
@@ -33417,7 +33417,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     @pulumi.getter(name="trustedCertPath")
     def trusted_cert_path(self) -> Optional[Any]:
         """
-        The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "trusted_cert_path")
 
@@ -33425,7 +33425,7 @@ class GoogleBigQueryLinkedServiceResponse(dict):
     @pulumi.getter(name="useSystemTrustStore")
     def use_system_trust_store(self) -> Optional[Any]:
         """
-        Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "use_system_trust_store")
 
@@ -33763,7 +33763,7 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
                  service_url: Optional[Any] = None):
@@ -33775,7 +33775,7 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Google Cloud Storage Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the Google Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
@@ -33841,9 +33841,9 @@ class GoogleCloudStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -34009,7 +34009,7 @@ class GoogleCloudStorageReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -34025,7 +34025,7 @@ class GoogleCloudStorageReadSettingsResponse(dict):
                Expected value is 'GoogleCloudStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -34089,9 +34089,9 @@ class GoogleCloudStorageReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -34200,7 +34200,7 @@ class GoogleSheetsLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for GoogleSheets.
@@ -34210,7 +34210,7 @@ class GoogleSheetsLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "api_token", api_token)
@@ -34269,9 +34269,9 @@ class GoogleSheetsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -34316,7 +34316,7 @@ class GreenplumLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -34327,7 +34327,7 @@ class GreenplumLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
@@ -34390,9 +34390,9 @@ class GreenplumLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -34744,7 +34744,7 @@ class HBaseLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  http_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
@@ -34763,7 +34763,7 @@ class HBaseLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any http_path: The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
@@ -34876,9 +34876,9 @@ class HBaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -35255,7 +35255,7 @@ class HDInsightHiveActivityResponse(dict):
                  script_path: Optional[Any] = None,
                  storage_linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
-                 variables: Optional[Sequence[Any]] = None):
+                 variables: Optional[Mapping[str, Any]] = None):
         """
         HDInsight Hive activity type.
         :param str name: Activity name.
@@ -35273,7 +35273,7 @@ class HDInsightHiveActivityResponse(dict):
         :param Any script_path: Script path. Type: string (or Expression with resultType string).
         :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
-        :param Sequence[Any] variables: User specified arguments under hivevar namespace.
+        :param Mapping[str, Any] variables: User specified arguments under hivevar namespace.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", 'HDInsightHive')
@@ -35419,7 +35419,7 @@ class HDInsightHiveActivityResponse(dict):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[Sequence[Any]]:
+    def variables(self) -> Optional[Mapping[str, Any]]:
         """
         User specified arguments under hivevar namespace.
         """
@@ -35468,7 +35468,7 @@ class HDInsightLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  file_system: Optional[Any] = None,
                  hcatalog_linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  is_esp_enabled: Optional[Any] = None,
@@ -35484,7 +35484,7 @@ class HDInsightLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any file_system: Specify the FileSystem if the main storage for the HDInsight is ADLS Gen2. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' hcatalog_linked_service_name: A reference to the Azure SQL linked service that points to the HCatalog database.
         :param Any is_esp_enabled: Specify if the HDInsight is created with ESP (Enterprise Security Package). Type: Boolean.
@@ -35561,9 +35561,9 @@ class HDInsightLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -35952,7 +35952,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  data_node_size: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  h_base_configuration: Optional[Any] = None,
                  hcatalog_linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  hdfs_configuration: Optional[Any] = None,
@@ -35994,7 +35994,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param Any data_node_size: Specifies the size of the data node for the HDInsight cluster.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any h_base_configuration: Specifies the HBase configuration parameters (hbase-site.xml) for the HDInsight cluster.
         :param 'LinkedServiceReferenceResponse' hcatalog_linked_service_name: The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore.
         :param Any hdfs_configuration: Specifies the HDFS configuration parameters (hdfs-site.xml) for the HDInsight cluster.
@@ -36255,9 +36255,9 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -37118,7 +37118,7 @@ class HdfsLinkedServiceResponse(dict):
                  authentication_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
@@ -37131,7 +37131,7 @@ class HdfsLinkedServiceResponse(dict):
         :param Any authentication_type: Type of authentication used to connect to the HDFS. Possible values are: Anonymous and Windows. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Windows authentication.
         :param Any user_name: User name for Windows authentication. Type: string (or Expression with resultType string).
@@ -37206,9 +37206,9 @@ class HdfsLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -37351,7 +37351,7 @@ class HdfsReadSettingsResponse(dict):
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
                  distcp_settings: Optional['outputs.DistcpSettingsResponse'] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -37367,7 +37367,7 @@ class HdfsReadSettingsResponse(dict):
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param 'DistcpSettingsResponse' distcp_settings: Specifies Distcp-related settings.
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -37438,9 +37438,9 @@ class HdfsReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -37688,7 +37688,7 @@ class HiveLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  http_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
@@ -37713,7 +37713,7 @@ class HiveLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any http_path: The partial URL corresponding to the Hive server.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the Username field
@@ -37844,9 +37844,9 @@ class HiveLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -38487,7 +38487,7 @@ class HttpLinkedServiceResponse(dict):
                  description: Optional[str] = None,
                  embedded_cert_data: Optional[Any] = None,
                  enable_server_certificate_validation: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
@@ -38504,7 +38504,7 @@ class HttpLinkedServiceResponse(dict):
         :param str description: Linked service description.
         :param Any embedded_cert_data: Base64 encoded certificate data for ClientCertificate authentication. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param Any enable_server_certificate_validation: If true, validate the HTTPS server SSL certificate. Default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic, Digest, Windows, or ClientCertificate with EmbeddedCertData authentication.
         :param Any user_name: User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
@@ -38619,9 +38619,9 @@ class HttpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -38653,21 +38653,19 @@ class HttpLinkedServiceResponse(dict):
 @pulumi.output_type
 class HttpReadSettingsResponse(dict):
     """
-    Sftp read settings.
+    Http read settings.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "additionalHeaders":
+        if key == "additionalColumns":
+            suggest = "additional_columns"
+        elif key == "additionalHeaders":
             suggest = "additional_headers"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
-        elif key == "enablePartitionDiscovery":
-            suggest = "enable_partition_discovery"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
-        elif key == "partitionRootPath":
-            suggest = "partition_root_path"
         elif key == "requestBody":
             suggest = "request_body"
         elif key == "requestMethod":
@@ -38688,38 +38686,34 @@ class HttpReadSettingsResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
+                 additional_columns: Optional[Any] = None,
                  additional_headers: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
                  max_concurrent_connections: Optional[Any] = None,
-                 partition_root_path: Optional[Any] = None,
                  request_body: Optional[Any] = None,
                  request_method: Optional[Any] = None,
                  request_timeout: Optional[Any] = None):
         """
-        Sftp read settings.
+        Http read settings.
         :param str type: The read setting type.
                Expected value is 'HttpReadSettings'.
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any partition_root_path: Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
         :param Any request_body: The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
         :param Any request_method: The HTTP method used to call the RESTful API. The default is GET. Type: string (or Expression with resultType string).
-        :param Any request_timeout: Specifies the timeout for a HTTP client to get HTTP response from HTTP server.
+        :param Any request_timeout: Specifies the timeout for a HTTP client to get HTTP response from HTTP server. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'HttpReadSettings')
+        if additional_columns is not None:
+            pulumi.set(__self__, "additional_columns", additional_columns)
         if additional_headers is not None:
             pulumi.set(__self__, "additional_headers", additional_headers)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
-        if enable_partition_discovery is not None:
-            pulumi.set(__self__, "enable_partition_discovery", enable_partition_discovery)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
-        if partition_root_path is not None:
-            pulumi.set(__self__, "partition_root_path", partition_root_path)
         if request_body is not None:
             pulumi.set(__self__, "request_body", request_body)
         if request_method is not None:
@@ -38735,6 +38729,14 @@ class HttpReadSettingsResponse(dict):
         Expected value is 'HttpReadSettings'.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalColumns")
+    def additional_columns(self) -> Optional[Any]:
+        """
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "additional_columns")
 
     @property
     @pulumi.getter(name="additionalHeaders")
@@ -38753,28 +38755,12 @@ class HttpReadSettingsResponse(dict):
         return pulumi.get(self, "disable_metrics_collection")
 
     @property
-    @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
-        """
-        Indicates whether to enable partition discovery.
-        """
-        return pulumi.get(self, "enable_partition_discovery")
-
-    @property
     @pulumi.getter(name="maxConcurrentConnections")
     def max_concurrent_connections(self) -> Optional[Any]:
         """
         The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "max_concurrent_connections")
-
-    @property
-    @pulumi.getter(name="partitionRootPath")
-    def partition_root_path(self) -> Optional[Any]:
-        """
-        Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).
-        """
-        return pulumi.get(self, "partition_root_path")
 
     @property
     @pulumi.getter(name="requestBody")
@@ -38796,7 +38782,7 @@ class HttpReadSettingsResponse(dict):
     @pulumi.getter(name="requestTimeout")
     def request_timeout(self) -> Optional[Any]:
         """
-        Specifies the timeout for a HTTP client to get HTTP response from HTTP server.
+        Specifies the timeout for a HTTP client to get HTTP response from HTTP server. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "request_timeout")
 
@@ -39037,7 +39023,7 @@ class HubspotLinkedServiceResponse(dict):
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  refresh_token: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
@@ -39053,7 +39039,7 @@ class HubspotLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your Hubspot application.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] refresh_token: The refresh token obtained when initially authenticating your OAuth integration.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
@@ -39144,9 +39130,9 @@ class HubspotLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -39639,7 +39625,7 @@ class ImpalaLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
@@ -39658,7 +39644,7 @@ class ImpalaLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name when using UsernameAndPassword.
         :param Any port: The TCP port that the Impala server uses to listen for client connections. The default value is 21050.
@@ -39771,9 +39757,9 @@ class ImpalaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -40149,13 +40135,13 @@ class InformixLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
         """
         Informix linked service.
-        :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         :param str type: Type of linked service.
                Expected value is 'Informix'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -40163,7 +40149,7 @@ class InformixLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
@@ -40193,7 +40179,7 @@ class InformixLinkedServiceResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Any:
         """
-        The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
+        The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         """
         return pulumi.get(self, "connection_string")
 
@@ -40248,9 +40234,9 @@ class InformixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -41519,7 +41505,7 @@ class JiraLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
@@ -41535,7 +41521,7 @@ class JiraLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the username field.
         :param Any port: The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.
@@ -41618,9 +41604,9 @@ class JiraLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -43268,7 +43254,7 @@ class MagentoLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
@@ -43282,7 +43268,7 @@ class MagentoLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -43360,9 +43346,9 @@ class MagentoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -44459,7 +44445,7 @@ class MariaDBLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -44470,7 +44456,7 @@ class MariaDBLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
@@ -44533,9 +44519,9 @@ class MariaDBLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -44871,7 +44857,7 @@ class MarketoLinkedServiceResponse(dict):
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
@@ -44886,7 +44872,7 @@ class MarketoLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret of your Marketo service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -44973,9 +44959,9 @@ class MarketoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -45358,13 +45344,13 @@ class MicrosoftAccessLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
         """
         Microsoft Access linked service.
-        :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         :param str type: Type of linked service.
                Expected value is 'MicrosoftAccess'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -45372,7 +45358,7 @@ class MicrosoftAccessLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
@@ -45402,7 +45388,7 @@ class MicrosoftAccessLinkedServiceResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Any:
         """
-        The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
+        The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         """
         return pulumi.get(self, "connection_string")
 
@@ -45457,9 +45443,9 @@ class MicrosoftAccessLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -46673,7 +46659,7 @@ class MongoDbLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
@@ -46691,7 +46677,7 @@ class MongoDbLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any port: The TCP port number that the MongoDB server uses to listen for client connections. The default value is 27017. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -46808,9 +46794,9 @@ class MongoDbLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -47636,18 +47622,18 @@ class MySqlLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
         Linked service for MySQL data source.
-        :param Any connection_string: The connection string.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'MySql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
@@ -47670,7 +47656,7 @@ class MySqlLinkedServiceResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Any:
         """
-        The connection string.
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
@@ -47709,9 +47695,9 @@ class MySqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -48037,7 +48023,7 @@ class NetezzaLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -48048,7 +48034,7 @@ class NetezzaLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
@@ -48111,9 +48097,9 @@ class NetezzaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -48605,7 +48591,7 @@ class ODataLinkedServiceResponse(dict):
                  azure_cloud_type: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  service_principal_embedded_cert: Optional[Any] = None,
@@ -48627,7 +48613,7 @@ class ODataLinkedServiceResponse(dict):
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password of the OData service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_embedded_cert: Specify the base64 encoded certificate of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).
@@ -48757,9 +48743,9 @@ class ODataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -49137,13 +49123,13 @@ class OdbcLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
         """
         Open Database Connectivity (ODBC) linked service.
-        :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any connection_string: The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         :param str type: Type of linked service.
                Expected value is 'Odbc'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
@@ -49151,7 +49137,7 @@ class OdbcLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] credential: The access credential portion of the connection string specified in driver-specific property-value format.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for Basic authentication.
         :param Any user_name: User name for Basic authentication. Type: string (or Expression with resultType string).
@@ -49181,7 +49167,7 @@ class OdbcLinkedServiceResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Any:
         """
-        The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, SecureString or AzureKeyVaultSecretReference.
+        The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.
         """
         return pulumi.get(self, "connection_string")
 
@@ -49236,9 +49222,9 @@ class OdbcLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -49867,7 +49853,7 @@ class Office365LinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Office365 linked service.
@@ -49880,7 +49866,7 @@ class Office365LinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "office365_tenant_id", office365_tenant_id)
@@ -49966,9 +49952,9 @@ class Office365LinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -50196,7 +50182,7 @@ class OracleCloudStorageLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  secret_access_key: Optional[Any] = None,
                  service_url: Optional[Any] = None):
@@ -50208,7 +50194,7 @@ class OracleCloudStorageLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] secret_access_key: The secret access key of the Oracle Cloud Storage Identity and Access Management (IAM) user.
         :param Any service_url: This value specifies the endpoint to access with the Oracle Cloud Storage Connector. This is an optional property; change it only if you want to try a different service endpoint or want to switch between https and http. Type: string (or Expression with resultType string).
@@ -50274,9 +50260,9 @@ class OracleCloudStorageLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -50442,7 +50428,7 @@ class OracleCloudStorageReadSettingsResponse(dict):
                  type: str,
                  delete_files_after_completion: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -50458,7 +50444,7 @@ class OracleCloudStorageReadSettingsResponse(dict):
                Expected value is 'OracleCloudStorageReadSettings'.
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -50522,9 +50508,9 @@ class OracleCloudStorageReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -50633,7 +50619,7 @@ class OracleLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -50644,7 +50630,7 @@ class OracleLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
@@ -50706,9 +50692,9 @@ class OracleLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -50849,7 +50835,7 @@ class OracleServiceCloudLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
@@ -50864,7 +50850,7 @@ class OracleServiceCloudLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -50950,9 +50936,9 @@ class OracleServiceCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -52933,7 +52919,7 @@ class PaypalLinkedServiceResponse(dict):
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
@@ -52941,14 +52927,14 @@ class PaypalLinkedServiceResponse(dict):
         """
         Paypal Service linked service.
         :param Any client_id: The client ID associated with your PayPal application.
-        :param Any host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
+        :param Any host: The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         :param str type: Type of linked service.
                Expected value is 'Paypal'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your PayPal application.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -52988,7 +52974,7 @@ class PaypalLinkedServiceResponse(dict):
     @pulumi.getter
     def host(self) -> Any:
         """
-        The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
+        The URL of the PayPal instance. (i.e. api.sandbox.paypal.com)
         """
         return pulumi.get(self, "host")
 
@@ -53035,9 +53021,9 @@ class PaypalLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -53395,7 +53381,7 @@ class PhoenixLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  http_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
@@ -53415,7 +53401,7 @@ class PhoenixLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any http_path: The partial URL corresponding to the Phoenix server. (i.e. /gateway/sandbox/phoenix/version). The default value is hbasephoenix if using WindowsAzureHDInsightService.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
@@ -53531,9 +53517,9 @@ class PhoenixLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -54181,18 +54167,18 @@ class PostgreSqlLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
         Linked service for PostgreSQL data source.
-        :param Any connection_string: The connection string.
+        :param Any connection_string: The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str type: Type of linked service.
                Expected value is 'PostgreSql'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
@@ -54215,7 +54201,7 @@ class PostgreSqlLinkedServiceResponse(dict):
     @pulumi.getter(name="connectionString")
     def connection_string(self) -> Any:
         """
-        The connection string.
+        The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
         return pulumi.get(self, "connection_string")
 
@@ -54254,9 +54240,9 @@ class PostgreSqlLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -54908,7 +54894,7 @@ class PrestoLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  port: Optional[Any] = None,
@@ -54930,7 +54916,7 @@ class PrestoLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name.
         :param Any port: The TCP port that the Presto server uses to listen for client connections. The default value is 8080.
@@ -55064,9 +55050,9 @@ class PrestoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -55565,7 +55551,7 @@ class QuickBooksLinkedServiceResponse(dict):
                  consumer_key: Optional[Any] = None,
                  consumer_secret: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  endpoint: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None):
@@ -55582,7 +55568,7 @@ class QuickBooksLinkedServiceResponse(dict):
         :param Any consumer_key: The consumer key for OAuth 1.0 authentication.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] consumer_secret: The consumer secret for OAuth 1.0 authentication.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any endpoint: The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
@@ -55698,9 +55684,9 @@ class QuickBooksLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -56035,7 +56021,7 @@ class QuickbaseLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for Quickbase.
@@ -56046,7 +56032,7 @@ class QuickbaseLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "type", 'Quickbase')
@@ -56114,9 +56100,9 @@ class QuickbaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -56851,7 +56837,7 @@ class ResponsysLinkedServiceResponse(dict):
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
@@ -56866,7 +56852,7 @@ class ResponsysLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with the Responsys application. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -56953,9 +56939,9 @@ class ResponsysLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -57300,11 +57286,11 @@ class RestResourceDatasetResponse(dict):
     def __init__(__self__, *,
                  linked_service_name: 'outputs.LinkedServiceReferenceResponse',
                  type: str,
-                 additional_headers: Optional[Any] = None,
+                 additional_headers: Optional[Mapping[str, Any]] = None,
                  annotations: Optional[Sequence[Any]] = None,
                  description: Optional[str] = None,
                  folder: Optional['outputs.DatasetResponseFolder'] = None,
-                 pagination_rules: Optional[Any] = None,
+                 pagination_rules: Optional[Mapping[str, Any]] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  relative_url: Optional[Any] = None,
                  request_body: Optional[Any] = None,
@@ -57316,11 +57302,11 @@ class RestResourceDatasetResponse(dict):
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param str type: Type of dataset.
                Expected value is 'RestResource'.
-        :param Any additional_headers: The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        :param Mapping[str, Any] additional_headers: The additional HTTP headers in the request to the RESTful API.
         :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
         :param str description: Dataset description.
         :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
-        :param Any pagination_rules: The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
+        :param Mapping[str, Any] pagination_rules: The pagination rules to compose next page requests.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any relative_url: The relative URL to the resource that the RESTful API provides. Type: string (or Expression with resultType string).
         :param Any request_body: The HTTP request body to the RESTful API if requestMethod is POST. Type: string (or Expression with resultType string).
@@ -57372,9 +57358,9 @@ class RestResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="additionalHeaders")
-    def additional_headers(self) -> Optional[Any]:
+    def additional_headers(self) -> Optional[Mapping[str, Any]]:
         """
-        The additional HTTP headers in the request to the RESTful API. Type: string (or Expression with resultType string).
+        The additional HTTP headers in the request to the RESTful API.
         """
         return pulumi.get(self, "additional_headers")
 
@@ -57404,9 +57390,9 @@ class RestResourceDatasetResponse(dict):
 
     @property
     @pulumi.getter(name="paginationRules")
-    def pagination_rules(self) -> Optional[Any]:
+    def pagination_rules(self) -> Optional[Mapping[str, Any]]:
         """
-        The pagination rules to compose next page requests. Type: string (or Expression with resultType string).
+        The pagination rules to compose next page requests.
         """
         return pulumi.get(self, "pagination_rules")
 
@@ -57519,7 +57505,7 @@ class RestServiceLinkedServiceResponse(dict):
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_server_certificate_validation: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  resource: Optional[Any] = None,
@@ -57534,8 +57520,8 @@ class RestServiceLinkedServiceResponse(dict):
         :param str authentication_type: Type of authentication used to connect to the REST service.
         :param str type: Type of linked service.
                Expected value is 'RestService'.
-        :param Any url: The base URL of the REST service.
-        :param Any aad_resource_id: The resource you are requesting authorization to use.
+        :param Any url: The base URL of the REST service. Type: string (or Expression with resultType string).
+        :param Any aad_resource_id: The resource you are requesting authorization to use. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
@@ -57545,16 +57531,16 @@ class RestServiceLinkedServiceResponse(dict):
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
         :param Any enable_server_certificate_validation: Whether to validate server side SSL certificate when connecting to the endpoint.The default value is true. Type: boolean (or Expression with resultType boolean).
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password used in Basic authentication type.
         :param Any resource: The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
         :param Any scope: The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
-        :param Any service_principal_id: The application's client ID used in AadServicePrincipal authentication type.
+        :param Any service_principal_id: The application's client ID used in AadServicePrincipal authentication type. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The application's key used in AadServicePrincipal authentication type.
-        :param Any tenant: The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
+        :param Any tenant: The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides. Type: string (or Expression with resultType string).
         :param Any token_endpoint: The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
-        :param Any user_name: The user name used in Basic authentication type.
+        :param Any user_name: The user name used in Basic authentication type. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "type", 'RestService')
@@ -57621,7 +57607,7 @@ class RestServiceLinkedServiceResponse(dict):
     @pulumi.getter
     def url(self) -> Any:
         """
-        The base URL of the REST service.
+        The base URL of the REST service. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
@@ -57629,7 +57615,7 @@ class RestServiceLinkedServiceResponse(dict):
     @pulumi.getter(name="aadResourceId")
     def aad_resource_id(self) -> Optional[Any]:
         """
-        The resource you are requesting authorization to use.
+        The resource you are requesting authorization to use. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "aad_resource_id")
 
@@ -57707,9 +57693,9 @@ class RestServiceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -57749,7 +57735,7 @@ class RestServiceLinkedServiceResponse(dict):
     @pulumi.getter(name="servicePrincipalId")
     def service_principal_id(self) -> Optional[Any]:
         """
-        The application's client ID used in AadServicePrincipal authentication type.
+        The application's client ID used in AadServicePrincipal authentication type. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "service_principal_id")
 
@@ -57765,7 +57751,7 @@ class RestServiceLinkedServiceResponse(dict):
     @pulumi.getter
     def tenant(self) -> Optional[Any]:
         """
-        The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
+        The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "tenant")
 
@@ -57781,7 +57767,7 @@ class RestServiceLinkedServiceResponse(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[Any]:
         """
-        The user name used in Basic authentication type.
+        The user name used in Basic authentication type. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
@@ -58252,9 +58238,9 @@ class SSISAccessCredentialResponse(dict):
                  user_name: Any):
         """
         SSIS access credential.
-        :param Any domain: Domain for windows authentication.
+        :param Any domain: Domain for windows authentication. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for windows authentication.
-        :param Any user_name: UseName for windows authentication.
+        :param Any user_name: UseName for windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "password", password)
@@ -58264,7 +58250,7 @@ class SSISAccessCredentialResponse(dict):
     @pulumi.getter
     def domain(self) -> Any:
         """
-        Domain for windows authentication.
+        Domain for windows authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "domain")
 
@@ -58280,7 +58266,7 @@ class SSISAccessCredentialResponse(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> Any:
         """
-        UseName for windows authentication.
+        UseName for windows authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
@@ -58393,9 +58379,9 @@ class SSISExecutionCredentialResponse(dict):
                  user_name: Any):
         """
         SSIS package execution credential.
-        :param Any domain: Domain for windows authentication.
+        :param Any domain: Domain for windows authentication. Type: string (or Expression with resultType string).
         :param 'SecureStringResponse' password: Password for windows authentication.
-        :param Any user_name: UseName for windows authentication.
+        :param Any user_name: UseName for windows authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "password", password)
@@ -58405,7 +58391,7 @@ class SSISExecutionCredentialResponse(dict):
     @pulumi.getter
     def domain(self) -> Any:
         """
-        Domain for windows authentication.
+        Domain for windows authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "domain")
 
@@ -58421,7 +58407,7 @@ class SSISExecutionCredentialResponse(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> Any:
         """
-        UseName for windows authentication.
+        UseName for windows authentication. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
@@ -58777,7 +58763,7 @@ class SalesforceLinkedServiceResponse(dict):
                  api_version: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  environment_url: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
@@ -58791,7 +58777,7 @@ class SalesforceLinkedServiceResponse(dict):
         :param Any api_version: The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any environment_url: The URL of Salesforce instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication of the Salesforce instance.
@@ -58863,9 +58849,9 @@ class SalesforceLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -58954,7 +58940,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_properties: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
@@ -58969,7 +58955,7 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Salesforce Marketing Cloud. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true. Type: boolean (or Expression with resultType boolean).
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true. Type: boolean (or Expression with resultType boolean).
@@ -59058,9 +59044,9 @@ class SalesforceMarketingCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -59546,7 +59532,7 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
                  api_version: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  environment_url: Optional[Any] = None,
                  extended_properties: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -59561,7 +59547,7 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
         :param Any api_version: The Salesforce API version used in ADF. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any environment_url: The URL of Salesforce Service Cloud instance. Default is 'https://login.salesforce.com'. To copy data from sandbox, specify 'https://test.salesforce.com'. To copy data from custom domain, specify, for example, 'https://[domain].my.salesforce.com'. Type: string (or Expression with resultType string).
         :param Any extended_properties: Extended properties appended to the connection string. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
@@ -59636,9 +59622,9 @@ class SalesforceServiceCloudLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -60481,7 +60467,7 @@ class SapBWLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
@@ -60495,7 +60481,7 @@ class SapBWLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP BW server.
         :param Any user_name: Username to access the SAP BW server. Type: string (or Expression with resultType string).
@@ -60578,9 +60564,9 @@ class SapBWLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -60898,7 +60884,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  username: Optional[Any] = None):
@@ -60910,7 +60896,7 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
         :param Any username: The username for Basic authentication. Type: string (or Expression with resultType string).
@@ -60975,9 +60961,9 @@ class SapCloudForCustomerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -61467,26 +61453,26 @@ class SapEccLinkedServiceResponse(dict):
 
     def __init__(__self__, *,
                  type: str,
-                 url: str,
+                 url: Any,
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
-                 username: Optional[str] = None):
+                 username: Optional[Any] = None):
         """
         Linked service for SAP ERP Central Component(SAP ECC).
         :param str type: Type of linked service.
                Expected value is 'SapEcc'.
-        :param str url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
+        :param Any url: The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password for Basic authentication.
-        :param str username: The username for Basic authentication. Type: string (or Expression with resultType string).
+        :param Any username: The username for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "type", 'SapEcc')
         pulumi.set(__self__, "url", url)
@@ -61516,7 +61502,7 @@ class SapEccLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def url(self) -> str:
+    def url(self) -> Any:
         """
         The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
         """
@@ -61550,7 +61536,7 @@ class SapEccLinkedServiceResponse(dict):
     @pulumi.getter(name="encryptedCredential")
     def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -61572,7 +61558,7 @@ class SapEccLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[str]:
+    def username(self) -> Optional[Any]:
         """
         The username for Basic authentication. Type: string (or Expression with resultType string).
         """
@@ -61900,7 +61886,7 @@ class SapHanaLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  server: Optional[Any] = None,
@@ -61914,7 +61900,7 @@ class SapHanaLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: SAP HANA ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP HANA server.
         :param Any server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
@@ -61993,9 +61979,9 @@ class SapHanaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -62443,7 +62429,7 @@ class SapOdpLinkedServiceResponse(dict):
                  client_id: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  language: Optional[Any] = None,
                  logon_group: Optional[Any] = None,
                  message_server: Optional[Any] = None,
@@ -62469,7 +62455,7 @@ class SapOdpLinkedServiceResponse(dict):
         :param Any client_id: Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any language: Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
         :param Any logon_group: The Logon Group for the SAP System. Type: string (or Expression with resultType string).
         :param Any message_server: The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
@@ -62577,9 +62563,9 @@ class SapOdpLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -63087,7 +63073,7 @@ class SapOpenHubLinkedServiceResponse(dict):
                  client_id: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  language: Optional[Any] = None,
                  logon_group: Optional[Any] = None,
                  message_server: Optional[Any] = None,
@@ -63106,7 +63092,7 @@ class SapOpenHubLinkedServiceResponse(dict):
         :param Any client_id: Client ID of the client on the BW system where the open hub destination is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any language: Language of the BW system where the open hub destination is located. The default value is EN. Type: string (or Expression with resultType string).
         :param Any logon_group: The Logon Group for the SAP System. Type: string (or Expression with resultType string).
         :param Any message_server: The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
@@ -63193,9 +63179,9 @@ class SapOpenHubLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -63678,7 +63664,7 @@ class SapTableLinkedServiceResponse(dict):
                  client_id: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  language: Optional[Any] = None,
                  logon_group: Optional[Any] = None,
                  message_server: Optional[Any] = None,
@@ -63702,7 +63688,7 @@ class SapTableLinkedServiceResponse(dict):
         :param Any client_id: Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any language: Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
         :param Any logon_group: The Logon Group for the SAP System. Type: string (or Expression with resultType string).
         :param Any message_server: The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
@@ -63804,9 +63790,9 @@ class SapTableLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -64675,7 +64661,7 @@ class ScriptActivityParameterResponse(dict):
         :param Any name: The name of the parameter. Type: string (or Expression with resultType string).
         :param int size: The size of the output direction parameter.
         :param str type: The type of the parameter.
-        :param Any value: The value of the parameter.
+        :param Any value: The value of the parameter. Type: string (or Expression with resultType string).
         """
         if direction is not None:
             pulumi.set(__self__, "direction", direction)
@@ -64724,7 +64710,7 @@ class ScriptActivityParameterResponse(dict):
     @pulumi.getter
     def value(self) -> Optional[Any]:
         """
-        The value of the parameter.
+        The value of the parameter. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "value")
 
@@ -65607,7 +65593,7 @@ class ServiceNowLinkedServiceResponse(dict):
                  client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
@@ -65625,7 +65611,7 @@ class ServiceNowLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret for OAuth2 authentication.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name for Basic and OAuth2 authentication.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
@@ -65728,9 +65714,9 @@ class ServiceNowLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -66300,7 +66286,7 @@ class SftpReadSettingsResponse(dict):
                  delete_files_after_completion: Optional[Any] = None,
                  disable_chunking: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
-                 enable_partition_discovery: Optional[bool] = None,
+                 enable_partition_discovery: Optional[Any] = None,
                  file_list_path: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  modified_datetime_end: Optional[Any] = None,
@@ -66316,7 +66302,7 @@ class SftpReadSettingsResponse(dict):
         :param Any delete_files_after_completion: Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_chunking: If true, disable parallel reading within each file. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
-        :param bool enable_partition_discovery: Indicates whether to enable partition discovery.
+        :param Any enable_partition_discovery: Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         :param Any file_list_path: Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any modified_datetime_end: The end of file's modified datetime. Type: string (or Expression with resultType string).
@@ -66387,9 +66373,9 @@ class SftpReadSettingsResponse(dict):
 
     @property
     @pulumi.getter(name="enablePartitionDiscovery")
-    def enable_partition_discovery(self) -> Optional[bool]:
+    def enable_partition_discovery(self) -> Optional[Any]:
         """
-        Indicates whether to enable partition discovery.
+        Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "enable_partition_discovery")
 
@@ -66503,7 +66489,7 @@ class SftpServerLinkedServiceResponse(dict):
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  host_key_fingerprint: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  pass_phrase: Optional[Any] = None,
@@ -66522,7 +66508,7 @@ class SftpServerLinkedServiceResponse(dict):
         :param str authentication_type: The authentication type to be used to connect to the FTP server.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host_key_fingerprint: The host key finger-print of the SFTP server. When SkipHostKeyValidation is false, HostKeyFingerprint should be specified. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] pass_phrase: The password to decrypt the SSH private key if the SSH private key is encrypted.
@@ -66615,9 +66601,9 @@ class SftpServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -66844,7 +66830,7 @@ class SharePointOnlineListLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         SharePoint Online List linked service.
@@ -66857,7 +66843,7 @@ class SharePointOnlineListLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "service_principal_id", service_principal_id)
@@ -66943,9 +66929,9 @@ class SharePointOnlineListLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -67256,7 +67242,7 @@ class ShopifyLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
                  use_host_verification: Optional[Any] = None,
@@ -67270,7 +67256,7 @@ class ShopifyLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
         :param Any use_host_verification: Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.
@@ -67348,9 +67334,9 @@ class ShopifyLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -67746,7 +67732,7 @@ class SmartsheetLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for Smartsheet.
@@ -67756,7 +67742,7 @@ class SmartsheetLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "api_token", api_token)
@@ -67815,9 +67801,9 @@ class SmartsheetLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -68132,7 +68118,7 @@ class SnowflakeLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -68143,7 +68129,7 @@ class SnowflakeLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' password: The Azure key vault secret reference of password in connection string.
         """
@@ -68205,9 +68191,9 @@ class SnowflakeLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -68602,7 +68588,7 @@ class SparkLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  enable_ssl: Optional[Any] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  http_path: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
@@ -68624,7 +68610,7 @@ class SparkLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any http_path: The partial URL corresponding to the Spark server.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password corresponding to the user name that you provided in the Username field
@@ -68752,9 +68738,9 @@ class SparkLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -69141,7 +69127,7 @@ class SqlAlwaysEncryptedPropertiesResponse(dict):
                  service_principal_key: Optional[Any] = None):
         """
         Sql always encrypted properties.
-        :param str always_encrypted_akv_auth_type: Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        :param str always_encrypted_akv_auth_type: Sql always encrypted AKV authentication type. Type: string.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param Any service_principal_id: The client ID of the application in Azure Active Directory used for Azure Key Vault authentication. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The key of the service principal used to authenticate against Azure Key Vault.
@@ -69158,7 +69144,7 @@ class SqlAlwaysEncryptedPropertiesResponse(dict):
     @pulumi.getter(name="alwaysEncryptedAkvAuthType")
     def always_encrypted_akv_auth_type(self) -> str:
         """
-        Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        Sql always encrypted AKV authentication type. Type: string.
         """
         return pulumi.get(self, "always_encrypted_akv_auth_type")
 
@@ -70242,7 +70228,7 @@ class SqlServerLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
@@ -70255,7 +70241,7 @@ class SqlServerLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The on-premises Windows authentication password.
         :param Any user_name: The on-premises Windows authentication user name. Type: string (or Expression with resultType string).
@@ -70330,9 +70316,9 @@ class SqlServerLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -71677,7 +71663,7 @@ class SquareLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_properties: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  host: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  redirect_uri: Optional[Any] = None,
@@ -71694,8 +71680,8 @@ class SquareLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Square. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
-        :param Any host: The URL of the Square instance. (i.e. mystore.mysquare.com)
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
+        :param Any host: The URL of the Square instance. (i.e. mystore.mysquare.com)
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any redirect_uri: The redirect URL assigned in the Square application dashboard. (i.e. http://localhost:2500)
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
@@ -71789,9 +71775,9 @@ class SquareLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -71799,7 +71785,7 @@ class SquareLinkedServiceResponse(dict):
     @pulumi.getter
     def host(self) -> Optional[Any]:
         """
-        The URL of the Square instance. (i.e. mystore.mysquare.com)
+        The URL of the Square instance. (i.e. mystore.mysquare.com)
         """
         return pulumi.get(self, "host")
 
@@ -73047,7 +73033,7 @@ class SybaseLinkedServiceResponse(dict):
                  authentication_type: Optional[str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  schema: Optional[Any] = None,
@@ -73062,7 +73048,7 @@ class SybaseLinkedServiceResponse(dict):
         :param str authentication_type: AuthenticationType to be used for connection.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any schema: Schema name for connection. Type: string (or Expression with resultType string).
@@ -73149,9 +73135,9 @@ class SybaseLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -73505,7 +73491,7 @@ class SynapseNotebookActivityResponse(dict):
                  driver_size: Optional[Any] = None,
                  executor_size: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
-                 num_executors: Optional[int] = None,
+                 num_executors: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.NotebookParameterResponse']] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  spark_pool: Optional['outputs.BigDataPoolParametrizationReferenceResponse'] = None,
@@ -73522,7 +73508,7 @@ class SynapseNotebookActivityResponse(dict):
         :param Any driver_size: Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).
         :param Any executor_size: Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
-        :param int num_executors: Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
+        :param Any num_executors: Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer).
         :param Mapping[str, 'NotebookParameterResponse'] parameters: Notebook parameters.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param 'BigDataPoolParametrizationReferenceResponse' spark_pool: The name of the big data pool which will be used to execute the notebook.
@@ -73629,9 +73615,9 @@ class SynapseNotebookActivityResponse(dict):
 
     @property
     @pulumi.getter(name="numExecutors")
-    def num_executors(self) -> Optional[int]:
+    def num_executors(self) -> Optional[Any]:
         """
-        Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
+        Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "num_executors")
 
@@ -74366,7 +74352,7 @@ class TeamDeskLinkedServiceResponse(dict):
                  api_token: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
@@ -74380,7 +74366,7 @@ class TeamDeskLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the TeamDesk source.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the TeamDesk source.
         :param Any user_name: The username of the TeamDesk source. Type: string (or Expression with resultType string).
@@ -74464,9 +74450,9 @@ class TeamDeskLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -74530,7 +74516,7 @@ class TeradataLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  server: Optional[Any] = None,
@@ -74544,7 +74530,7 @@ class TeradataLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: Teradata ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password for authentication.
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
@@ -74623,9 +74609,9 @@ class TeradataLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -75773,7 +75759,7 @@ class TwilioLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The auth token of Twilio service.
         :param str type: Type of linked service.
                Expected value is 'Twilio'.
-        :param Any user_name: The Account SID of Twilio service.
+        :param Any user_name: The Account SID of Twilio service. Type: string (or Expression with resultType string).
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
@@ -75812,7 +75798,7 @@ class TwilioLinkedServiceResponse(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> Any:
         """
-        The Account SID of Twilio service.
+        The Account SID of Twilio service. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "user_name")
 
@@ -75891,7 +75877,7 @@ class UntilActivityResponse(dict):
                Expected value is 'Until'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
-        :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "activities", activities)
@@ -75960,7 +75946,7 @@ class UntilActivityResponse(dict):
     @pulumi.getter
     def timeout(self) -> Optional[Any]:
         """
-        Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])). Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
         return pulumi.get(self, "timeout")
 
@@ -76313,7 +76299,7 @@ class VerticaLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None):
         """
@@ -76324,7 +76310,7 @@ class VerticaLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
         """
@@ -76387,9 +76373,9 @@ class VerticaLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -76733,7 +76719,7 @@ class WaitActivityResponse(dict):
         :param str name: Activity name.
         :param str type: Type of activity.
                Expected value is 'Wait'.
-        :param Any wait_time_in_seconds: Duration in seconds.
+        :param Any wait_time_in_seconds: Duration in seconds. Type: integer (or Expression with resultType integer).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -76769,7 +76755,7 @@ class WaitActivityResponse(dict):
     @pulumi.getter(name="waitTimeInSeconds")
     def wait_time_in_seconds(self) -> Any:
         """
-        Duration in seconds.
+        Duration in seconds. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "wait_time_in_seconds")
 
@@ -78026,7 +78012,7 @@ class XeroLinkedServiceResponse(dict):
                  connection_properties: Optional[Any] = None,
                  consumer_key: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  host: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  private_key: Optional[Any] = None,
@@ -78042,7 +78028,7 @@ class XeroLinkedServiceResponse(dict):
         :param Any connection_properties: Properties used to connect to Xero. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] consumer_key: The consumer key associated with the Xero application.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any host: The endpoint of the Xero server. (i.e. api.xero.com)
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] private_key: The private key from the .pem file that was generated for your Xero private application. You must include all the text from the .pem file, including the Unix line endings(
@@ -78128,9 +78114,9 @@ class XeroLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -78914,7 +78900,7 @@ class ZendeskLinkedServiceResponse(dict):
                  api_token: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
                  user_name: Optional[Any] = None):
@@ -78928,7 +78914,7 @@ class ZendeskLinkedServiceResponse(dict):
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] api_token: The api token for the Zendesk source.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password of the Zendesk source.
         :param Any user_name: The username of the Zendesk source. Type: string (or Expression with resultType string).
@@ -79012,9 +78998,9 @@ class ZendeskLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 
@@ -79137,7 +79123,7 @@ class ZohoLinkedServiceResponse(dict):
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_properties: Optional[Any] = None,
                  description: Optional[str] = None,
-                 encrypted_credential: Optional[Any] = None,
+                 encrypted_credential: Optional[str] = None,
                  endpoint: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  use_encrypted_endpoints: Optional[Any] = None,
@@ -79152,7 +79138,7 @@ class ZohoLinkedServiceResponse(dict):
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_properties: Properties used to connect to Zoho. It is mutually exclusive with any other properties in the linked service. Type: object.
         :param str description: Linked service description.
-        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any endpoint: The endpoint of the Zoho server. (i.e. crm.zoho.com/crm/private)
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Any use_encrypted_endpoints: Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.
@@ -79234,9 +79220,9 @@ class ZohoLinkedServiceResponse(dict):
 
     @property
     @pulumi.getter(name="encryptedCredential")
-    def encrypted_credential(self) -> Optional[Any]:
+    def encrypted_credential(self) -> Optional[str]:
         """
-        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         """
         return pulumi.get(self, "encrypted_credential")
 

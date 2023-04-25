@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string.
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
@@ -48,11 +48,11 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// The URL of SAP ECC OData API. For example, '[https://hostname:port/sap/opu/odata/sap/servicename/]'. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string Url;
+        public readonly object Url;
         /// <summary>
         /// The username for Basic authentication. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string? Username;
+        public readonly object? Username;
 
         [OutputConstructor]
         private SapEccLinkedServiceResponse(
@@ -70,9 +70,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string type,
 
-            string url,
+            object url,
 
-            string? username)
+            object? username)
         {
             Annotations = annotations;
             ConnectVia = connectVia;

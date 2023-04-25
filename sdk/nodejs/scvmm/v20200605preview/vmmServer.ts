@@ -147,7 +147,7 @@ export class VmmServer extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm:VmmServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm:VmmServer" }, { type: "azure-native:scvmm/v20220521preview:VmmServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VmmServer.__pulumiType, name, resourceInputs, opts);
     }

@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230101.Inputs
     /// </summary>
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("groupIds")]
+        private InputList<Union<string, Pulumi.AzureNative.RecoveryServices.V20230101.VaultSubResourceType>>? _groupIds;
+
+        /// <summary>
+        /// Group Ids for the Private Endpoint
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.RecoveryServices.V20230101.VaultSubResourceType>> GroupIds
+        {
+            get => _groupIds ?? (_groupIds = new InputList<Union<string, Pulumi.AzureNative.RecoveryServices.V20230101.VaultSubResourceType>>());
+            set => _groupIds = value;
+        }
+
         /// <summary>
         /// Gets or sets private endpoint associated with the private endpoint connection
         /// </summary>

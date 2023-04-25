@@ -69,7 +69,6 @@ class IdentityType(str, Enum):
     the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
     """
     NONE = "None"
-    SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
 
 

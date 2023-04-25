@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The username of the Appfigures source.
+        /// The username of the Appfigures source. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object UserName;
 

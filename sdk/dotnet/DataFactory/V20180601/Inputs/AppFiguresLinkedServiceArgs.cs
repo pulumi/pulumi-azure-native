@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The username of the Appfigures source.
+        /// The username of the Appfigures source. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("userName", required: true)]
         public Input<object> UserName { get; set; } = null!;

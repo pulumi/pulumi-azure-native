@@ -191,7 +191,7 @@ class RoutingIntent(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20210501:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20210801:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220101:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220701:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220901:RoutingIntent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20210501:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20210801:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220101:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220701:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20220901:RoutingIntent"), pulumi.Alias(type_="azure-native:network/v20221101:RoutingIntent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RoutingIntent, __self__).__init__(
             'azure-native:network/v20220501:RoutingIntent',

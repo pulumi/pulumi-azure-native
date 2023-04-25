@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The Account SID of Twilio service.
+        /// The Account SID of Twilio service. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("userName", required: true)]
         public Input<object> UserName { get; set; } = null!;

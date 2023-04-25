@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.Network.V20210501
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkWatcher"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkWatcher"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:NetworkWatcher"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkWatcher"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

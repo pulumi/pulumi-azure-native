@@ -87,7 +87,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20220601preview:Schedule" }, { type: "azure-native:machinelearningservices/v20221001preview:Schedule" }, { type: "azure-native:machinelearningservices/v20221201preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230401preview:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20220601preview:Schedule" }, { type: "azure-native:machinelearningservices/v20221001preview:Schedule" }, { type: "azure-native:machinelearningservices/v20221201preview:Schedule" }, { type: "azure-native:machinelearningservices/v20230401:Schedule" }, { type: "azure-native:machinelearningservices/v20230401preview:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);
     }

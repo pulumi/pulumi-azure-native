@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Network.V20181101
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:Route"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:Route"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:Route"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:Route"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

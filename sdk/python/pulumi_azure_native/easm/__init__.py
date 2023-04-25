@@ -15,6 +15,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.easm.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
+    import pulumi_azure_native.easm.v20230401preview as __v20230401preview
+    v20230401preview = __v20230401preview
 else:
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.easm.v20220401preview')
+    v20230401preview = _utilities.lazy_import('pulumi_azure_native.easm.v20230401preview')
 

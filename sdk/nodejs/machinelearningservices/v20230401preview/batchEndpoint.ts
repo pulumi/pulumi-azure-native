@@ -115,7 +115,7 @@ export class BatchEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20210301preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220201preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220501:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220601preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20221001:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20221001preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20221201preview:BatchEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20210301preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220201preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220501:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20220601preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20221001:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20221001preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20221201preview:BatchEndpoint" }, { type: "azure-native:machinelearningservices/v20230401:BatchEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BatchEndpoint.__pulumiType, name, resourceInputs, opts);
     }

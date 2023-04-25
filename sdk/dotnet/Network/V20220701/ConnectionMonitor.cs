@@ -182,6 +182,7 @@ namespace Pulumi.AzureNative.Network.V20220701
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220101:ConnectionMonitor"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ConnectionMonitor"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ConnectionMonitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ConnectionMonitor"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

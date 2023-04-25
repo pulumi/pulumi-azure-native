@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ScriptActivityParameterType>? Type { get; set; }
 
         /// <summary>
-        /// The value of the parameter.
+        /// The value of the parameter. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("value")]
         public Input<object>? Value { get; set; }

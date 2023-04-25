@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class SqlAlwaysEncryptedPropertiesResponse
     {
         /// <summary>
-        /// Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+        /// Sql always encrypted AKV authentication type. Type: string.
         /// </summary>
         public readonly string AlwaysEncryptedAkvAuthType;
         /// <summary>

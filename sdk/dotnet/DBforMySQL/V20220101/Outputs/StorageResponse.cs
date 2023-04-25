@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DBforMySQL.V20220101.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
+        /// Enable Log On Disk or not.
+        /// </summary>
+        public readonly string? LogOnDisk;
+        /// <summary>
         /// Max storage size allowed for a server.
         /// </summary>
         public readonly int? StorageSizeGB;
@@ -45,6 +49,8 @@ namespace Pulumi.AzureNative.DBforMySQL.V20220101.Outputs
 
             int? iops,
 
+            string? logOnDisk,
+
             int? storageSizeGB,
 
             string storageSku)
@@ -52,6 +58,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20220101.Outputs
             AutoGrow = autoGrow;
             AutoIoScaling = autoIoScaling;
             Iops = iops;
+            LogOnDisk = logOnDisk;
             StorageSizeGB = storageSizeGB;
             StorageSku = storageSku;
         }

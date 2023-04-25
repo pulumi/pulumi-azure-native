@@ -70,10 +70,10 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<Inputs.SynapseNotebookReferenceArgs> Notebook { get; set; } = null!;
 
         /// <summary>
-        /// Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
+        /// Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer).
         /// </summary>
         [Input("numExecutors")]
-        public Input<int>? NumExecutors { get; set; }
+        public Input<object>? NumExecutors { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.NotebookParameterArgs>? _parameters;

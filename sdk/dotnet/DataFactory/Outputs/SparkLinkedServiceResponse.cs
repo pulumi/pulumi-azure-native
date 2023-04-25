@@ -45,9 +45,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? EnableSsl;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
-        public readonly object? EncryptedCredential;
+        public readonly string? EncryptedCredential;
         /// <summary>
         /// IP address or host name of the Spark server
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? enableSsl,
 
-            object? encryptedCredential,
+            string? encryptedCredential,
 
             object host,
 

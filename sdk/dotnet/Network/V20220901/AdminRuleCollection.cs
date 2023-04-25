@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Network.V20220901
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:AdminRuleCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:AdminRuleCollection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:AdminRuleCollection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:AdminRuleCollection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

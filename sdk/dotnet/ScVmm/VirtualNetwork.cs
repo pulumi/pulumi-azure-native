@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:VirtualNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Network.V20220701
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:ScopeConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ScopeConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ScopeConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ScopeConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

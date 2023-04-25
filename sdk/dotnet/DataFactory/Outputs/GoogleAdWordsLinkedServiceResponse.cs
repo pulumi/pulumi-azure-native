@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? AuthenticationType;
         /// <summary>
-        /// The Client customer ID of the AdWords account that you want to fetch report data for.
+        /// The Client customer ID of the AdWords account that you want to fetch report data for. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ClientCustomerID;
         /// <summary>
@@ -53,15 +53,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? DeveloperToken;
         /// <summary>
-        /// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR.
+        /// The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Email;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
-        public readonly object? EncryptedCredential;
+        public readonly string? EncryptedCredential;
         /// <summary>
-        /// The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR.
+        /// The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? KeyFilePath;
         /// <summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? RefreshToken;
         /// <summary>
-        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
+        /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? TrustedCertPath;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
+        /// Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? UseSystemTrustStore;
 
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? email,
 
-            object? encryptedCredential,
+            string? encryptedCredential,
 
             object? keyFilePath,
 

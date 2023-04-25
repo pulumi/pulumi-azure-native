@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPropertyResponse> UserProperties;
         /// <summary>
-        /// Duration in seconds.
+        /// Duration in seconds. Type: integer (or Expression with resultType integer).
         /// </summary>
         public readonly object WaitTimeInSeconds;
 

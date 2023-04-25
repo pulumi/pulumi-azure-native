@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Specify the kind of your storage account. Allowed values are: Storage (general purpose v1), StorageV2 (general purpose v2), BlobStorage, or BlockBlobStorage. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string? AccountKind;
+        public readonly object? AccountKind;
         /// <summary>
         /// List of tags that can be used for describing the linked service.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
         public readonly string? EncryptedCredential;
         /// <summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// <summary>
         /// Blob service endpoint of the Azure Blob Storage resource. It is mutually exclusive with connectionString, sasUri property.
         /// </summary>
-        public readonly string? ServiceEndpoint;
+        public readonly object? ServiceEndpoint;
         /// <summary>
         /// The ID of the service principal used to authenticate against Azure SQL Data Warehouse. Type: string (or Expression with resultType string).
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private AzureBlobStorageLinkedServiceResponse(
             Outputs.AzureKeyVaultSecretReferenceResponse? accountKey,
 
-            string? accountKind,
+            object? accountKind,
 
             ImmutableArray<object> annotations,
 
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? sasUri,
 
-            string? serviceEndpoint,
+            object? serviceEndpoint,
 
             object? servicePrincipalId,
 
