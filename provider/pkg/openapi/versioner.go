@@ -5,7 +5,6 @@ package openapi
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -136,24 +135,6 @@ func (s Squeeze) canBeUpgraded(azureProvider, resource, version string) bool {
 	return ok
 }
 
-func (s Squeeze) Preserve(azureProvider, resource, version string) bool {
-	fqn := ToFullyQualifiedName(azureProvider, resource, version)
-	_, ok := s[fqn]
-	if ok {
-		delete(s, fqn)
-	}
-	return ok
-}
-
-func (s Squeeze) PreserveResources(tokens []string) {
-	for _, token := range tokens {
-		_, ok := s[token]
-		if ok {
-			delete(s, token)
-		}
-	}
-}
-
 func SqueezeResources(providers AzureProviders, squeeze Squeeze) AzureProviders {
 	result := AzureProviders{}
 	squeezeCount := 0
@@ -178,24 +159,4 @@ func SqueezeResources(providers AzureProviders, squeeze Squeeze) AzureProviders 
 	}
 	log.Printf("Squeezed %d resources from the spec", squeezeCount)
 	return result
-}
-
-func ReadSqueeze(path string) (Squeeze, error) {
-	jsonFile, err := os.Open(path)
-	if err != nil {
-		return nil, err
-	}
-	defer jsonFile.Close()
-
-	byteValue, err := ioutil.ReadAll(jsonFile)
-	if err != nil {
-		return nil, err
-	}
-
-	result := make(Squeeze)
-	err = json.Unmarshal(byteValue, &result)
-	if err != nil {
-		return nil, err
-	}
-	return result, nil
 }

@@ -105,15 +105,9 @@ func main() {
 			panic(err)
 		}
 
-		v1Squeeze, err := openapi.ReadSqueeze(filepath.Join(wd, "versions", "v1-squeeze.json"))
-		if err != nil {
-			panic(err)
-		}
-
 		versions2 := openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionMetadata.V1Lock, versionMetadata.Deprecated, removed)
 
-		v1Squeeze.PreserveResources(versionMetadata.V2TokensToRetain)
-		versions2 = openapi.SqueezeResources(versions2, v1Squeeze)
+		versions2 = openapi.SqueezeResources(versions2, openapi.Squeeze(versionMetadata.V2ResourcesToRemove))
 
 		pkgSpec2, _, _, err := gen.PulumiSchema(versions2)
 		if err != nil {
