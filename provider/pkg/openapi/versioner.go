@@ -145,6 +145,15 @@ func (s Squeeze) Preserve(azureProvider, resource, version string) bool {
 	return ok
 }
 
+func (s Squeeze) PreserveResources(tokens []string) {
+	for _, token := range tokens {
+		_, ok := s[token]
+		if ok {
+			delete(s, token)
+		}
+	}
+}
+
 func SqueezeResources(providers AzureProviders, squeeze Squeeze) AzureProviders {
 	result := AzureProviders{}
 	squeezeCount := 0
