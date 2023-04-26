@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
     public sealed class RestServiceLinkedServiceResponse
     {
         /// <summary>
-        /// The resource you are requesting authorization to use.
+        /// The resource you are requesting authorization to use. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? AadResourceId;
         /// <summary>
@@ -61,9 +61,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? EnableServerCertificateValidation;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
-        public readonly object? EncryptedCredential;
+        public readonly string? EncryptedCredential;
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? Scope;
         /// <summary>
-        /// The application's client ID used in AadServicePrincipal authentication type.
+        /// The application's client ID used in AadServicePrincipal authentication type. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? ServicePrincipalId;
         /// <summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ServicePrincipalKey;
         /// <summary>
-        /// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
+        /// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Tenant;
         /// <summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The base URL of the REST service.
+        /// The base URL of the REST service. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Url;
         /// <summary>
-        /// The user name used in Basic authentication type.
+        /// The user name used in Basic authentication type. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? UserName;
 
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? enableServerCertificateValidation,
 
-            object? encryptedCredential,
+            string? encryptedCredential,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
 

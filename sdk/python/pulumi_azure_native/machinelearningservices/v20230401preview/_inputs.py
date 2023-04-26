@@ -17968,7 +17968,7 @@ class ModelPerformanceSignalBaseArgs:
         :param pulumi.Input['MonitoringInputDataArgs'] baseline_data: [Required] The data to calculate drift against.
         :param pulumi.Input[Union['ClassificationModelPerformanceMetricThresholdArgs', 'RegressionModelPerformanceMetricThresholdArgs']] metric_threshold: [Required] A list of metrics to calculate and their associated thresholds.
         :param pulumi.Input[str] signal_type: 
-               Expected value is 'ModelPerformanceSignalBase'.
+               Expected value is 'ModelPerformance'.
         :param pulumi.Input['MonitoringInputDataArgs'] target_data: [Required] The data produced by the production service which drift will be calculated for.
         :param pulumi.Input['MonitoringDataSegmentArgs'] data_segment: The data segment.
         :param pulumi.Input[str] lookback_period: The amount of time a single monitor should look back over the target data on a given run.
@@ -17976,7 +17976,7 @@ class ModelPerformanceSignalBaseArgs:
         """
         pulumi.set(__self__, "baseline_data", baseline_data)
         pulumi.set(__self__, "metric_threshold", metric_threshold)
-        pulumi.set(__self__, "signal_type", 'ModelPerformanceSignalBase')
+        pulumi.set(__self__, "signal_type", 'ModelPerformance')
         pulumi.set(__self__, "target_data", target_data)
         if data_segment is not None:
             pulumi.set(__self__, "data_segment", data_segment)
@@ -18016,7 +18016,7 @@ class ModelPerformanceSignalBaseArgs:
     def signal_type(self) -> pulumi.Input[str]:
         """
 
-        Expected value is 'ModelPerformanceSignalBase'.
+        Expected value is 'ModelPerformance'.
         """
         return pulumi.get(self, "signal_type")
 

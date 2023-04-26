@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.ContainerInstance.V20221001Preview.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The container security properties.
+        /// </summary>
+        public readonly Outputs.SecurityContextDefinitionResponse? SecurityContext;
+        /// <summary>
         /// The volume mounts available to the init container.
         /// </summary>
         public readonly ImmutableArray<Outputs.VolumeMountResponse> VolumeMounts;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.ContainerInstance.V20221001Preview.Outputs
 
             string name,
 
+            Outputs.SecurityContextDefinitionResponse? securityContext,
+
             ImmutableArray<Outputs.VolumeMountResponse> volumeMounts)
         {
             Command = command;
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20221001Preview.Outputs
             Image = image;
             InstanceView = instanceView;
             Name = name;
+            SecurityContext = securityContext;
             VolumeMounts = volumeMounts;
         }
     }

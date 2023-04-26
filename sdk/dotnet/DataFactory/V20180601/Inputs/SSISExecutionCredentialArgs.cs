@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
     public sealed class SSISExecutionCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Domain for windows authentication.
+        /// Domain for windows authentication. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("domain", required: true)]
         public Input<object> Domain { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<Inputs.SecureStringArgs> Password { get; set; } = null!;
 
         /// <summary>
-        /// UseName for windows authentication.
+        /// UseName for windows authentication. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("userName", required: true)]
         public Input<object> UserName { get; set; } = null!;

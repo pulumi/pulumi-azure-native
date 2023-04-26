@@ -139,7 +139,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
             resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["backup"] = args ? args.backup : undefined;
+            resourceInputs["backup"] = args ? (args.backup ? pulumi.output(args.backup).apply(inputs.dbformysql.v20220101.backupArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
             resourceInputs["highAvailability"] = args ? args.highAvailability : undefined;
@@ -153,7 +153,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sourceServerResourceId"] = args ? args.sourceServerResourceId : undefined;
-            resourceInputs["storage"] = args ? args.storage : undefined;
+            resourceInputs["storage"] = args ? (args.storage ? pulumi.output(args.storage).apply(inputs.dbformysql.v20220101.storageArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;

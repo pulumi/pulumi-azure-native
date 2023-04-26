@@ -899,6 +899,10 @@
     "Workspace": "2022-05-15",
     "WorkspacePrivateEndpointConnection": "2022-05-15"
   },
+  "HybridCloud": {
+    "CloudConnection": "2023-01-01-preview",
+    "CloudConnector": "2023-01-01-preview"
+  },
   "HybridCompute": {
     "Machine": "2020-08-02",
     "MachineExtension": "2020-08-02",

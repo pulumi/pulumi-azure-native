@@ -22,7 +22,7 @@ class GetLedgerResult:
     """
     Confidential Ledger. Contains the properties of Confidential Ledger Resource.
     """
-    def __init__(__self__, id=None, location=None, name=None, properties=None, running_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,9 +35,6 @@ class GetLedgerResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
-        if running_state and not isinstance(running_state, str):
-            raise TypeError("Expected argument 'running_state' to be a str")
-        pulumi.set(__self__, "running_state", running_state)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -81,14 +78,6 @@ class GetLedgerResult:
         return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="runningState")
-    def running_state(self) -> Optional[str]:
-        """
-        Object representing RunningState for Ledger.
-        """
-        return pulumi.get(self, "running_state")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -100,7 +89,7 @@ class GetLedgerResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Additional tags for Confidential Ledger
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -123,7 +112,6 @@ class AwaitableGetLedgerResult(GetLedgerResult):
             location=self.location,
             name=self.name,
             properties=self.properties,
-            running_state=self.running_state,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -150,7 +138,6 @@ def get_ledger(ledger_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
-        running_state=__ret__.running_state,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)

@@ -28,10 +28,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? DisableMetricsCollection { get; set; }
 
         /// <summary>
-        /// Indicates whether to enable partition discovery.
+        /// Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         [Input("enablePartitionDiscovery")]
-        public Input<bool>? EnablePartitionDiscovery { get; set; }
+        public Input<object>? EnablePartitionDiscovery { get; set; }
 
         /// <summary>
         /// Specify a filter to be used to select a subset of files in the folderPath rather than all files. Type: string (or Expression with resultType string).

@@ -29,9 +29,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
-        public readonly object? EncryptedCredential;
+        public readonly string? EncryptedCredential;
         /// <summary>
         /// Admin Key for Azure Search service
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            object? encryptedCredential,
+            string? encryptedCredential,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? key,
 

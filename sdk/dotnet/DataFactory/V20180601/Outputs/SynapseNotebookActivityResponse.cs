@@ -49,9 +49,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.SynapseNotebookReferenceResponse Notebook;
         /// <summary>
-        /// Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide.
+        /// Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer).
         /// </summary>
-        public readonly int? NumExecutors;
+        public readonly object? NumExecutors;
         /// <summary>
         /// Notebook parameters.
         /// </summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             Outputs.SynapseNotebookReferenceResponse notebook,
 
-            int? numExecutors,
+            object? numExecutors,
 
             ImmutableDictionary<string, Outputs.NotebookParameterResponse>? parameters,
 

@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview.Outputs
         public readonly string? Mode;
         /// <summary>
         /// 
-        /// Expected value is 'ModelPerformanceSignalBase'.
+        /// Expected value is 'ModelPerformance'.
         /// </summary>
         public readonly string SignalType;
         /// <summary>

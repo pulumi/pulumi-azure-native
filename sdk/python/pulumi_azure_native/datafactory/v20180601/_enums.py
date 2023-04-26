@@ -13,7 +13,6 @@ __all__ = [
     'CassandraSourceReadConsistencyLevels',
     'ConfigurationType',
     'CosmosDbConnectionMode',
-    'CosmosDbServicePrincipalCredentialType',
     'CredentialReferenceType',
     'DataFlowComputeType',
     'DataFlowReferenceType',
@@ -155,18 +154,10 @@ class ConfigurationType(str, Enum):
 
 class CosmosDbConnectionMode(str, Enum):
     """
-    The connection mode used to access CosmosDB account. Type: string (or Expression with resultType string).
+    The connection mode used to access CosmosDB account. Type: string.
     """
     GATEWAY = "Gateway"
     DIRECT = "Direct"
-
-
-class CosmosDbServicePrincipalCredentialType(str, Enum):
-    """
-    The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
-    """
-    SERVICE_PRINCIPAL_KEY = "ServicePrincipalKey"
-    SERVICE_PRINCIPAL_CERT = "ServicePrincipalCert"
 
 
 class CredentialReferenceType(str, Enum):
@@ -645,7 +636,7 @@ class SparkThriftTransportProtocol(str, Enum):
 
 class SqlAlwaysEncryptedAkvAuthType(str, Enum):
     """
-    Sql always encrypted AKV authentication type. Type: string (or Expression with resultType string).
+    Sql always encrypted AKV authentication type. Type: string.
     """
     SERVICE_PRINCIPAL = "ServicePrincipal"
     MANAGED_IDENTITY = "ManagedIdentity"

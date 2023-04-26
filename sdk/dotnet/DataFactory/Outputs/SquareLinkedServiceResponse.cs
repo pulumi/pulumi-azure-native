@@ -41,11 +41,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
-        public readonly object? EncryptedCredential;
+        public readonly string? EncryptedCredential;
         /// <summary>
-        /// The URL of the Square instance. (i.e. mystore.mysquare.com)
+        /// The URL of the Square instance. (i.e. mystore.mysquare.com)
         /// </summary>
         public readonly object? Host;
         /// <summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
-            object? encryptedCredential,
+            string? encryptedCredential,
 
             object? host,
 

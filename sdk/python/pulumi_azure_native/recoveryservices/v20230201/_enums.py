@@ -48,6 +48,7 @@ __all__ = [
     'SkuName',
     'SqlServerLicenseType',
     'TieringMode',
+    'VaultSubResourceType',
     'WeekOfMonth',
     'WorkloadItemType',
     'WorkloadType',
@@ -501,6 +502,15 @@ class TieringMode(str, Enum):
     TIER_RECOMMENDED = "TierRecommended"
     TIER_AFTER = "TierAfter"
     DO_NOT_TIER = "DoNotTier"
+
+
+class VaultSubResourceType(str, Enum):
+    """
+    GroupId for the PrivateEndpointConnection - AzureBackup, AzureBackup_secondary or AzureSiteRecovery
+    """
+    AZURE_BACKUP = "AzureBackup"
+    AZURE_BACKUP_SECONDARY = "AzureBackup_secondary"
+    AZURE_SITE_RECOVERY = "AzureSiteRecovery"
 
 
 class WeekOfMonth(str, Enum):

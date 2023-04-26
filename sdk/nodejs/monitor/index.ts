@@ -18,9 +18,11 @@ utilities.lazyLoad(exports, ["getAzureMonitorWorkspace","getAzureMonitorWorkspac
 
 // Export sub-modules:
 import * as v20210603preview from "./v20210603preview";
+import * as v20230403 from "./v20230403";
 
 export {
     v20210603preview,
+    v20230403,
 };
 
 const _module = {

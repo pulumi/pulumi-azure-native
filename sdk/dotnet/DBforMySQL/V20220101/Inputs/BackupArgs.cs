@@ -29,6 +29,7 @@ namespace Pulumi.AzureNative.DBforMySQL.V20220101.Inputs
 
         public BackupArgs()
         {
+            GeoRedundantBackup = "Disabled";
         }
         public static new BackupArgs Empty => new BackupArgs();
     }

@@ -1416,6 +1416,38 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230101
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// GroupId for the PrivateEndpointConnection - AzureBackup, AzureBackup_secondary or AzureSiteRecovery
+    /// </summary>
+    [EnumType]
+    public readonly struct VaultSubResourceType : IEquatable<VaultSubResourceType>
+    {
+        private readonly string _value;
+
+        private VaultSubResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VaultSubResourceType AzureBackup { get; } = new VaultSubResourceType("AzureBackup");
+        public static VaultSubResourceType AzureBackup_secondary { get; } = new VaultSubResourceType("AzureBackup_secondary");
+        public static VaultSubResourceType AzureSiteRecovery { get; } = new VaultSubResourceType("AzureSiteRecovery");
+
+        public static bool operator ==(VaultSubResourceType left, VaultSubResourceType right) => left.Equals(right);
+        public static bool operator !=(VaultSubResourceType left, VaultSubResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(VaultSubResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VaultSubResourceType other && Equals(other);
+        public bool Equals(VaultSubResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct WeekOfMonth : IEquatable<WeekOfMonth>
     {

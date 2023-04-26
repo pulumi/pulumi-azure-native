@@ -37,9 +37,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        /// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         /// </summary>
-        public readonly object? EncryptedCredential;
+        public readonly string? EncryptedCredential;
         /// <summary>
         /// The endpoint of the Xero server. (i.e. api.xero.com)
         /// </summary>
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string? description,
 
-            object? encryptedCredential,
+            string? encryptedCredential,
 
             object? host,
 

@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// <summary>
         /// User specified arguments under hivevar namespace.
         /// </summary>
-        public readonly ImmutableArray<object> Variables;
+        public readonly ImmutableDictionary<string, object>? Variables;
 
         [OutputConstructor]
         private HDInsightHiveActivityResponse(
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties,
 
-            ImmutableArray<object> variables)
+            ImmutableDictionary<string, object>? variables)
         {
             Arguments = arguments;
             Defines = defines;

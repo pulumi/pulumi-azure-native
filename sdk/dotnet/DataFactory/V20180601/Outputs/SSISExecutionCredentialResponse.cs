@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class SSISExecutionCredentialResponse
     {
         /// <summary>
-        /// Domain for windows authentication.
+        /// Domain for windows authentication. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Domain;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly Outputs.SecureStringResponse Password;
         /// <summary>
-        /// UseName for windows authentication.
+        /// UseName for windows authentication. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object UserName;
 

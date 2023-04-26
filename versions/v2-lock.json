@@ -899,6 +899,10 @@
     "WorkspacePrivateEndpointConnection": "2022-12-01"
   },
   "Help": {},
+  "HybridCloud": {
+    "CloudConnection": "2023-01-01-preview",
+    "CloudConnector": "2023-01-01-preview"
+  },
   "HybridCompute": {
     "Machine": "2022-11-10",
     "MachineExtension": "2022-11-10",
@@ -1114,6 +1118,17 @@
     "OnlineDeployment": "2022-10-01",
     "OnlineEndpoint": "2022-10-01",
     "PrivateEndpointConnection": "2022-10-01",
+    "Registry": "2023-04-01",
+    "RegistryCodeContainer": "2023-04-01",
+    "RegistryCodeVersion": "2023-04-01",
+    "RegistryComponentContainer": "2023-04-01",
+    "RegistryComponentVersion": "2023-04-01",
+    "RegistryDataContainer": "2023-04-01",
+    "RegistryDataVersion": "2023-04-01",
+    "RegistryEnvironmentContainer": "2023-04-01",
+    "RegistryEnvironmentVersion": "2023-04-01",
+    "RegistryModelContainer": "2023-04-01",
+    "RegistryModelVersion": "2023-04-01",
     "Schedule": "2022-10-01",
     "Workspace": "2022-10-01",
     "WorkspaceConnection": "2022-10-01",
@@ -1326,6 +1341,7 @@
     "NetworkProfile": "2022-09-01",
     "NetworkSecurityGroup": "2022-09-01",
     "NetworkVirtualAppliance": "2022-09-01",
+    "NetworkVirtualApplianceConnection": "2022-11-01",
     "NetworkWatcher": "2022-09-01",
     "OutboundEndpoint": "2022-07-01",
     "P2sVpnGateway": "2022-09-01",
@@ -1622,7 +1638,10 @@
   "ScVmm": {
     "AvailabilitySet": "2020-06-05-preview",
     "Cloud": "2020-06-05-preview",
+    "GuestAgent": "2022-05-21-preview",
+    "HybridIdentityMetadata": "2022-05-21-preview",
     "InventoryItem": "2020-06-05-preview",
+    "MachineExtension": "2022-05-21-preview",
     "VirtualMachine": "2020-06-05-preview",
     "VirtualMachineTemplate": "2020-06-05-preview",
     "VirtualNetwork": "2020-06-05-preview",
@@ -1859,7 +1878,9 @@
   },
   "StorageCache": {
     "Cache": "2023-01-01",
-    "StorageTarget": "2023-01-01"
+    "StorageTarget": "2023-01-01",
+    "amlFilesystem": "2023-05-01",
+    "getRequiredAmlFSSubnetsSize": "2023-05-01"
   },
   "StorageMover": {
     "Agent": "2023-03-01",
