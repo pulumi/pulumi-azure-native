@@ -88,7 +88,7 @@ export class RegistryCodeContainer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer" }, { type: "azure-native:machinelearningservices/v20230401:RegistryCodeContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryCodeContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20221201preview:RegistryCodeContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:RegistryCodeContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RegistryCodeContainer.__pulumiType, name, resourceInputs, opts);
     }

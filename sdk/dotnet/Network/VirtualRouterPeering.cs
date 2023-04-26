@@ -97,7 +97,6 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualRouterPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualRouterPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualRouterPeering"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualRouterPeering"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

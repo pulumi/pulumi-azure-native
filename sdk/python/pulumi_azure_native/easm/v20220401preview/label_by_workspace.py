@@ -171,7 +171,7 @@ class LabelByWorkspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:easm:LabelByWorkspace"), pulumi.Alias(type_="azure-native:easm/v20230401preview:LabelByWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:easm:LabelByWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LabelByWorkspace, __self__).__init__(
             'azure-native:easm/v20220401preview:LabelByWorkspace',

@@ -13,7 +13,6 @@ import * as v20220101 from "./v20220101";
 import * as v20220501 from "./v20220501";
 import * as v20230101 from "./v20230101";
 import * as v20230301preview from "./v20230301preview";
-import * as v20230501 from "./v20230501";
 
 export {
     v20190801preview,
@@ -27,7 +26,6 @@ export {
     v20220501,
     v20230101,
     v20230301preview,
-    v20230501,
 };
 
 export const CacheIdentityType = {

@@ -88,7 +88,6 @@ namespace Pulumi.AzureNative.Network.V20210801
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualHubRouteTableV2"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualHubRouteTableV2"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualHubRouteTableV2"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualHubRouteTableV2"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

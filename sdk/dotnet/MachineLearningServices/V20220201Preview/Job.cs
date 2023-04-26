@@ -71,7 +71,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:Job"},
-                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:Job"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:Job"},
                 },
             };

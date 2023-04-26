@@ -128,7 +128,6 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:IpAllocation"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:IpAllocation"},
-                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:IpAllocation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

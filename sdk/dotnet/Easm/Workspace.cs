@@ -78,7 +78,6 @@ namespace Pulumi.AzureNative.Easm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:easm/v20220401preview:Workspace"},
-                    new global::Pulumi.Alias { Type = "azure-native:easm/v20230401preview:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

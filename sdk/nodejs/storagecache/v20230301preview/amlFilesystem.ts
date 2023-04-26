@@ -180,8 +180,6 @@ export class AmlFilesystem extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20230501:amlFilesystem" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AmlFilesystem.__pulumiType, name, resourceInputs, opts);
     }
 }
