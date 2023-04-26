@@ -113,6 +113,7 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 		"pending.json":                       v.Pending,
 		"v2-spec.yaml":                       v.V2Spec,
 		"v2-lock.json":                       v.V2Lock,
+		"v2-removed-resources.yaml":          v.V2ResourcesToRemove,
 	})
 }
 
