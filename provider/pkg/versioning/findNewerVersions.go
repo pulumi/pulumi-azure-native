@@ -6,7 +6,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 )
 
-func FindNewerVersions(specVersions SpecVersions, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
+func FindNewerVersions(specVersions ProvidersVersionResources, defaultVersion openapi.DefaultVersionLock) openapi.ProviderVersionList {
 	olderProviderVersions := openapi.ProviderVersionList{}
 	for providerName, versions := range specVersions {
 		//goland:noinspection GoPreferNilSlice

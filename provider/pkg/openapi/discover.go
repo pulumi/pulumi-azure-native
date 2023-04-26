@@ -94,6 +94,30 @@ func ReadAndApplyProvidersTransformations(providers AzureProviders) (AzureProvid
 	return ApplyProvidersTransformations(providers, defaultVersion, previousVersion, deprecated, removed), nil
 }
 
+// ReadAndApplyProvidersTransformationsV2 reads the curated versions, deprecated and removed versions and applies them to the providers.
+func ReadAndApplyProvidersTransformationsV2(providers AzureProviders) (AzureProviders, error) {
+	defaultVersion, err := ReadV2DefaultVersionLock()
+	if err != nil {
+		return nil, err
+	}
+
+	deprecated, err := ReadDeprecated()
+	if err != nil {
+		return nil, err
+	}
+
+	removed, err := ReadRemoved()
+	if err != nil {
+		return nil, err
+	}
+
+	previousVersion, err := ReadV1DefaultVersionLock()
+	if err != nil {
+		return nil, err
+	}
+	return ApplyProvidersTransformations(providers, defaultVersion, previousVersion, deprecated, removed), nil
+}
+
 // ApplyProvidersTransformations adds the default version for each provider and deprecates and removes specified API versions.
 func ApplyProvidersTransformations(providers AzureProviders, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock, deprecated, removed ProviderVersionList) AzureProviders {
 	ApplyRemovals(providers, removed)

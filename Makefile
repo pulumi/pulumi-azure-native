@@ -151,7 +151,7 @@ test: build install_sdks
 
 .PHONY: schema_squeeze
 schema_squeeze: bin/schema-tools bin/schema-full.json
-	./bin/schema-tools squeeze -s bin/schema-full.json --out bin/v1-squeeze.json
+	./bin/schema-tools squeeze -s bin/schema-full.json --out versions/v1-squeeze.json
 
 .PHONY: explode_schema_v2
 explode_schema_v2: bin/v2/schema-full.json
@@ -342,7 +342,7 @@ export FAKE_MODULE
 .make/build_nodejs: VERSION_JS = $(shell bin/pulumictl convert-version -l javascript -v "$(VERSION_GENERIC)")
 .make/build_nodejs: bin/pulumictl .make/nodejs_yarn_install
 	cd sdk/nodejs/ && \
-		NODE_OPTIONS=--max-old-space-size=8192 yarn run tsc --diagnostics --incremental && \
+		NODE_OPTIONS=--max-old-space-size=12288 yarn run tsc --diagnostics --incremental && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		mkdir -p bin/scripts && cp scripts/install-pulumi-plugin.js bin/scripts && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json

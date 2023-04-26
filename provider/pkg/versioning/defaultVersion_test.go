@@ -9,7 +9,7 @@ import (
 
 func TestDefaultVersion(t *testing.T) {
 	t.Run("simple latest additive", func(t *testing.T) {
-		actual := BuildDefaultConfig(map[openapi.ProviderName]VersionResources{
+		actual := BuildSpec(map[openapi.ProviderName]VersionResources{
 			"Provider": {
 				"2020-01-01": []openapi.ResourceName{
 					"Resource A",
@@ -19,9 +19,9 @@ func TestDefaultVersion(t *testing.T) {
 					"Resource B",
 				},
 			},
-		}, nil, DefaultConfig{})
+		}, nil, Spec{})
 		v2021 := "2021-02-02"
-		expected := DefaultConfig{
+		expected := Spec{
 			"Provider": {
 				Tracking: &v2021,
 			},
@@ -29,7 +29,7 @@ func TestDefaultVersion(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("two-previews", func(t *testing.T) {
-		actual := BuildDefaultConfig(map[openapi.ProviderName]VersionResources{
+		actual := BuildSpec(map[openapi.ProviderName]VersionResources{
 			"Provider": {
 				"2020-01-01-preview": []openapi.ResourceName{
 					"Resource A",
@@ -39,9 +39,9 @@ func TestDefaultVersion(t *testing.T) {
 					"Resource B",
 				},
 			},
-		}, nil, DefaultConfig{})
+		}, nil, Spec{})
 		v2021 := "2021-02-02-preview"
-		expected := DefaultConfig{
+		expected := Spec{
 			"Provider": {
 				Tracking: &v2021,
 			},
@@ -53,7 +53,7 @@ func TestDefaultVersion(t *testing.T) {
 		v2021 := "2021-02-02"
 		v2020 := "2020-01-01"
 
-		actual := BuildDefaultConfig(map[openapi.ProviderName]VersionResources{
+		actual := BuildSpec(map[openapi.ProviderName]VersionResources{
 			"Provider": {
 				v2020: []openapi.ResourceName{
 					"Resource A",
@@ -63,12 +63,12 @@ func TestDefaultVersion(t *testing.T) {
 					"Resource B",
 				},
 			},
-		}, nil, DefaultConfig{
+		}, nil, Spec{
 			"Provider": {
 				Tracking: &v2020,
 			},
 		})
-		expected := DefaultConfig{
+		expected := Spec{
 			"Provider": {
 				Tracking: &v2020,
 				Additions: &map[openapi.ResourceName]openapi.ApiVersion{
@@ -99,9 +99,9 @@ func TestDefaultVersion(t *testing.T) {
 				Preview: PreviewPrefer,
 			},
 		}
-		existing := DefaultConfig{}
-		actual := BuildDefaultConfig(spec, curations, existing)
-		expected := DefaultConfig{
+		existing := Spec{}
+		actual := BuildSpec(spec, curations, existing)
+		expected := Spec{
 			"Provider": {
 				Tracking: &v2021,
 			},
@@ -129,9 +129,9 @@ func TestDefaultVersion(t *testing.T) {
 				Preview: PreviewExclude,
 			},
 		}
-		existing := DefaultConfig{}
-		actual := BuildDefaultConfig(spec, curations, existing)
-		expected := DefaultConfig{
+		existing := Spec{}
+		actual := BuildSpec(spec, curations, existing)
+		expected := Spec{
 			"Provider": {
 				Tracking: &v2020,
 			},
@@ -142,7 +142,7 @@ func TestDefaultVersion(t *testing.T) {
 	t.Run("include new services", func(t *testing.T) {
 		v2020 := "2020-01-01"
 
-		actual := BuildDefaultConfig(map[openapi.ProviderName]VersionResources{
+		actual := BuildSpec(map[openapi.ProviderName]VersionResources{
 			"Provider A": {
 				v2020: []openapi.ResourceName{
 					"Resource A",
@@ -153,12 +153,12 @@ func TestDefaultVersion(t *testing.T) {
 					"Resource B",
 				},
 			},
-		}, nil, DefaultConfig{
+		}, nil, Spec{
 			"Provider A": {
 				Tracking: &v2020,
 			},
 		})
-		expected := DefaultConfig{
+		expected := Spec{
 			"Provider A": {
 				Tracking: &v2020,
 			},
@@ -174,7 +174,7 @@ func TestDefaultVersion(t *testing.T) {
 		v2021 := "2021-02-02"
 		v2022 := "2022-03-03"
 
-		existingConfig := DefaultConfig{
+		existingConfig := Spec{
 			"Provider": {
 				Tracking: &v2021,
 				Additions: &map[openapi.ResourceName]openapi.ApiVersion{
@@ -183,7 +183,7 @@ func TestDefaultVersion(t *testing.T) {
 			},
 		}
 
-		actual := BuildDefaultConfig(map[openapi.ProviderName]VersionResources{
+		actual := BuildSpec(map[openapi.ProviderName]VersionResources{
 			"Provider": {
 				v2020: []openapi.ResourceName{
 					"Resource B",
@@ -197,7 +197,7 @@ func TestDefaultVersion(t *testing.T) {
 				},
 			},
 		}, nil, existingConfig)
-		expected := DefaultConfig{
+		expected := Spec{
 			"Provider": {
 				Tracking: &v2021,
 				Additions: &map[openapi.ResourceName]openapi.ApiVersion{
@@ -232,7 +232,7 @@ func TestDefaultVersion(t *testing.T) {
 			},
 		}
 
-		existingConfig := DefaultConfig{
+		existingConfig := Spec{
 			"Provider": {
 				Tracking: &v2021,
 				Additions: &map[openapi.ResourceName]openapi.ApiVersion{
@@ -241,8 +241,8 @@ func TestDefaultVersion(t *testing.T) {
 			},
 		}
 
-		actual := BuildDefaultConfig(spec, curations, existingConfig)
-		expected := DefaultConfig{
+		actual := BuildSpec(spec, curations, existingConfig)
+		expected := Spec{
 			"Provider": {
 				Tracking: &v2021,
 			},
@@ -272,10 +272,10 @@ func TestExplicitPreference(t *testing.T) {
 		},
 	}
 
-	existingConfig := DefaultConfig{}
+	existingConfig := Spec{}
 
-	actual := BuildDefaultConfig(spec, curations, existingConfig)
-	expected := DefaultConfig{
+	actual := BuildSpec(spec, curations, existingConfig)
+	expected := Spec{
 		"Provider": {
 			Additions: &map[openapi.ResourceName]openapi.ApiVersion{
 				"Resource A": v2021,
