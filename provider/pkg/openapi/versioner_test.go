@@ -81,11 +81,11 @@ func TestSqueezeSimple(t *testing.T) {
 		},
 	}
 
-	squeeze := Squeeze{
+	squeeze := RemovableResources{
 		"azure-native:provider/version1:resourceA": "azure-native:provider/version2:resourceA",
 	}
 
-	filteredSpec := SqueezeResources(providers, squeeze)
+	filteredSpec := RemoveResources(providers, squeeze)
 
 	expected := AzureProviders{
 		"provider": {

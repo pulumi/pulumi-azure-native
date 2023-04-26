@@ -116,7 +116,9 @@ func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
 	return "v" + strings.ReplaceAll(apiVersion, "-", "")
 }
 
-type Squeeze map[string]string
+// RemovableResources represents removable resources mapped to the resource that can replace them since the two are
+// schema-compatible. Both are represented as fully qualified names like azure-native:azuread/v20210301:DomainService.
+type RemovableResources map[string]string
 
 // Returns azure-native:azureProvider/version:resource
 // TODO tkappler version should be optional
@@ -129,15 +131,15 @@ func ToFullyQualifiedName(azureProvider, resource, version string) string {
 	return fmt.Sprintf(fqnFmt, strings.ToLower(azureProvider), version, resource)
 }
 
-func (s Squeeze) canBeUpgraded(azureProvider, resource, version string) bool {
+func (s RemovableResources) canBeRemoved(azureProvider, resource, version string) bool {
 	fqn := ToFullyQualifiedName(azureProvider, resource, version)
 	_, ok := s[fqn]
 	return ok
 }
 
-func SqueezeResources(providers AzureProviders, squeeze Squeeze) AzureProviders {
+func RemoveResources(providers AzureProviders, removable RemovableResources) AzureProviders {
 	result := AzureProviders{}
-	squeezeCount := 0
+	removedCount := 0
 	for provider, versions := range providers {
 		newVersions := ProviderVersions{}
 		for version, resources := range versions {
@@ -146,9 +148,8 @@ func SqueezeResources(providers AzureProviders, squeeze Squeeze) AzureProviders 
 				Invokes:   resources.Invokes,
 			}
 			for resourceName, resource := range resources.Resources {
-				if squeeze.canBeUpgraded(provider, resourceName, version) {
-					// log.Printf("Squeezing %s:%s from the spec", resourceName, version)
-					squeezeCount++
+				if removable.canBeRemoved(provider, resourceName, version) {
+					removedCount++
 					continue
 				}
 				filteredResources.Resources[resourceName] = resource
@@ -157,6 +158,6 @@ func SqueezeResources(providers AzureProviders, squeeze Squeeze) AzureProviders 
 		}
 		result[provider] = newVersions
 	}
-	log.Printf("Squeezed %d resources from the spec", squeezeCount)
+	log.Printf("Removed %d resources from the spec", removedCount)
 	return result
 }
