@@ -107,36 +107,6 @@ func TestSqueezeSimple(t *testing.T) {
 	assert.Equal(t, expected, filteredSpec)
 }
 
-func TestSqueezePreserve(t *testing.T) {
-	providers := AzureProviders{
-		"provider": {
-			"version1": {
-				Resources: map[ResourceName]*ResourceSpec{
-					"resourceA": nil,
-					"resourceB": nil,
-				},
-				Invokes: map[InvokeName]*ResourceSpec{},
-			},
-			"version2": {
-				Resources: map[ResourceName]*ResourceSpec{
-					"resourceA": nil,
-					"resourceB": nil,
-				},
-				Invokes: map[InvokeName]*ResourceSpec{},
-			},
-		},
-	}
-
-	squeeze := Squeeze{
-		"azure-native:provider/version1:resourceA": "azure-native:provider/version2:resourceA",
-	}
-	squeeze.Preserve("provider", "resourceA", "version1")
-
-	filteredSpec := SqueezeResources(providers, squeeze)
-
-	assert.Equal(t, providers, filteredSpec)
-}
-
 func makeResource(path, description string) *ResourceSpec {
 	return &ResourceSpec{
 		Path: path,

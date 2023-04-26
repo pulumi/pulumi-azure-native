@@ -24,6 +24,7 @@ type VersionMetadata struct {
 	V2Spec                        Spec
 	V2Lock                        openapi.DefaultVersionLock
 	V2TokensToRetain              []string
+	V2ResourcesToRemove           Squeeze
 }
 
 type MajorVersion int
@@ -85,6 +86,9 @@ func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionS
 		}
 	}
 
+	v2ResourcesToRemove := versionSources.v1Squeeze
+	v2ResourcesToRemove.PreserveResources(v2TokensToRetain)
+
 	return VersionMetadata{
 		AllResourcesByVersion:         allResourcesByVersion,
 		AllResourceVersionsByResource: allResourceVersionsByResource,
@@ -95,6 +99,7 @@ func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionS
 		V2Spec:                        v2Spec,
 		V2Lock:                        v2Lock,
 		V2TokensToRetain:              v2TokensToRetain,
+		V2ResourcesToRemove:           v2ResourcesToRemove,
 	}, nil
 }
 
@@ -189,6 +194,15 @@ func ReadSqueeze(path string) (Squeeze, error) {
 		return nil, err
 	}
 	return result, nil
+}
+
+func (s Squeeze) PreserveResources(tokens []string) {
+	for _, token := range tokens {
+		_, ok := s[token]
+		if ok {
+			delete(s, token)
+		}
+	}
 }
 
 func ReadRequiredExplicitResources(path string) ([]string, error) {
