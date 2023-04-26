@@ -7,6 +7,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
@@ -22,6 +23,7 @@ type VersionMetadata struct {
 	Pending                       openapi.ProviderVersionList
 	V2Spec                        Spec
 	V2Lock                        openapi.DefaultVersionLock
+	V2TokensToRetain              []string
 }
 
 type MajorVersion int
@@ -76,6 +78,13 @@ func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionS
 	// provider->resource->[]version
 	allResourceVersionsByResource := FormatResourceVersions(allResourcesByVersion)
 
+	v2TokensToRetain := versionSources.requiredExplicitResources
+	for provider, v := range v1Lock {
+		for resource, version := range v {
+			v2TokensToRetain = append(v2TokensToRetain, openapi.ToFullyQualifiedName(provider, resource, version))
+		}
+	}
+
 	return VersionMetadata{
 		AllResourcesByVersion:         allResourcesByVersion,
 		AllResourceVersionsByResource: allResourceVersionsByResource,
@@ -85,6 +94,7 @@ func calculateVersionMetadata(majorVersion MajorVersion, versionSources VersionS
 		Pending:                       FindNewerVersions(allResourcesByVersion, v1Lock),
 		V2Spec:                        v2Spec,
 		V2Lock:                        v2Lock,
+		V2TokensToRetain:              v2TokensToRetain,
 	}, nil
 }
 
@@ -102,16 +112,22 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 }
 
 type VersionSources struct {
-	activePathVersions providerlist.ProviderPathVersions
-	v1Spec             Spec
-	v2Spec             Spec
-	v2Config           Curations
-	v2ConfigPath       string
-	v1Squeeze          Squeeze
+	activePathVersions        providerlist.ProviderPathVersions
+	requiredExplicitResources []string
+	v1Spec                    Spec
+	v2Spec                    Spec
+	v2Config                  Curations
+	v2ConfigPath              string
+	v1Squeeze                 Squeeze
 }
 
 func ReadVersionSources(rootDir string) (VersionSources, error) {
 	activePathVersions, err := providerlist.ReadProviderList(filepath.Join(rootDir, "azure-provider-versions", "provider_list.json"))
+	if err != nil {
+		return VersionSources{}, err
+	}
+
+	knownExplicitResources, err := ReadRequiredExplicitResources(path.Join(rootDir, "versions", "required-explicit-resources.txt"))
 	if err != nil {
 		return VersionSources{}, err
 	}
@@ -143,12 +159,13 @@ func ReadVersionSources(rootDir string) (VersionSources, error) {
 	}
 
 	return VersionSources{
-		activePathVersions: activePathVersions,
-		v1Spec:             v1Spec,
-		v2Spec:             v2Spec,
-		v2Config:           v2Config,
-		v2ConfigPath:       v2ConfigPath,
-		v1Squeeze:          v1Squeeze,
+		activePathVersions:        activePathVersions,
+		requiredExplicitResources: knownExplicitResources,
+		v1Spec:                    v1Spec,
+		v2Spec:                    v2Spec,
+		v2Config:                  v2Config,
+		v2ConfigPath:              v2ConfigPath,
+		v1Squeeze:                 v1Squeeze,
 	}, nil
 }
 
@@ -172,4 +189,21 @@ func ReadSqueeze(path string) (Squeeze, error) {
 		return nil, err
 	}
 	return result, nil
+}
+
+func ReadRequiredExplicitResources(path string) ([]string, error) {
+	txtFile, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer txtFile.Close()
+	// Read each line into an array
+	bytes, err := ioutil.ReadAll(txtFile)
+	if err != nil {
+		return nil, err
+	}
+
+	// Split on new line
+	lines := strings.Split(string(bytes), "\r")
+	return lines, nil
 }

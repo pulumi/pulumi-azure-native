@@ -112,11 +112,7 @@ func main() {
 
 		versions2 := openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionMetadata.V1Lock, versionMetadata.Deprecated, removed)
 
-		for providerName, providerResources := range versionMetadata.V1Lock {
-			for resourceName, version := range providerResources {
-				v1Squeeze.Preserve(providerName, resourceName, version)
-			}
-		}
+		v1Squeeze.PreserveResources(versionMetadata.V2TokensToRetain)
 		versions2 = openapi.SqueezeResources(versions2, v1Squeeze)
 
 		pkgSpec2, _, _, err := gen.PulumiSchema(versions2)
