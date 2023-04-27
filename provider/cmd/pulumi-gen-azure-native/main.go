@@ -48,6 +48,14 @@ func main() {
 		panic(err)
 	}
 
+	schemaPath := filepath.Join(wd, "bin", "schema-full.json")
+	if len(os.Args) == 4 {
+		schemaPath = os.Args[3]
+		if !filepath.IsAbs(schemaPath) {
+			schemaPath = filepath.Join(wd, schemaPath)
+		}
+	}
+
 	specsDir, ok := os.LookupEnv("CODEGEN_SPECS_DIR")
 	if !ok {
 		specsDir = filepath.Join(wd, "azure-rest-api-specs")
@@ -98,12 +106,15 @@ func main() {
 		}
 
 		versions2 := openapi.ApplyProvidersTransformations(providers, versionMetadata.V2Lock, versionMetadata.V1Lock, versionMetadata.Deprecated, removed)
+
+		versions2 = openapi.RemoveResources(versions2, openapi.RemovableResources(versionMetadata.V2ResourcesToRemove))
+
 		pkgSpec2, _, _, err := gen.PulumiSchema(versions2)
 		if err != nil {
 			panic(err)
 		}
 
-		if err = emitSchema(*pkgSpec2, version, path.Join("bin", "v2"), "v2", true); err != nil {
+		if err = emitSchema(*pkgSpec2, version, path.Join("bin", "v2"), "v2"); err != nil {
 			panic(err)
 		}
 		fmt.Println("Emitted `bin/v2/schema-full.json`")
@@ -134,7 +145,7 @@ func main() {
 			panic(err)
 		}
 
-		if err = emitSchema(*pkgSpec, version, "bin", "main", true); err != nil {
+		if err = emitSchema(*pkgSpec, version, "bin", "main"); err != nil {
 			panic(err)
 		}
 		fmt.Println("Emitted `bin/schema-full.json`")
@@ -150,9 +161,10 @@ func main() {
 		}
 		fmt.Println("Emitted `bin/metadata-compact.json`.")
 
-	} else if languageSet.Subtract(codegen.NewStringSet("docs")).Any() {
+	}
+
+	if languageSet.Subtract(codegen.NewStringSet("docs", "schema", "schema-v2")).Any() {
 		// Just read existing schema if we're not re-generating
-		schemaPath := path.Join("bin", "schema-full.json")
 		schemaBytes, err := os.ReadFile(schemaPath)
 		if err != nil {
 			panic(err)
@@ -222,7 +234,7 @@ func main() {
 }
 
 // emitSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
-func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageName string, emitJSON bool) error {
+func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageName string) error {
 	pkgSpec.Version = version
 	schemaJSON, err := json.Marshal(pkgSpec)
 	if err != nil {
@@ -232,7 +244,7 @@ func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageNam
 	return gen.EmitFile(path.Join(outDir, "schema-full.json"), schemaJSON)
 }
 
-// emitDocsSchema writes the Pulumi schema JSON to the 'schema-docs.json' file in the given directory.
+// emitDocsSchema writes the Pulumi schema JSON to the 'schema.json' file in the given directory.
 func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 	schemaJSON, err := json.MarshalIndent(pkgSpec, "", "    ")
 	if err != nil {
