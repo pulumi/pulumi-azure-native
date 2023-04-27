@@ -2746,19 +2746,22 @@
       "2021-09-15-preview",
       "2022-07-01-preview",
       "2022-10-01-preview",
-      "2023-04-01-preview"
+      "2023-04-01-preview",
+      "2023-04-15-preview"
     ],
     "Experiment": [
       "2021-09-15-preview",
       "2022-07-01-preview",
       "2022-10-01-preview",
-      "2023-04-01-preview"
+      "2023-04-01-preview",
+      "2023-04-15-preview"
     ],
     "Target": [
       "2021-09-15-preview",
       "2022-07-01-preview",
       "2022-10-01-preview",
-      "2023-04-01-preview"
+      "2023-04-01-preview",
+      "2023-04-15-preview"
     ]
   },
   "CognitiveServices": {
@@ -16257,7 +16260,8 @@
       "2022-02-01",
       "2022-02-01-preview",
       "2022-07-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2023-01-01-preview"
     ],
     "SqlVirtualMachine": [
       "2017-03-01-preview",
@@ -16265,7 +16269,8 @@
       "2022-02-01",
       "2022-02-01-preview",
       "2022-07-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2023-01-01-preview"
     ],
     "SqlVirtualMachineGroup": [
       "2017-03-01-preview",
@@ -16273,7 +16278,8 @@
       "2022-02-01",
       "2022-02-01-preview",
       "2022-07-01-preview",
-      "2022-08-01-preview"
+      "2022-08-01-preview",
+      "2023-01-01-preview"
     ]
   },
   "StorSimple": {

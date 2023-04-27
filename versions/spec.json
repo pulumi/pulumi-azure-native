@@ -2611,6 +2611,11 @@
       "Capability",
       "Experiment",
       "Target"
+    ],
+    "2023-04-15-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
     ]
   },
   "CognitiveServices": {
@@ -15651,6 +15656,11 @@
       "SqlVirtualMachineGroup"
     ],
     "2022-08-01-preview": [
+      "AvailabilityGroupListener",
+      "SqlVirtualMachine",
+      "SqlVirtualMachineGroup"
+    ],
+    "2023-01-01-preview": [
       "AvailabilityGroupListener",
       "SqlVirtualMachine",
       "SqlVirtualMachineGroup"
