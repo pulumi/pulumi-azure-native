@@ -100,7 +100,8 @@ func mergeTypeSpec(t1, t2 schema.TypeSpec) (*schema.TypeSpec, error) {
 	}
 
 	if t1.Type == "object" && t2.Type == "object" {
-		contract.Assert(t1.AdditionalProperties != nil && t2.AdditionalProperties != nil)
+		contract.Assertf(t1.AdditionalProperties != nil, "Type %v is missing additionalProperties", t1)
+		contract.Assertf(t2.AdditionalProperties != nil, "Type %v is missing additionalProperties", t2)
 		// Both are objects - merge the properties.
 		merged, err := mergeTypeSpec(*t1.AdditionalProperties, *t2.AdditionalProperties)
 		if err != nil {
