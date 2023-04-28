@@ -552,7 +552,6 @@ Network:
         VirtualNetworkTap: "2022-09-01"
         VirtualRouter: "2022-09-01"
         VirtualRouterPeering: "2022-09-01"
-        VirtualWAN: "2018-07-01"
         VirtualWan: "2022-09-01"
         VpnConnection: "2022-09-01"
         VpnGateway: "2022-09-01"
